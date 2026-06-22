@@ -58,6 +58,15 @@ function isFxTrade(trade) {
   );
 }
 
+function isExcludedFromBestWorst(trade) {
+  const symbol = normalizeSymbol(trade.symbol);
+
+  return (
+    symbol === "META251031C00790000" ||
+    symbol === "META251031C00795000"
+  );
+}
+
 function cleanTrades(rawTrades) {
   return (rawTrades || [])
     .filter(t => !isFxTrade(t))
@@ -333,7 +342,10 @@ function renderMonthlyStats() {
 }
 
 function renderBestWorstTrades() {
-  const closedTrades = trades.filter(t => t.close_date);
+  const closedTrades = trades
+    .filter(t => t.close_date)
+    .filter(t => !isExcludedFromBestWorst(t));
+
   const count = Math.max(1, Math.ceil(closedTrades.length * 0.2));
 
   const bestTrades = closedTrades
@@ -407,6 +419,10 @@ document.querySelectorAll(".tab-button").forEach(button => {
       setTimeout(() => {
         if (equityChart) equityChart.resize();
       }, 50);
+    }
+
+    if (tab === "bestworst") {
+      document.getElementById("bestWorstTab").classList.add("active");
     }
   });
 });
