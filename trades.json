@@ -1,0 +1,65 @@
+{
+  "last_updated": "2026-06-22",
+  "trades": [
+    {
+      "trade_id": "demo-001",
+      "open_date": "2026-06-10",
+      "close_date": "2026-06-10",
+      "symbol": "NVDA",
+      "side": "Long",
+      "quantity": 50,
+      "entry_price": 142.5,
+      "exit_price": 146.2,
+      "currency": "USD",
+      "realized_pnl": 185,
+      "commission": 2.1,
+      "strategy": "Momentum",
+      "note": "Breakout propre, sortie partielle respectée"
+    },
+    {
+      "trade_id": "demo-002",
+      "open_date": "2026-06-11",
+      "close_date": "2026-06-11",
+      "symbol": "AMD",
+      "side": "Long",
+      "quantity": 80,
+      "entry_price": 164.1,
+      "exit_price": 161.7,
+      "currency": "USD",
+      "realized_pnl": -192,
+      "commission": 2.5,
+      "strategy": "Earnings follow-through",
+      "note": "Entrée trop tardive"
+    },
+    {
+      "trade_id": "demo-003",
+      "open_date": "2026-06-12",
+      "close_date": "2026-06-13",
+      "symbol": "ABB",
+      "side": "Long",
+      "quantity": 120,
+      "entry_price": 50.2,
+      "exit_price": 51.4,
+      "currency": "USD",
+      "realized_pnl": 144,
+      "commission": 3.0,
+      "strategy": "Sector strength",
+      "note": "Trade lié à la force électrification / data centers"
+    },
+    {
+      "trade_id": "demo-004",
+      "open_date": "2026-06-15",
+      "close_date": "2026-06-16",
+      "symbol": "TSLA",
+      "side": "Short",
+      "quantity": 30,
+      "entry_price": 191.0,
+      "exit_price": 184.5,
+      "currency": "USD",
+      "realized_pnl": 195,
+      "commission": 2.7,
+      "strategy": "Mean reversion",
+      "note": "Bon respect du stop"
+    }
+  ]
+}
