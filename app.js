@@ -281,7 +281,7 @@ function renderMonthlyStats() {
     grouped[monthKey].push(trade);
   });
 
-  const months = Object.keys(grouped).sort();
+  const months = Object.keys(grouped).sort().reverse();
 
   months.forEach(monthKey => {
     const rows = grouped[monthKey];
