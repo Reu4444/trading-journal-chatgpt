@@ -1,5 +1,7 @@
 let trades = [];
-let chart;
+let filteredTrades = [];
+let equityChart;
+let weeklyChart;
 
 const fmtMoney = (value) => {
   return new Intl.NumberFormat("fr-CH", {
@@ -58,22 +60,9 @@ function isFxTrade(trade) {
 }
 
 function cleanTrades(rawTrades) {
-  return (rawTrades || []).filter(t => !isFxTrade(t));
-}
-
-async function loadTrades() {
-  const response = await fetch("data/trades.json?ts=" + Date.now());
-  const payload = await response.json();
-
-  trades = cleanTrades(payload.trades);
-
-  document.getElementById("lastUpdated").textContent =
-    "Dernière mise à jour : " + (payload.last_updated || "—");
-
-  renderDashboard();
-  renderTable(trades);
-  renderStats();
-  renderChart();
+  return (rawTrades || [])
+    .filter(t => !isFxTrade(t))
+    .filter(t => t.close_date);
 }
 
 function pnlPct(trade) {
@@ -91,27 +80,99 @@ function pnlPct(trade) {
   return ((exit - entry) / entry) * 100;
 }
 
+function getDateFilters() {
+  return {
+    from: document.getElementById("dateFrom").value,
+    to: document.getElementById("dateTo").value
+  };
+}
+
+function applyDateFilter() {
+  const { from, to } = getDateFilters();
+
+  filteredTrades = trades.filter(trade => {
+    const exitDate = String(trade.close_date || "").slice(0, 10);
+
+    if (!exitDate) return false;
+    if (from && exitDate < from) return false;
+    if (to && exitDate > to) return false;
+
+    return true;
+  });
+
+  renderAll();
+}
+
+async function loadTrades() {
+  const response = await fetch("data/trades.json?ts=" + Date.now());
+  const payload = await response.json();
+
+  trades = cleanTrades(payload.trades);
+  filteredTrades = trades;
+
+  document.getElementById("lastUpdated").textContent =
+    "Dernière mise à jour : " + (payload.last_updated || "—");
+
+  renderAll();
+}
+
+function computeStats(rows) {
+  const totalPnl = rows.reduce((sum, t) => sum + realizedPnl(t), 0);
+  const winners = rows.filter(t => realizedPnl(t) > 0);
+  const losers = rows.filter(t => realizedPnl(t) < 0);
+
+  const grossProfit = winners.reduce((sum, t) => sum + realizedPnl(t), 0);
+  const grossLoss = Math.abs(losers.reduce((sum, t) => sum + realizedPnl(t), 0));
+
+  const avgWinUsd = winners.length ? grossProfit / winners.length : 0;
+  const avgLossUsd = losers.length ? -grossLoss / losers.length : 0;
+
+  const avgWinPct = winners.length
+    ? winners.reduce((sum, t) => sum + Number(pnlPct(t) || 0), 0) / winners.length
+    : 0;
+
+  const avgLossPct = losers.length
+    ? losers.reduce((sum, t) => sum + Number(pnlPct(t) || 0), 0) / losers.length
+    : 0;
+
+  const winRate = rows.length ? winners.length / rows.length : 0;
+  const profitFactor = grossLoss ? grossProfit / grossLoss : null;
+
+  return {
+    totalPnl,
+    tradeCount: rows.length,
+    winRate,
+    avgWinUsd,
+    avgLossUsd,
+    avgWinPct,
+    avgLossPct,
+    profitFactor
+  };
+}
+
 function renderDashboard() {
-  const closedTrades = trades.filter(t => t.close_date);
-  const total = closedTrades.reduce((sum, t) => sum + realizedPnl(t), 0);
+  const stats = computeStats(filteredTrades);
 
-  const winners = closedTrades.filter(t => realizedPnl(t) > 0);
-  const losers = closedTrades.filter(t => realizedPnl(t) < 0);
-  const winRate = closedTrades.length ? winners.length / closedTrades.length : 0;
-
-  const avgWin = winners.length
-    ? winners.reduce((sum, t) => sum + realizedPnl(t), 0) / winners.length
-    : 0;
-
-  const avgLoss = losers.length
-    ? losers.reduce((sum, t) => sum + realizedPnl(t), 0) / losers.length
-    : 0;
-
-  document.getElementById("totalPnl").textContent = fmtMoney(total);
-  document.getElementById("tradeCount").textContent = fmtNumber(closedTrades.length);
-  document.getElementById("winRate").textContent = Math.round(winRate * 100) + "%";
+  document.getElementById("totalPnl").textContent = fmtMoney(stats.totalPnl);
+  document.getElementById("tradeCount").textContent = fmtNumber(stats.tradeCount);
+  document.getElementById("winRate").textContent = Math.round(stats.winRate * 100) + "%";
   document.getElementById("avgWinLoss").textContent =
-    fmtMoney(avgWin) + " / " + fmtMoney(avgLoss);
+    fmtMoney(stats.avgWinUsd) + " / " + fmtMoney(stats.avgLossUsd);
+}
+
+function renderStatistics() {
+  const stats = computeStats(filteredTrades);
+
+  document.getElementById("statsTotalPnl").textContent = fmtMoney(stats.totalPnl);
+  document.getElementById("statsTradeCount").textContent = fmtNumber(stats.tradeCount);
+  document.getElementById("statsWinRate").textContent = Math.round(stats.winRate * 100) + "%";
+  document.getElementById("statsProfitFactor").textContent =
+    stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2);
+
+  document.getElementById("statsAvgWinPct").textContent = fmtPct(stats.avgWinPct);
+  document.getElementById("statsAvgLossPct").textContent = fmtPct(stats.avgLossPct);
+  document.getElementById("statsAvgWinUsd").textContent = fmtMoney(stats.avgWinUsd);
+  document.getElementById("statsAvgLossUsd").textContent = fmtMoney(stats.avgLossUsd);
 }
 
 function renderTable(rows) {
@@ -119,9 +180,8 @@ function renderTable(rows) {
   tbody.innerHTML = "";
 
   rows
-    .filter(t => t.close_date)
     .slice()
-    .sort((a, b) => new Date(b.close_date || b.open_date) - new Date(a.close_date || a.open_date))
+    .sort((a, b) => new Date(b.close_date) - new Date(a.close_date))
     .forEach(trade => {
       const pnl = realizedPnl(trade);
       const pct = pnlPct(trade);
@@ -141,62 +201,28 @@ function renderTable(rows) {
     });
 }
 
-function groupPnlBy(key) {
-  const map = {};
-
-  trades
-    .filter(t => t.close_date)
-    .forEach(t => {
-      const label = t[key] || "Non classé";
-      map[label] = (map[label] || 0) + realizedPnl(t);
-    });
-
-  return Object.entries(map).sort((a, b) => b[1] - a[1]);
-}
-
-function renderStatList(containerId, rows) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-
-  rows.forEach(([label, pnl]) => {
-    const row = document.createElement("div");
-    row.className = "stat-row";
-    row.innerHTML = `
-      <span>${label}</span>
-      <strong class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</strong>
-    `;
-    container.appendChild(row);
-  });
-}
-
-function renderStats() {
-  renderStatList("strategyStats", groupPnlBy("strategy"));
-  renderStatList("tickerStats", groupPnlBy("symbol"));
-}
-
-function renderChart() {
+function renderEquityChart() {
   const daily = {};
 
-  trades
-    .filter(t => t.close_date)
-    .forEach(t => {
-      const date = t.close_date;
-      if (!date) return;
-      daily[date] = (daily[date] || 0) + realizedPnl(t);
-    });
+  filteredTrades.forEach(t => {
+    const date = t.close_date;
+    if (!date) return;
+    daily[date] = (daily[date] || 0) + realizedPnl(t);
+  });
 
   const labels = Object.keys(daily).sort();
   let cumulative = 0;
+
   const values = labels.map(date => {
     cumulative += daily[date];
-    return Math.round(cumulative);
+    return Number(cumulative.toFixed(2));
   });
 
   const ctx = document.getElementById("equityChart");
 
-  if (chart) chart.destroy();
+  if (equityChart) equityChart.destroy();
 
-  chart = new Chart(ctx, {
+  equityChart = new Chart(ctx, {
     type: "line",
     data: {
       labels: labels.map(fmtDate),
@@ -224,10 +250,77 @@ function renderChart() {
   });
 }
 
+function getWeekKey(dateStr) {
+  const date = new Date(dateStr + "T00:00:00");
+  const day = date.getDay();
+  const mondayOffset = day === 0 ? -6 : 1 - day;
+
+  const monday = new Date(date);
+  monday.setDate(date.getDate() + mondayOffset);
+
+  const yyyy = monday.getFullYear();
+  const mm = String(monday.getMonth() + 1).padStart(2, "0");
+  const dd = String(monday.getDate()).padStart(2, "0");
+
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function renderWeeklyChart() {
+  const weekly = {};
+
+  filteredTrades.forEach(t => {
+    const date = t.close_date;
+    if (!date) return;
+
+    const week = getWeekKey(date);
+    weekly[week] = (weekly[week] || 0) + realizedPnl(t);
+  });
+
+  const labels = Object.keys(weekly).sort();
+  const values = labels.map(week => Number(weekly[week].toFixed(2)));
+
+  const ctx = document.getElementById("weeklyChart");
+
+  if (weeklyChart) weeklyChart.destroy();
+
+  weeklyChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels.map(fmtDate),
+      datasets: [{
+        label: "P&L semaine",
+        data: values,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          ticks: {
+            callback: value => fmtMoney(value)
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderAll() {
+  renderDashboard();
+  renderStatistics();
+  renderTable(filteredTrades);
+  renderEquityChart();
+  renderWeeklyChart();
+}
+
 document.getElementById("searchInput").addEventListener("input", event => {
   const q = event.target.value.toLowerCase().trim();
 
-  const filtered = trades.filter(t => {
+  const searched = filteredTrades.filter(t => {
     return [
       t.symbol,
       t.side,
@@ -241,7 +334,41 @@ document.getElementById("searchInput").addEventListener("input", event => {
     ].join(" ").toLowerCase().includes(q);
   });
 
-  renderTable(filtered);
+  renderTable(searched);
+});
+
+document.getElementById("dateFrom").addEventListener("change", applyDateFilter);
+document.getElementById("dateTo").addEventListener("change", applyDateFilter);
+
+document.getElementById("resetFilters").addEventListener("click", () => {
+  document.getElementById("dateFrom").value = "";
+  document.getElementById("dateTo").value = "";
+  document.getElementById("searchInput").value = "";
+  filteredTrades = trades;
+  renderAll();
+});
+
+document.querySelectorAll(".tab-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const tab = button.dataset.tab;
+
+    document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(section => section.classList.remove("active"));
+
+    button.classList.add("active");
+
+    if (tab === "journal") {
+      document.getElementById("journalTab").classList.add("active");
+    }
+
+    if (tab === "statistics") {
+      document.getElementById("statisticsTab").classList.add("active");
+      setTimeout(() => {
+        if (equityChart) equityChart.resize();
+        if (weeklyChart) weeklyChart.resize();
+      }, 50);
+    }
+  });
 });
 
 loadTrades().catch(error => {
