@@ -11,7 +11,7 @@
     <div>
       <p class="eyebrow">IBKR Trading Journal</p>
       <h1>Journal de trading automatique</h1>
-      <p class="subtitle">Dashboard simple pour suivre P&L, win rate, trades, stratégies et erreurs.</p>
+      <p class="subtitle">Trades IBKR matchés entrée / sortie, avec statistiques filtrables par date.</p>
     </div>
     <div class="status">
       <span id="lastUpdated">Chargement…</span>
@@ -19,72 +19,127 @@
   </header>
 
   <main>
-    <section class="cards">
-      <article class="card">
-        <span>P&L total</span>
-        <strong id="totalPnl">—</strong>
-      </article>
-      <article class="card">
-        <span>Trades fermés</span>
-        <strong id="tradeCount">—</strong>
-      </article>
-      <article class="card">
-        <span>Win rate</span>
-        <strong id="winRate">—</strong>
-      </article>
-      <article class="card">
-        <span>Avg win / loss</span>
-        <strong id="avgWinLoss">—</strong>
-      </article>
+    <nav class="tabs">
+      <button class="tab-button active" data-tab="journal">Journal</button>
+      <button class="tab-button" data-tab="statistics">Statistics</button>
+    </nav>
+
+    <section class="filters">
+      <div>
+        <label for="dateFrom">Du</label>
+        <input id="dateFrom" type="date" />
+      </div>
+      <div>
+        <label for="dateTo">Au</label>
+        <input id="dateTo" type="date" />
+      </div>
+      <button id="resetFilters">Reset</button>
     </section>
 
-    <section class="panel">
-      <div class="panel-header">
-        <div>
-          <h2>Performance par jour</h2>
-          <p>Courbe cumulée basée sur les trades réalisés.</p>
+    <section id="journalTab" class="tab-content active">
+      <section class="cards">
+        <article class="card">
+          <span>P&L total</span>
+          <strong id="totalPnl">—</strong>
+        </article>
+        <article class="card">
+          <span>Trades fermés</span>
+          <strong id="tradeCount">—</strong>
+        </article>
+        <article class="card">
+          <span>Win rate</span>
+          <strong id="winRate">—</strong>
+        </article>
+        <article class="card">
+          <span>Avg win / loss</span>
+          <strong id="avgWinLoss">—</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Journal des trades</h2>
+            <p>Filtré par date de sortie. EURJPY / FX exclu des calculs.</p>
+          </div>
+          <input id="searchInput" type="search" placeholder="Rechercher…" />
         </div>
-      </div>
-      <canvas id="equityChart" height="110"></canvas>
-    </section>
 
-    <section class="panel">
-      <div class="panel-header">
-        <div>
-          <h2>Journal des trades</h2>
-          <p>Trades matchés entrée / sortie depuis IBKR.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entry date</th>
+                <th>Exit date</th>
+                <th>Ticker</th>
+                <th>Qté</th>
+                <th>Entrée</th>
+                <th>Sortie</th>
+                <th>P&L USD</th>
+                <th>P&L %</th>
+              </tr>
+            </thead>
+            <tbody id="tradeTable"></tbody>
+          </table>
         </div>
-        <input id="searchInput" type="search" placeholder="Rechercher…" />
-      </div>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Entry date</th>
-              <th>Exit date</th>
-              <th>Ticker</th>
-              <th>Qté</th>
-              <th>Entrée</th>
-              <th>Sortie</th>
-              <th>P&L USD</th>
-              <th>P&L %</th>
-            </tr>
-          </thead>
-          <tbody id="tradeTable"></tbody>
-        </table>
-      </div>
+      </section>
     </section>
 
-    <section class="grid-2">
-      <article class="panel">
-        <h2>P&L par stratégie</h2>
-        <div id="strategyStats" class="stats-list"></div>
-      </article>
-      <article class="panel">
-        <h2>P&L par ticker</h2>
-        <div id="tickerStats" class="stats-list"></div>
-      </article>
+    <section id="statisticsTab" class="tab-content">
+      <section class="cards stats-cards">
+        <article class="card">
+          <span>P&L total</span>
+          <strong id="statsTotalPnl">—</strong>
+        </article>
+        <article class="card">
+          <span>Nombre de trades</span>
+          <strong id="statsTradeCount">—</strong>
+        </article>
+        <article class="card">
+          <span>Win rate</span>
+          <strong id="statsWinRate">—</strong>
+        </article>
+        <article class="card">
+          <span>Profit factor</span>
+          <strong id="statsProfitFactor">—</strong>
+        </article>
+        <article class="card">
+          <span>Average win %</span>
+          <strong id="statsAvgWinPct">—</strong>
+        </article>
+        <article class="card">
+          <span>Average loss %</span>
+          <strong id="statsAvgLossPct">—</strong>
+        </article>
+        <article class="card">
+          <span>Average win USD</span>
+          <strong id="statsAvgWinUsd">—</strong>
+        </article>
+        <article class="card">
+          <span>Average loss USD</span>
+          <strong id="statsAvgLossUsd">—</strong>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Courbe cumulative P&L</h2>
+            <p>P&L cumulé sur les trades fermés dans la période sélectionnée.</p>
+          </div>
+        </div>
+        <canvas id="equityChart" height="110"></canvas>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>P&L par semaine</h2>
+            <p>Total P&L par semaine, basé sur la date de sortie.</p>
+          </div>
+        </div>
+        <canvas id="weeklyChart" height="110"></canvas>
+      </section>
     </section>
   </main>
 
