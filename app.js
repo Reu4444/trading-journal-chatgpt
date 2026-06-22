@@ -18,10 +18,54 @@ const fmtPct = (value) => {
 
 const fmtNumber = (value) => new Intl.NumberFormat("fr-CH").format(value || 0);
 
+const fmtDate = (dateStr) => {
+  if (!dateStr) return "";
+
+  const clean = String(dateStr).slice(0, 10);
+  const parts = clean.split("-");
+
+  if (parts.length !== 3) return dateStr;
+
+  const [yyyy, mm, dd] = parts;
+  return `${dd}-${mm}-${yyyy}`;
+};
+
+function realizedPnl(trade) {
+  return Number(trade.realized_pnl || 0);
+}
+
+function normalizeSymbol(symbol) {
+  return String(symbol || "")
+    .toUpperCase()
+    .replaceAll("/", "")
+    .replaceAll(".", "")
+    .replaceAll("-", "")
+    .replaceAll(" ", "")
+    .trim();
+}
+
+function isFxTrade(trade) {
+  const symbol = normalizeSymbol(trade.symbol);
+  const assetClass = String(trade.asset_class || "").toUpperCase();
+
+  return (
+    symbol === "EURJPY" ||
+    symbol.includes("EURJPY") ||
+    assetClass === "CASH" ||
+    assetClass === "FX" ||
+    assetClass === "FOREX"
+  );
+}
+
+function cleanTrades(rawTrades) {
+  return (rawTrades || []).filter(t => !isFxTrade(t));
+}
+
 async function loadTrades() {
   const response = await fetch("data/trades.json?ts=" + Date.now());
   const payload = await response.json();
-  trades = payload.trades || [];
+
+  trades = cleanTrades(payload.trades);
 
   document.getElementById("lastUpdated").textContent =
     "Dernière mise à jour : " + (payload.last_updated || "—");
@@ -30,10 +74,6 @@ async function loadTrades() {
   renderTable(trades);
   renderStats();
   renderChart();
-}
-
-function realizedPnl(trade) {
-  return Number(trade.realized_pnl || 0);
 }
 
 function pnlPct(trade) {
@@ -52,8 +92,9 @@ function pnlPct(trade) {
 }
 
 function renderDashboard() {
-  const total = trades.reduce((sum, t) => sum + realizedPnl(t), 0);
   const closedTrades = trades.filter(t => t.close_date);
+  const total = closedTrades.reduce((sum, t) => sum + realizedPnl(t), 0);
+
   const winners = closedTrades.filter(t => realizedPnl(t) > 0);
   const losers = closedTrades.filter(t => realizedPnl(t) < 0);
   const winRate = closedTrades.length ? winners.length / closedTrades.length : 0;
@@ -78,6 +119,7 @@ function renderTable(rows) {
   tbody.innerHTML = "";
 
   rows
+    .filter(t => t.close_date)
     .slice()
     .sort((a, b) => new Date(b.close_date || b.open_date) - new Date(a.close_date || a.open_date))
     .forEach(trade => {
@@ -86,8 +128,8 @@ function renderTable(rows) {
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${trade.open_date || ""}</td>
-        <td>${trade.close_date || ""}</td>
+        <td>${fmtDate(trade.open_date)}</td>
+        <td>${fmtDate(trade.close_date)}</td>
         <td><strong>${trade.symbol || ""}</strong></td>
         <td>${fmtNumber(trade.quantity)}</td>
         <td>${trade.entry_price ?? ""}</td>
@@ -101,10 +143,14 @@ function renderTable(rows) {
 
 function groupPnlBy(key) {
   const map = {};
-  trades.forEach(t => {
-    const label = t[key] || "Non classé";
-    map[label] = (map[label] || 0) + realizedPnl(t);
-  });
+
+  trades
+    .filter(t => t.close_date)
+    .forEach(t => {
+      const label = t[key] || "Non classé";
+      map[label] = (map[label] || 0) + realizedPnl(t);
+    });
+
   return Object.entries(map).sort((a, b) => b[1] - a[1]);
 }
 
@@ -131,11 +177,13 @@ function renderStats() {
 function renderChart() {
   const daily = {};
 
-  trades.forEach(t => {
-    const date = t.close_date || t.open_date;
-    if (!date) return;
-    daily[date] = (daily[date] || 0) + realizedPnl(t);
-  });
+  trades
+    .filter(t => t.close_date)
+    .forEach(t => {
+      const date = t.close_date;
+      if (!date) return;
+      daily[date] = (daily[date] || 0) + realizedPnl(t);
+    });
 
   const labels = Object.keys(daily).sort();
   let cumulative = 0;
@@ -151,7 +199,7 @@ function renderChart() {
   chart = new Chart(ctx, {
     type: "line",
     data: {
-      labels,
+      labels: labels.map(fmtDate),
       datasets: [{
         label: "P&L cumulé",
         data: values,
