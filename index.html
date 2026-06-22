@@ -19,11 +19,6 @@
   </header>
 
   <main>
-    <nav class="tabs">
-      <button class="tab-button active" data-tab="journal">Journal</button>
-      <button class="tab-button" data-tab="statistics">Statistics</button>
-    </nav>
-
     <section class="filters">
       <div>
         <label for="dateFrom">Du</label>
@@ -36,26 +31,47 @@
       <button id="resetFilters">Reset</button>
     </section>
 
-    <section id="journalTab" class="tab-content active">
-      <section class="cards">
-        <article class="card">
-          <span>P&L total</span>
-          <strong id="totalPnl">—</strong>
-        </article>
-        <article class="card">
-          <span>Trades fermés</span>
-          <strong id="tradeCount">—</strong>
-        </article>
-        <article class="card">
-          <span>Win rate</span>
-          <strong id="winRate">—</strong>
-        </article>
-        <article class="card">
-          <span>Avg win / loss</span>
-          <strong id="avgWinLoss">—</strong>
-        </article>
-      </section>
+    <section class="cards stats-cards">
+      <article class="card">
+        <span>P&L total</span>
+        <strong id="statsTotalPnl">—</strong>
+      </article>
+      <article class="card">
+        <span>Nombre de trades</span>
+        <strong id="statsTradeCount">—</strong>
+      </article>
+      <article class="card">
+        <span>Win rate</span>
+        <strong id="statsWinRate">—</strong>
+      </article>
+      <article class="card">
+        <span>Profit factor</span>
+        <strong id="statsProfitFactor">—</strong>
+      </article>
+      <article class="card">
+        <span>Average win %</span>
+        <strong id="statsAvgWinPct">—</strong>
+      </article>
+      <article class="card">
+        <span>Average loss %</span>
+        <strong id="statsAvgLossPct">—</strong>
+      </article>
+      <article class="card">
+        <span>Average win USD</span>
+        <strong id="statsAvgWinUsd">—</strong>
+      </article>
+      <article class="card">
+        <span>Average loss USD</span>
+        <strong id="statsAvgLossUsd">—</strong>
+      </article>
+    </section>
 
+    <nav class="tabs">
+      <button class="tab-button active" data-tab="journal">Journal</button>
+      <button class="tab-button" data-tab="statistics">Statistics</button>
+    </nav>
+
+    <section id="journalTab" class="tab-content active">
       <section class="panel">
         <div class="panel-header">
           <div>
@@ -86,41 +102,6 @@
     </section>
 
     <section id="statisticsTab" class="tab-content">
-      <section class="cards stats-cards">
-        <article class="card">
-          <span>P&L total</span>
-          <strong id="statsTotalPnl">—</strong>
-        </article>
-        <article class="card">
-          <span>Nombre de trades</span>
-          <strong id="statsTradeCount">—</strong>
-        </article>
-        <article class="card">
-          <span>Win rate</span>
-          <strong id="statsWinRate">—</strong>
-        </article>
-        <article class="card">
-          <span>Profit factor</span>
-          <strong id="statsProfitFactor">—</strong>
-        </article>
-        <article class="card">
-          <span>Average win %</span>
-          <strong id="statsAvgWinPct">—</strong>
-        </article>
-        <article class="card">
-          <span>Average loss %</span>
-          <strong id="statsAvgLossPct">—</strong>
-        </article>
-        <article class="card">
-          <span>Average win USD</span>
-          <strong id="statsAvgWinUsd">—</strong>
-        </article>
-        <article class="card">
-          <span>Average loss USD</span>
-          <strong id="statsAvgLossUsd">—</strong>
-        </article>
-      </section>
-
       <section class="panel">
         <div class="panel-header">
           <div>
@@ -129,16 +110,6 @@
           </div>
         </div>
         <canvas id="equityChart" height="110"></canvas>
-      </section>
-
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>P&L par semaine</h2>
-            <p>Total P&L par semaine, basé sur la date de sortie.</p>
-          </div>
-        </div>
-        <canvas id="weeklyChart" height="110"></canvas>
       </section>
     </section>
   </main>
