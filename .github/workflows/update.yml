@@ -1,0 +1,36 @@
+name: Update IBKR Trading Journal
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "10 21 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch IBKR Flex report
+        env:
+          IBKR_FLEX_TOKEN: ${{ secrets.IBKR_FLEX_TOKEN }}
+          IBKR_FLEX_QUERY_ID: ${{ secrets.IBKR_FLEX_QUERY_ID }}
+        run: python scripts/fetch_ibkr.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/trades.json
+          git diff --cached --quiet || git commit -m "Update IBKR trades"
+          git push
