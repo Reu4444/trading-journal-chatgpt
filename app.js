@@ -22,14 +22,43 @@ const fmtNumber = (value) => new Intl.NumberFormat("fr-CH").format(value || 0);
 const fmtDate = (dateStr) => {
   if (!dateStr) return "";
 
-  const clean = String(dateStr).slice(0, 10);
+  let clean = String(dateStr).trim();
+
+  // Enlève tout ce qui vient après un ; par exemple 20260514;1
+  clean = clean.split(";")[0];
+
+  // Format IBKR compact : 20260514 -> 14-05-2026
+  if (/^\d{8}$/.test(clean)) {
+    const yyyy = clean.slice(0, 4);
+    const mm = clean.slice(4, 6);
+    const dd = clean.slice(6, 8);
+    return `${dd}-${mm}-${yyyy}`;
+  }
+
+  // Format standard : 2026-05-14 -> 14-05-2026
+  clean = clean.slice(0, 10);
   const parts = clean.split("-");
 
-  if (parts.length !== 3) return dateStr;
+  if (parts.length === 3) {
+    const [yyyy, mm, dd] = parts;
+    return `${dd}-${mm}-${yyyy}`;
+  }
 
-  const [yyyy, mm, dd] = parts;
-  return `${dd}-${mm}-${yyyy}`;
+  return dateStr;
 };
+
+function getSortableDate(dateStr) {
+  if (!dateStr) return "";
+
+  let clean = String(dateStr).trim();
+  clean = clean.split(";")[0];
+
+  if (/^\d{8}$/.test(clean)) {
+    return `${clean.slice(0, 4)}-${clean.slice(4, 6)}-${clean.slice(6, 8)}`;
+  }
+
+  return clean.slice(0, 10);
+}
 
 function realizedPnl(trade) {
   return Number(trade.realized_pnl || 0);
@@ -99,7 +128,7 @@ function applyDateFilter() {
   const { from, to } = getDateFilters();
 
   filteredTrades = trades.filter(trade => {
-    const exitDate = String(trade.close_date || "").slice(0, 10);
+    const exitDate = getSortableDate(trade.close_date);
 
     if (!exitDate) return false;
     if (from && exitDate < from) return false;
@@ -189,7 +218,7 @@ function renderTable(rows) {
 
   rows
     .slice()
-    .sort((a, b) => new Date(b.close_date) - new Date(a.close_date))
+    .sort((a, b) => new Date(getSortableDate(b.close_date)) - new Date(getSortableDate(a.close_date)))
     .forEach(trade => {
       const pnl = realizedPnl(trade);
       const pct = pnlPct(trade);
@@ -217,7 +246,7 @@ function renderTradeRows(tableId, rows) {
 
   rows
     .slice()
-    .sort((a, b) => new Date(b.close_date) - new Date(a.close_date))
+    .sort((a, b) => new Date(getSortableDate(b.close_date)) - new Date(getSortableDate(a.close_date)))
     .forEach(trade => {
       const pnl = realizedPnl(trade);
       const pct = pnlPct(trade);
@@ -242,7 +271,7 @@ function renderEquityChart() {
   const daily = {};
 
   filteredTrades.forEach(t => {
-    const date = t.close_date;
+    const date = getSortableDate(t.close_date);
     if (!date) return;
     daily[date] = (daily[date] || 0) + realizedPnl(t);
   });
@@ -289,7 +318,7 @@ function renderEquityChart() {
 }
 
 function getMonthKey(dateStr) {
-  const clean = String(dateStr || "").slice(0, 10);
+  const clean = getSortableDate(dateStr);
   if (!clean) return "";
 
   return clean.slice(0, 7);
