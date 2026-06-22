@@ -169,6 +169,20 @@ main {
   letter-spacing: -0.03em;
 }
 
+.stats-cards .card {
+  padding: 16px;
+  min-height: 110px;
+}
+
+.stats-cards .card span {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.stats-cards .card strong {
+  font-size: 22px;
+}
+
 .panel {
   padding: 24px;
   margin-bottom: 18px;
