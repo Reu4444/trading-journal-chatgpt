@@ -135,7 +135,6 @@ function computeStats(rows) {
     : 0;
 
   const winRate = rows.length ? winners.length / rows.length : 0;
-
   const profitFactor = grossLoss ? grossProfit / grossLoss : null;
 
   const avgWinLossRatio =
@@ -159,17 +158,20 @@ function renderStatistics() {
 
   document.getElementById("statsTotalPnl").textContent = fmtMoney(stats.totalPnl);
   document.getElementById("statsTradeCount").textContent = fmtNumber(stats.tradeCount);
-  document.getElementById("statsWinRate").textContent = Math.round(stats.winRate * 100) + "%";
+
   document.getElementById("statsProfitFactor").textContent =
     stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2);
 
-  document.getElementById("statsAvgWinLossRatio").textContent =
-    stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2);
+  document.getElementById("statsWinRate").textContent =
+    Math.round(stats.winRate * 100) + "%";
 
   document.getElementById("statsAvgWinPct").textContent = fmtPct(stats.avgWinPct);
   document.getElementById("statsAvgLossPct").textContent = fmtPct(stats.avgLossPct);
   document.getElementById("statsAvgWinUsd").textContent = fmtMoney(stats.avgWinUsd);
   document.getElementById("statsAvgLossUsd").textContent = fmtMoney(stats.avgLossUsd);
+
+  document.getElementById("statsAvgWinLossRatio").textContent =
+    stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2);
 }
 
 function renderTable(rows) {
@@ -194,6 +196,35 @@ function renderTable(rows) {
         <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
         <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
       `;
+      tbody.appendChild(tr);
+    });
+}
+
+function renderTradeRows(tableId, rows) {
+  const tbody = document.getElementById(tableId);
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  rows
+    .slice()
+    .sort((a, b) => new Date(b.close_date) - new Date(a.close_date))
+    .forEach(trade => {
+      const pnl = realizedPnl(trade);
+      const pct = pnlPct(trade);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${fmtDate(trade.open_date)}</td>
+        <td>${fmtDate(trade.close_date)}</td>
+        <td><strong>${trade.symbol || ""}</strong></td>
+        <td>${fmtNumber(trade.quantity)}</td>
+        <td>${trade.entry_price ?? ""}</td>
+        <td>${trade.exit_price ?? ""}</td>
+        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
+        <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
+      `;
+
       tbody.appendChild(tr);
     });
 }
@@ -301,11 +332,30 @@ function renderMonthlyStats() {
   });
 }
 
+function renderBestWorstTrades() {
+  const closedTrades = trades.filter(t => t.close_date);
+  const count = Math.max(1, Math.ceil(closedTrades.length * 0.2));
+
+  const bestTrades = closedTrades
+    .slice()
+    .sort((a, b) => realizedPnl(b) - realizedPnl(a))
+    .slice(0, count);
+
+  const worstTrades = closedTrades
+    .slice()
+    .sort((a, b) => realizedPnl(a) - realizedPnl(b))
+    .slice(0, count);
+
+  renderTradeRows("bestTradesTable", bestTrades);
+  renderTradeRows("worstTradesTable", worstTrades);
+}
+
 function renderAll() {
   renderStatistics();
   renderTable(filteredTrades);
   renderEquityChart();
   renderMonthlyStats();
+  renderBestWorstTrades();
 }
 
 document.getElementById("searchInput").addEventListener("input", event => {
