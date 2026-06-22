@@ -25,7 +25,7 @@
         <strong id="totalPnl">—</strong>
       </article>
       <article class="card">
-        <span>Trades</span>
+        <span>Trades fermés</span>
         <strong id="tradeCount">—</strong>
       </article>
       <article class="card">
@@ -52,7 +52,7 @@
       <div class="panel-header">
         <div>
           <h2>Journal des trades</h2>
-          <p>Filtre par ticker, stratégie, sens ou commentaire.</p>
+          <p>Trades matchés entrée / sortie depuis IBKR.</p>
         </div>
         <input id="searchInput" type="search" placeholder="Rechercher…" />
       </div>
@@ -61,15 +61,14 @@
         <table>
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Entry date</th>
+              <th>Exit date</th>
               <th>Ticker</th>
-              <th>Sens</th>
               <th>Qté</th>
               <th>Entrée</th>
               <th>Sortie</th>
-              <th>P&L</th>
-              <th>Stratégie</th>
-              <th>Note</th>
+              <th>P&L USD</th>
+              <th>P&L %</th>
             </tr>
           </thead>
           <tbody id="tradeTable"></tbody>
