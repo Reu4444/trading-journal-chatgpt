@@ -43,6 +43,11 @@
       </div>
 
       <div class="stat-item">
+        <span>Profit factor</span>
+        <strong id="statsProfitFactor">—</strong>
+      </div>
+
+      <div class="stat-item">
         <span>Win rate</span>
         <strong id="statsWinRate">—</strong>
       </div>
@@ -70,11 +75,6 @@
       <div class="stat-item">
         <span>Ratio</span>
         <strong id="statsAvgWinLossRatio">—</strong>
-      </div>
-
-      <div class="stat-item">
-        <span>Profit factor</span>
-        <strong id="statsProfitFactor">—</strong>
       </div>
     </section>
 
@@ -145,6 +145,60 @@
               </tr>
             </thead>
             <tbody id="monthlyStatsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>20% meilleurs trades</h2>
+            <p>Meilleurs trades par P&L, affichés du plus récent au plus ancien.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entry date</th>
+                <th>Exit date</th>
+                <th>Ticker</th>
+                <th>Qté</th>
+                <th>Entrée</th>
+                <th>Sortie</th>
+                <th>P&L USD</th>
+                <th>P&L %</th>
+              </tr>
+            </thead>
+            <tbody id="bestTradesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>20% plus mauvais trades</h2>
+            <p>Plus mauvais trades par P&L, affichés du plus récent au plus ancien.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entry date</th>
+                <th>Exit date</th>
+                <th>Ticker</th>
+                <th>Qté</th>
+                <th>Entrée</th>
+                <th>Sortie</th>
+                <th>P&L USD</th>
+                <th>P&L %</th>
+              </tr>
+            </thead>
+            <tbody id="worstTradesTable"></tbody>
           </table>
         </div>
       </section>
