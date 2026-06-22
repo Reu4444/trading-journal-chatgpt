@@ -1,7 +1,6 @@
 let trades = [];
 let filteredTrades = [];
 let equityChart;
-let weeklyChart;
 
 const fmtMoney = (value) => {
   return new Intl.NumberFormat("fr-CH", {
@@ -136,7 +135,11 @@ function computeStats(rows) {
     : 0;
 
   const winRate = rows.length ? winners.length / rows.length : 0;
+
   const profitFactor = grossLoss ? grossProfit / grossLoss : null;
+
+  const avgWinLossRatio =
+    avgLossUsd !== 0 ? avgWinUsd / Math.abs(avgLossUsd) : null;
 
   return {
     totalPnl,
@@ -146,18 +149,9 @@ function computeStats(rows) {
     avgLossUsd,
     avgWinPct,
     avgLossPct,
-    profitFactor
+    profitFactor,
+    avgWinLossRatio
   };
-}
-
-function renderDashboard() {
-  const stats = computeStats(filteredTrades);
-
-  document.getElementById("totalPnl").textContent = fmtMoney(stats.totalPnl);
-  document.getElementById("tradeCount").textContent = fmtNumber(stats.tradeCount);
-  document.getElementById("winRate").textContent = Math.round(stats.winRate * 100) + "%";
-  document.getElementById("avgWinLoss").textContent =
-    fmtMoney(stats.avgWinUsd) + " / " + fmtMoney(stats.avgLossUsd);
 }
 
 function renderStatistics() {
@@ -168,6 +162,9 @@ function renderStatistics() {
   document.getElementById("statsWinRate").textContent = Math.round(stats.winRate * 100) + "%";
   document.getElementById("statsProfitFactor").textContent =
     stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2);
+
+  document.getElementById("statsAvgWinLossRatio").textContent =
+    stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2);
 
   document.getElementById("statsAvgWinPct").textContent = fmtPct(stats.avgWinPct);
   document.getElementById("statsAvgLossPct").textContent = fmtPct(stats.avgLossPct);
@@ -220,6 +217,7 @@ function renderEquityChart() {
 
   const ctx = document.getElementById("equityChart");
 
+  if (!ctx) return;
   if (equityChart) equityChart.destroy();
 
   equityChart = new Chart(ctx, {
@@ -250,71 +248,64 @@ function renderEquityChart() {
   });
 }
 
-function getWeekKey(dateStr) {
-  const date = new Date(dateStr + "T00:00:00");
-  const day = date.getDay();
-  const mondayOffset = day === 0 ? -6 : 1 - day;
+function getMonthKey(dateStr) {
+  const clean = String(dateStr || "").slice(0, 10);
+  if (!clean) return "";
 
-  const monday = new Date(date);
-  monday.setDate(date.getDate() + mondayOffset);
-
-  const yyyy = monday.getFullYear();
-  const mm = String(monday.getMonth() + 1).padStart(2, "0");
-  const dd = String(monday.getDate()).padStart(2, "0");
-
-  return `${yyyy}-${mm}-${dd}`;
+  return clean.slice(0, 7);
 }
 
-function renderWeeklyChart() {
-  const weekly = {};
+function fmtMonth(monthKey) {
+  if (!monthKey || monthKey.length !== 7) return monthKey;
 
-  filteredTrades.forEach(t => {
-    const date = t.close_date;
-    if (!date) return;
+  const [yyyy, mm] = monthKey.split("-");
+  return `${mm}-${yyyy}`;
+}
 
-    const week = getWeekKey(date);
-    weekly[week] = (weekly[week] || 0) + realizedPnl(t);
+function renderMonthlyStats() {
+  const tbody = document.getElementById("monthlyStatsTable");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  const grouped = {};
+
+  trades.forEach(trade => {
+    const monthKey = getMonthKey(trade.close_date);
+    if (!monthKey) return;
+
+    if (!grouped[monthKey]) {
+      grouped[monthKey] = [];
+    }
+
+    grouped[monthKey].push(trade);
   });
 
-  const labels = Object.keys(weekly).sort();
-  const values = labels.map(week => Number(weekly[week].toFixed(2)));
+  const months = Object.keys(grouped).sort();
 
-  const ctx = document.getElementById("weeklyChart");
+  months.forEach(monthKey => {
+    const rows = grouped[monthKey];
+    const stats = computeStats(rows);
 
-  if (weeklyChart) weeklyChart.destroy();
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${fmtMonth(monthKey)}</strong></td>
+      <td>${fmtNumber(stats.tradeCount)}</td>
+      <td class="${stats.totalPnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(stats.totalPnl)}</td>
+      <td>${stats.tradeCount ? Math.round(stats.winRate * 100) + "%" : "—"}</td>
+      <td>${stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2)}</td>
+      <td>${stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2)}</td>
+    `;
 
-  weeklyChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels.map(fmtDate),
-      datasets: [{
-        label: "P&L semaine",
-        data: values,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: false }
-      },
-      scales: {
-        y: {
-          ticks: {
-            callback: value => fmtMoney(value)
-          }
-        }
-      }
-    }
+    tbody.appendChild(tr);
   });
 }
 
 function renderAll() {
-  renderDashboard();
   renderStatistics();
   renderTable(filteredTrades);
   renderEquityChart();
-  renderWeeklyChart();
+  renderMonthlyStats();
 }
 
 document.getElementById("searchInput").addEventListener("input", event => {
@@ -365,7 +356,6 @@ document.querySelectorAll(".tab-button").forEach(button => {
       document.getElementById("statisticsTab").classList.add("active");
       setTimeout(() => {
         if (equityChart) equityChart.resize();
-        if (weeklyChart) weeklyChart.resize();
       }, 50);
     }
   });
