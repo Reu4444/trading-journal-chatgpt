@@ -49,6 +49,10 @@
         <strong id="statsProfitFactor">—</strong>
       </article>
       <article class="card">
+        <span>Ratio avg win / loss</span>
+        <strong id="statsAvgWinLossRatio">—</strong>
+      </article>
+      <article class="card">
         <span>Average win %</span>
         <strong id="statsAvgWinPct">—</strong>
       </article>
@@ -110,6 +114,31 @@
           </div>
         </div>
         <canvas id="equityChart" height="110"></canvas>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Stats par mois</h2>
+            <p>Statistiques mensuelles depuis le début, non affectées par le filtre de date.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Mois</th>
+                <th>Trades</th>
+                <th>P&L USD</th>
+                <th>Win rate</th>
+                <th>Profit factor</th>
+                <th>Ratio avg win/loss</th>
+              </tr>
+            </thead>
+            <tbody id="monthlyStatsTable"></tbody>
+          </table>
+        </div>
       </section>
     </section>
   </main>
