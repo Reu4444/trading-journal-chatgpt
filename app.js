@@ -1,12 +1,19 @@
 let trades = [];
 let chart;
 
-const fmtMoney = (value, currency = "USD") => {
+const fmtMoney = (value) => {
   return new Intl.NumberFormat("fr-CH", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 0
+    maximumFractionDigits: 2
   }).format(value || 0);
+};
+
+const fmtPct = (value) => {
+  if (value === "" || value === null || value === undefined || Number.isNaN(Number(value))) return "";
+  return new Intl.NumberFormat("fr-CH", {
+    style: "percent",
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1
+  }).format(Number(value) / 100);
 };
 
 const fmtNumber = (value) => new Intl.NumberFormat("fr-CH").format(value || 0);
@@ -29,11 +36,27 @@ function realizedPnl(trade) {
   return Number(trade.realized_pnl || 0);
 }
 
+function pnlPct(trade) {
+  if (trade.pnl_pct !== undefined && trade.pnl_pct !== "") return Number(trade.pnl_pct);
+
+  const entry = Number(trade.entry_price || 0);
+  const exit = Number(trade.exit_price || 0);
+
+  if (!entry || !exit) return "";
+
+  if ((trade.side || "").toLowerCase() === "short") {
+    return ((entry - exit) / entry) * 100;
+  }
+
+  return ((exit - entry) / entry) * 100;
+}
+
 function renderDashboard() {
   const total = trades.reduce((sum, t) => sum + realizedPnl(t), 0);
-  const winners = trades.filter(t => realizedPnl(t) > 0);
-  const losers = trades.filter(t => realizedPnl(t) < 0);
-  const winRate = trades.length ? winners.length / trades.length : 0;
+  const closedTrades = trades.filter(t => t.close_date);
+  const winners = closedTrades.filter(t => realizedPnl(t) > 0);
+  const losers = closedTrades.filter(t => realizedPnl(t) < 0);
+  const winRate = closedTrades.length ? winners.length / closedTrades.length : 0;
 
   const avgWin = winners.length
     ? winners.reduce((sum, t) => sum + realizedPnl(t), 0) / winners.length
@@ -44,7 +67,7 @@ function renderDashboard() {
     : 0;
 
   document.getElementById("totalPnl").textContent = fmtMoney(total);
-  document.getElementById("tradeCount").textContent = fmtNumber(trades.length);
+  document.getElementById("tradeCount").textContent = fmtNumber(closedTrades.length);
   document.getElementById("winRate").textContent = Math.round(winRate * 100) + "%";
   document.getElementById("avgWinLoss").textContent =
     fmtMoney(avgWin) + " / " + fmtMoney(avgLoss);
@@ -59,17 +82,18 @@ function renderTable(rows) {
     .sort((a, b) => new Date(b.close_date || b.open_date) - new Date(a.close_date || a.open_date))
     .forEach(trade => {
       const pnl = realizedPnl(trade);
+      const pct = pnlPct(trade);
+
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${trade.close_date || trade.open_date || ""}</td>
+        <td>${trade.open_date || ""}</td>
+        <td>${trade.close_date || ""}</td>
         <td><strong>${trade.symbol || ""}</strong></td>
-        <td>${trade.side || ""}</td>
         <td>${fmtNumber(trade.quantity)}</td>
         <td>${trade.entry_price ?? ""}</td>
         <td>${trade.exit_price ?? ""}</td>
-        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl, trade.currency || "USD")}</td>
-        <td>${trade.strategy || ""}</td>
-        <td>${trade.note || ""}</td>
+        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
+        <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
       `;
       tbody.appendChild(tr);
     });
@@ -109,6 +133,7 @@ function renderChart() {
 
   trades.forEach(t => {
     const date = t.close_date || t.open_date;
+    if (!date) return;
     daily[date] = (daily[date] || 0) + realizedPnl(t);
   });
 
@@ -158,8 +183,11 @@ document.getElementById("searchInput").addEventListener("input", event => {
     return [
       t.symbol,
       t.side,
-      t.strategy,
-      t.note,
+      t.quantity,
+      t.entry_price,
+      t.exit_price,
+      t.realized_pnl,
+      t.pnl_pct,
       t.close_date,
       t.open_date
     ].join(" ").toLowerCase().includes(q);
