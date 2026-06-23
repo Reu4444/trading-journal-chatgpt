@@ -3,6 +3,7 @@ let filteredTrades = [];
 let equityChart;
 let tradeTags = {};
 let spyPrices = {};
+let currentPrices = {};
 
 let tableSort = {
   key: "close_date",
@@ -11,6 +12,11 @@ let tableSort = {
 
 let spySort = {
   key: "close_date",
+  direction: "desc"
+};
+
+let ifKeptSort = {
+  key: "difference_pct",
   direction: "desc"
 };
 
@@ -223,6 +229,19 @@ function pnlPct(trade) {
   return ((exit - entry) / entry) * 100;
 }
 
+function ifKeptPct(trade) {
+  const current = getCurrentPrice(trade);
+  const entry = Number(trade.entry_price || 0);
+
+  if (!current || !entry) return "";
+
+  if ((trade.side || "").toLowerCase() === "short") {
+    return ((entry - current) / entry) * 100;
+  }
+
+  return ((current - entry) / entry) * 100;
+}
+
 function getDateFilters() {
   return {
     from: document.getElementById("dateFrom").value,
@@ -275,6 +294,44 @@ async function loadSpyPrices() {
   }
 }
 
+async function loadCurrentPrices() {
+  const status = document.getElementById("currentPriceStatus");
+
+  try {
+    const response = await fetch("data/current_prices.json?ts=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("data/current_prices.json non disponible");
+    }
+
+    const payload = await response.json();
+    currentPrices = payload.prices || {};
+
+    if (status) {
+      status.textContent =
+        "Prix actuels chargés : " + (payload.last_updated || "—") + " — Source : " + (payload.source || "—");
+    }
+  } catch (error) {
+    console.error(error);
+
+    currentPrices = {};
+
+    if (status) {
+      status.textContent =
+        "Prix actuels non disponibles. Lance le workflow Update IBKR Trading Journal pour créer data/current_prices.json.";
+    }
+  }
+}
+
+function getCurrentPrice(trade) {
+  const symbol = normalizeSymbol(trade.symbol);
+  const item = currentPrices[symbol];
+
+  if (!item || item.price === undefined || item.price === null) return null;
+
+  return Number(item.price);
+}
+
 function getNearestSpyPrice(dateStr) {
   const date = getSortableDate(dateStr);
   if (!date) return null;
@@ -297,6 +354,14 @@ function getNearestSpyPrice(dateStr) {
   return nearest ? spyPrices[nearest] : null;
 }
 
+function getLatestSpyPrice() {
+  const dates = Object.keys(spyPrices).sort();
+
+  if (!dates.length) return null;
+
+  return spyPrices[dates[dates.length - 1]];
+}
+
 function getSpyPctForTrade(trade) {
   const entrySpy = getNearestSpyPrice(trade.open_date);
   const exitSpy = getNearestSpyPrice(trade.close_date);
@@ -304,6 +369,15 @@ function getSpyPctForTrade(trade) {
   if (!entrySpy || !exitSpy) return "";
 
   return ((exitSpy - entrySpy) / entrySpy) * 100;
+}
+
+function getSpyIfKeptPct(trade) {
+  const entrySpy = getNearestSpyPrice(trade.open_date);
+  const latestSpy = getLatestSpyPrice();
+
+  if (!entrySpy || !latestSpy) return "";
+
+  return ((latestSpy - entrySpy) / entrySpy) * 100;
 }
 
 async function loadTrades() {
@@ -319,6 +393,7 @@ async function loadTrades() {
     "Dernière mise à jour : " + (payload.last_updated || "—");
 
   await loadSpyPrices();
+  await loadCurrentPrices();
 
   renderAll();
 }
@@ -427,16 +502,7 @@ function sortTrades(rows) {
 }
 
 function getBestWorstSortValue(trade, key) {
-  if (key === "open_date") return getSortableDate(trade.open_date);
-  if (key === "close_date") return getSortableDate(trade.close_date);
-  if (key === "symbol") return String(trade.symbol || "").toUpperCase();
-  if (key === "quantity") return Number(trade.quantity || 0);
-  if (key === "entry_price") return Number(trade.entry_price || 0);
-  if (key === "exit_price") return Number(trade.exit_price || 0);
-  if (key === "realized_pnl") return realizedPnl(trade);
-  if (key === "pnl_pct") return Number(pnlPct(trade) || 0);
-
-  return "";
+  return getSortValue(trade, key);
 }
 
 function sortBestWorstRows(rows, tableType) {
@@ -499,6 +565,53 @@ function sortSpyComparisonRows(rows) {
     }
 
     return spySort.direction === "asc"
+      ? String(aValue).localeCompare(String(bValue))
+      : String(bValue).localeCompare(String(aValue));
+  });
+}
+
+function getIfKeptSortValue(trade, key) {
+  const tradePct = pnlPct(trade);
+  const keptPct = ifKeptPct(trade);
+  const difference =
+    tradePct === "" || keptPct === ""
+      ? ""
+      : Number(keptPct) - Number(tradePct);
+
+  const spyKeptPct = getSpyIfKeptPct(trade);
+  const alpha =
+    keptPct === "" || spyKeptPct === ""
+      ? ""
+      : Number(keptPct) - Number(spyKeptPct);
+
+  if (key === "open_date") return getSortableDate(trade.open_date);
+  if (key === "close_date") return getSortableDate(trade.close_date);
+  if (key === "symbol") return String(trade.symbol || "").toUpperCase();
+  if (key === "trade_pct") return tradePct === "" ? null : Number(tradePct);
+  if (key === "if_kept_pct") return keptPct === "" ? null : Number(keptPct);
+  if (key === "difference_pct") return difference === "" ? null : Number(difference);
+  if (key === "spy_if_kept_pct") return spyKeptPct === "" ? null : Number(spyKeptPct);
+  if (key === "alpha_if_kept_spy") return alpha === "" ? null : Number(alpha);
+
+  return "";
+}
+
+function sortIfKeptRows(rows) {
+  return rows.slice().sort((a, b) => {
+    const aValue = getIfKeptSortValue(a, ifKeptSort.key);
+    const bValue = getIfKeptSortValue(b, ifKeptSort.key);
+
+    if (aValue === null && bValue === null) return 0;
+    if (aValue === null) return 1;
+    if (bValue === null) return -1;
+
+    if (typeof aValue === "number" && typeof bValue === "number") {
+      return ifKeptSort.direction === "asc"
+        ? aValue - bValue
+        : bValue - aValue;
+    }
+
+    return ifKeptSort.direction === "asc"
       ? String(aValue).localeCompare(String(bValue))
       : String(bValue).localeCompare(String(aValue));
   });
@@ -595,6 +708,53 @@ function renderTradeRows(tableId, rows, tableType = null) {
       <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
       <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
       <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function renderIfKept() {
+  const tbody = document.getElementById("ifKeptTable");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  const losingTrades = filteredTrades.filter(trade => realizedPnl(trade) < 0);
+
+  if (!losingTrades.length) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="8">Aucun trade perdant pour cette période.</td>`;
+    tbody.appendChild(tr);
+    return;
+  }
+
+  sortIfKeptRows(losingTrades).forEach(trade => {
+    const tradePct = pnlPct(trade);
+    const keptPct = ifKeptPct(trade);
+
+    const difference =
+      tradePct === "" || keptPct === ""
+        ? ""
+        : Number(keptPct) - Number(tradePct);
+
+    const spyKeptPct = getSpyIfKeptPct(trade);
+
+    const alpha =
+      keptPct === "" || spyKeptPct === ""
+        ? ""
+        : Number(keptPct) - Number(spyKeptPct);
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(trade.open_date)}</td>
+      <td>${fmtDate(trade.close_date)}</td>
+      <td><strong>${trade.symbol || ""}</strong></td>
+      <td class="${tradePct === "" ? "" : tradePct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(tradePct)}</td>
+      <td class="${keptPct === "" ? "" : keptPct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(keptPct)}</td>
+      <td class="${difference === "" ? "" : difference >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(difference)}</td>
+      <td class="${spyKeptPct === "" ? "" : spyKeptPct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(spyKeptPct)}</td>
+      <td class="${alpha === "" ? "" : alpha >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(alpha)}</td>
     `;
 
     tbody.appendChild(tr);
@@ -822,6 +982,7 @@ function renderAll() {
   renderMonthlyStats();
   renderTagStats();
   renderBestWorstTrades();
+  renderIfKept();
   renderSpyComparison();
 }
 
@@ -918,6 +1079,34 @@ document.querySelectorAll("#bestWorstTab th[data-bw-sort]").forEach(th => {
   });
 });
 
+document.querySelectorAll("#ifKeptTab th[data-ifkept-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.ifkeptSort;
+
+    if (ifKeptSort.key === key) {
+      ifKeptSort.direction = ifKeptSort.direction === "desc" ? "asc" : "desc";
+    } else {
+      ifKeptSort.key = key;
+
+      if (
+        key === "trade_pct" ||
+        key === "if_kept_pct" ||
+        key === "difference_pct" ||
+        key === "spy_if_kept_pct" ||
+        key === "alpha_if_kept_spy" ||
+        key === "close_date" ||
+        key === "open_date"
+      ) {
+        ifKeptSort.direction = "desc";
+      } else {
+        ifKeptSort.direction = "asc";
+      }
+    }
+
+    renderIfKept();
+  });
+});
+
 document.querySelectorAll("#spyTab th[data-spy-sort]").forEach(th => {
   th.addEventListener("click", () => {
     const key = th.dataset.spySort;
@@ -967,6 +1156,10 @@ document.querySelectorAll(".tab-button").forEach(button => {
 
     if (tab === "bestworst") {
       document.getElementById("bestWorstTab").classList.add("active");
+    }
+
+    if (tab === "ifkept") {
+      document.getElementById("ifKeptTab").classList.add("active");
     }
 
     if (tab === "spy") {
