@@ -331,6 +331,14 @@ function sortTrades(rows) {
   });
 }
 
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
 function renderTable(rows) {
   const tbody = document.getElementById("tradeTable");
   tbody.innerHTML = "";
@@ -354,18 +362,20 @@ function renderTable(rows) {
       <td>
         <input
           class="tag-input"
+          list="setupTags"
           data-trade-key="${tradeKey}"
           data-tag-field="setup"
-          value="${tags.setup || ""}"
+          value="${escapeHtml(tags.setup)}"
           placeholder="Set up"
         />
       </td>
       <td>
         <input
           class="tag-input"
+          list="mistakeTags"
           data-trade-key="${tradeKey}"
           data-tag-field="mistake"
-          value="${tags.mistake || ""}"
+          value="${escapeHtml(tags.mistake)}"
           placeholder="Mistake"
         />
       </td>
