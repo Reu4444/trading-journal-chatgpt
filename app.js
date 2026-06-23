@@ -1,11 +1,14 @@
 let trades = [];
 let filteredTrades = [];
 let equityChart;
+let tradeTags = {};
 
 let tableSort = {
   key: "close_date",
   direction: "desc"
 };
+
+const TAGS_STORAGE_KEY = "ibkrTradingJournalTags";
 
 const fmtMoney = (value) => {
   return new Intl.NumberFormat("fr-CH", {
@@ -28,7 +31,6 @@ const fmtDate = (dateStr) => {
   if (!dateStr) return "";
 
   let clean = String(dateStr).trim();
-
   clean = clean.split(";")[0];
 
   if (/^\d{8}$/.test(clean)) {
@@ -89,7 +91,7 @@ function isFxTrade(trade) {
   );
 }
 
-function isExcludedFromBestWorst(trade) {
+function isExcludedTrade(trade) {
   const symbol = normalizeSymbol(trade.symbol);
 
   return (
@@ -101,6 +103,7 @@ function isExcludedFromBestWorst(trade) {
 function cleanTrades(rawTrades) {
   const cleaned = (rawTrades || [])
     .filter(t => !isFxTrade(t))
+    .filter(t => !isExcludedTrade(t))
     .filter(t => t.close_date);
 
   return aggregateSplitTrades(cleaned);
@@ -153,6 +156,39 @@ function aggregateSplitTrades(rows) {
   });
 }
 
+function getTradeKey(trade) {
+  return [
+    normalizeSymbol(trade.symbol),
+    getSortableDate(trade.open_date),
+    getSortableDate(trade.close_date),
+    String(trade.side || "").toLowerCase()
+  ].join("|");
+}
+
+function loadTradeTags() {
+  try {
+    tradeTags = JSON.parse(localStorage.getItem(TAGS_STORAGE_KEY)) || {};
+  } catch (error) {
+    tradeTags = {};
+  }
+}
+
+function saveTradeTags() {
+  localStorage.setItem(TAGS_STORAGE_KEY, JSON.stringify(tradeTags));
+}
+
+function updateTradeTag(tradeKey, field, value) {
+  if (!tradeTags[tradeKey]) {
+    tradeTags[tradeKey] = {
+      setup: "",
+      mistake: ""
+    };
+  }
+
+  tradeTags[tradeKey][field] = value;
+  saveTradeTags();
+}
+
 function pnlPct(trade) {
   if (trade.pnl_pct !== undefined && trade.pnl_pct !== "") return Number(trade.pnl_pct);
 
@@ -192,6 +228,8 @@ function applyDateFilter() {
 }
 
 async function loadTrades() {
+  loadTradeTags();
+
   const response = await fetch("data/trades.json?ts=" + Date.now());
   const payload = await response.json();
 
@@ -300,6 +338,8 @@ function renderTable(rows) {
   sortTrades(rows).forEach(trade => {
     const pnl = realizedPnl(trade);
     const pct = pnlPct(trade);
+    const tradeKey = getTradeKey(trade);
+    const tags = tradeTags[tradeKey] || { setup: "", mistake: "" };
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -311,8 +351,40 @@ function renderTable(rows) {
       <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
       <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
       <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
+      <td>
+        <input
+          class="tag-input"
+          data-trade-key="${tradeKey}"
+          data-tag-field="setup"
+          value="${tags.setup || ""}"
+          placeholder="Set up"
+        />
+      </td>
+      <td>
+        <input
+          class="tag-input"
+          data-trade-key="${tradeKey}"
+          data-tag-field="mistake"
+          value="${tags.mistake || ""}"
+          placeholder="Mistake"
+        />
+      </td>
     `;
     tbody.appendChild(tr);
+  });
+
+  bindTagInputs();
+}
+
+function bindTagInputs() {
+  document.querySelectorAll(".tag-input").forEach(input => {
+    input.addEventListener("input", event => {
+      const tradeKey = event.target.dataset.tradeKey;
+      const field = event.target.dataset.tagField;
+      const value = event.target.value;
+
+      updateTradeTag(tradeKey, field, value);
+    });
   });
 }
 
@@ -449,10 +521,7 @@ function renderMonthlyStats() {
 }
 
 function renderBestWorstTrades() {
-  const closedTrades = trades
-    .filter(t => t.close_date)
-    .filter(t => !isExcludedFromBestWorst(t));
-
+  const closedTrades = trades.filter(t => t.close_date);
   const count = Math.max(1, Math.ceil(closedTrades.length * 0.2));
 
   const bestTrades = closedTrades
@@ -490,7 +559,9 @@ document.getElementById("searchInput").addEventListener("input", event => {
       t.realized_pnl,
       t.pnl_pct,
       t.close_date,
-      t.open_date
+      t.open_date,
+      tradeTags[getTradeKey(t)]?.setup,
+      tradeTags[getTradeKey(t)]?.mistake
     ].join(" ").toLowerCase().includes(q);
   });
 
