@@ -32,48 +32,22 @@
     </section>
 
     <section class="stats-strip">
-      <div class="stat-item">
-        <span>P&L total</span>
-        <strong id="statsTotalPnl">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Trades</span>
-        <strong id="statsTradeCount">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Profit factor</span>
-        <strong id="statsProfitFactor">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Win rate</span>
-        <strong id="statsWinRate">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Avg win %</span>
-        <strong id="statsAvgWinPct">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Avg loss %</span>
-        <strong id="statsAvgLossPct">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Avg win USD</span>
-        <strong id="statsAvgWinUsd">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Avg loss USD</span>
-        <strong id="statsAvgLossUsd">—</strong>
-      </div>
-      <div class="stat-item">
-        <span>Ratio</span>
-        <strong id="statsAvgWinLossRatio">—</strong>
-      </div>
+      <div class="stat-item"><span>P&L total</span><strong id="statsTotalPnl">—</strong></div>
+      <div class="stat-item"><span>Trades</span><strong id="statsTradeCount">—</strong></div>
+      <div class="stat-item"><span>Profit factor</span><strong id="statsProfitFactor">—</strong></div>
+      <div class="stat-item"><span>Win rate</span><strong id="statsWinRate">—</strong></div>
+      <div class="stat-item"><span>Avg win %</span><strong id="statsAvgWinPct">—</strong></div>
+      <div class="stat-item"><span>Avg loss %</span><strong id="statsAvgLossPct">—</strong></div>
+      <div class="stat-item"><span>Avg win USD</span><strong id="statsAvgWinUsd">—</strong></div>
+      <div class="stat-item"><span>Avg loss USD</span><strong id="statsAvgLossUsd">—</strong></div>
+      <div class="stat-item"><span>Ratio</span><strong id="statsAvgWinLossRatio">—</strong></div>
     </section>
 
     <nav class="tabs">
       <button class="tab-button active" data-tab="journal">Journal</button>
       <button class="tab-button" data-tab="statistics">Statistics</button>
       <button class="tab-button" data-tab="bestworst">Best / Worst 20%</button>
+      <button class="tab-button" data-tab="ifkept">If Kept</button>
       <button class="tab-button" data-tab="spy">SPY Comparison</button>
     </nav>
 
@@ -173,11 +147,7 @@
                 <th>Ratio</th>
               </tr>
             </thead>
-            <tbody id="setupStatsTable">
-              <tr>
-                <td colspan="10">Aucun tag renseigné pour cette période.</td>
-              </tr>
-            </tbody>
+            <tbody id="setupStatsTable"></tbody>
           </table>
         </div>
       </section>
@@ -206,11 +176,7 @@
                 <th>Ratio</th>
               </tr>
             </thead>
-            <tbody id="mistakeStatsTable">
-              <tr>
-                <td colspan="10">Aucun tag renseigné pour cette période.</td>
-              </tr>
-            </tbody>
+            <tbody id="mistakeStatsTable"></tbody>
           </table>
         </div>
       </section>
@@ -267,6 +233,36 @@
               </tr>
             </thead>
             <tbody id="worstTradesTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="ifKeptTab" class="tab-content">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>If Kept</h2>
+            <p>Pour les trades perdants : performance si le titre avait été conservé jusqu’au dernier prix disponible.</p>
+            <p id="currentPriceStatus">Chargement des prix actuels…</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-ifkept-sort="open_date">Entry date</th>
+                <th data-ifkept-sort="close_date">Exit date</th>
+                <th data-ifkept-sort="symbol">Ticker</th>
+                <th data-ifkept-sort="trade_pct">Trade %</th>
+                <th data-ifkept-sort="if_kept_pct">If kept %</th>
+                <th data-ifkept-sort="difference_pct">Difference %</th>
+                <th data-ifkept-sort="spy_if_kept_pct">SPY if kept %</th>
+                <th data-ifkept-sort="alpha_if_kept_spy">Alpha if kept vs SPY</th>
+              </tr>
+            </thead>
+            <tbody id="ifKeptTable"></tbody>
           </table>
         </div>
       </section>
