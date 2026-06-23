@@ -46,9 +46,10 @@
     <nav class="tabs">
       <button class="tab-button active" data-tab="journal">Journal</button>
       <button class="tab-button" data-tab="statistics">Statistics</button>
-      <button class="tab-button" data-tab="bestworst">Best / Worst 20%</button> 
-      <button class="tab-button" data-tab="spy">SPY Comparison</button>
+      <button class="tab-button" data-tab="bestworst">Best / Worst 20%</button>
       <button class="tab-button" data-tab="ifkept">If Kept</button>
+      <button class="tab-button" data-tab="spy">SPY Comparison</button>
+      <button class="tab-button" data-tab="notes">Notes</button>
     </nav>
 
     <section id="journalTab" class="tab-content active">
@@ -295,6 +296,40 @@
             </thead>
             <tbody id="spyComparisonTable"></tbody>
           </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="notesTab" class="tab-content">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Notes</h2>
+            <p>Notes sauvegardées dans ton Google Sheet Notes.</p>
+            <p id="notesStatus">Chargement des notes…</p>
+          </div>
+        </div>
+
+        <div class="notes-layout">
+          <div class="notes-editor">
+            <input id="noteId" type="hidden" />
+            <label for="noteTitle">Titre</label>
+            <input id="noteTitle" type="text" placeholder="Ex: Règles de trading, watchlist, idées…" />
+
+            <label for="noteBody">Note</label>
+            <textarea id="noteBody" placeholder="Écris ta note ici…"></textarea>
+
+            <div class="notes-actions">
+              <button id="newNoteButton" type="button">New</button>
+              <button id="saveNoteButton" type="button">Save</button>
+              <button id="deleteNoteButton" type="button">Delete</button>
+            </div>
+          </div>
+
+          <div class="notes-list-wrap">
+            <h3>Notes sauvegardées</h3>
+            <div id="notesList" class="notes-list"></div>
+          </div>
         </div>
       </section>
     </section>
