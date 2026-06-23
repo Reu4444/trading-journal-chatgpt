@@ -187,6 +187,7 @@ function updateTradeTag(tradeKey, field, value) {
 
   tradeTags[tradeKey][field] = value;
   saveTradeTags();
+  renderTagStats();
 }
 
 function pnlPct(trade) {
@@ -299,6 +300,20 @@ function renderStatistics() {
 
   document.getElementById("statsAvgWinLossRatio").textContent =
     stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2);
+}
+
+function renderStatsCells(stats) {
+  return `
+    <td class="${stats.totalPnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(stats.totalPnl)}</td>
+    <td>${fmtNumber(stats.tradeCount)}</td>
+    <td>${stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2)}</td>
+    <td>${stats.tradeCount ? Math.round(stats.winRate * 100) + "%" : "—"}</td>
+    <td>${fmtPct(stats.avgWinPct)}</td>
+    <td>${fmtPct(stats.avgLossPct)}</td>
+    <td>${fmtMoney(stats.avgWinUsd)}</td>
+    <td>${fmtMoney(stats.avgLossUsd)}</td>
+    <td>${stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2)}</td>
+  `;
 }
 
 function getSortValue(trade, key) {
@@ -519,15 +534,65 @@ function renderMonthlyStats() {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td><strong>${fmtMonth(monthKey)}</strong></td>
-      <td>${fmtNumber(stats.tradeCount)}</td>
-      <td class="${stats.totalPnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(stats.totalPnl)}</td>
-      <td>${stats.tradeCount ? Math.round(stats.winRate * 100) + "%" : "—"}</td>
-      <td>${stats.profitFactor === null ? "—" : stats.profitFactor.toFixed(2)}</td>
-      <td>${stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2)}</td>
+      ${renderStatsCells(stats)}
     `;
 
     tbody.appendChild(tr);
   });
+}
+
+function renderGroupedTagStats(tableId, tagField) {
+  const tbody = document.getElementById(tableId);
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  const grouped = {};
+
+  filteredTrades.forEach(trade => {
+    const tradeKey = getTradeKey(trade);
+    const tagValue = String(tradeTags[tradeKey]?.[tagField] || "").trim();
+
+    if (!tagValue) return;
+
+    if (!grouped[tagValue]) {
+      grouped[tagValue] = [];
+    }
+
+    grouped[tagValue].push(trade);
+  });
+
+  const tags = Object.keys(grouped).sort((a, b) => {
+    const pnlA = computeStats(grouped[a]).totalPnl;
+    const pnlB = computeStats(grouped[b]).totalPnl;
+    return pnlB - pnlA;
+  });
+
+  if (!tags.length) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td colspan="10">Aucun tag renseigné pour cette période.</td>
+    `;
+    tbody.appendChild(tr);
+    return;
+  }
+
+  tags.forEach(tag => {
+    const stats = computeStats(grouped[tag]);
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td><strong>${escapeHtml(tag)}</strong></td>
+      ${renderStatsCells(stats)}
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function renderTagStats() {
+  renderGroupedTagStats("setupStatsTable", "setup");
+  renderGroupedTagStats("mistakeStatsTable", "mistake");
 }
 
 function renderBestWorstTrades() {
@@ -553,6 +618,7 @@ function renderAll() {
   renderTable(filteredTrades);
   renderEquityChart();
   renderMonthlyStats();
+  renderTagStats();
   renderBestWorstTrades();
 }
 
