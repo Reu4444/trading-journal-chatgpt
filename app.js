@@ -4,6 +4,10 @@ let equityChart;
 let tradeTags = {};
 let spyPrices = {};
 let currentPrices = {};
+let notes = [];
+
+const NOTES_API_URL = "https://script.google.com/macros/s/AKfycbyFb8m3rA4KfFTL5wVi3dIfuDojLvOIx0eO0D1oTii6nOGwfGc0annPCGOknF4-yX5c/exec";
+const NOTES_API_KEY = "notes-reuven-2026";
 
 let tableSort = {
   key: "close_date",
@@ -501,16 +505,12 @@ function sortTrades(rows) {
   });
 }
 
-function getBestWorstSortValue(trade, key) {
-  return getSortValue(trade, key);
-}
-
 function sortBestWorstRows(rows, tableType) {
   const currentSort = bestWorstSort[tableType];
 
   return rows.slice().sort((a, b) => {
-    const aValue = getBestWorstSortValue(a, currentSort.key);
-    const bValue = getBestWorstSortValue(b, currentSort.key);
+    const aValue = getSortValue(a, currentSort.key);
+    const bValue = getSortValue(b, currentSort.key);
 
     if (typeof aValue === "number" && typeof bValue === "number") {
       return currentSort.direction === "asc"
@@ -720,10 +720,10 @@ function renderIfKept() {
 
   tbody.innerHTML = "";
 
- const losingTrades = filteredTrades.filter(trade => {
-  const side = String(trade.side || "").toLowerCase();
-  return realizedPnl(trade) < 0 && side !== "short";
-});
+  const losingTrades = filteredTrades.filter(trade => {
+    const side = String(trade.side || "").toLowerCase();
+    return realizedPnl(trade) < 0 && side !== "short";
+  });
 
   if (!losingTrades.length) {
     const tr = document.createElement("tr");
@@ -989,6 +989,177 @@ function renderAll() {
   renderSpyComparison();
 }
 
+function notesJsonp(params) {
+  return new Promise((resolve, reject) => {
+    const callbackName = "notesCallback_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+
+    params.key = NOTES_API_KEY;
+    params.callback = callbackName;
+
+    const url = NOTES_API_URL + "?" + new URLSearchParams(params).toString();
+
+    const script = document.createElement("script");
+    script.src = url;
+
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error("Notes API timeout"));
+    }, 15000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callbackName];
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    window[callbackName] = (data) => {
+      cleanup();
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("Notes API error"));
+    };
+
+    document.body.appendChild(script);
+  });
+}
+
+async function loadNotes() {
+  const status = document.getElementById("notesStatus");
+  const list = document.getElementById("notesList");
+
+  if (!status || !list) return;
+
+  status.textContent = "Chargement des notes…";
+
+  try {
+    const response = await notesJsonp({
+      action: "list"
+    });
+
+    if (!response.ok) {
+      throw new Error(response.error || "Erreur notes");
+    }
+
+    notes = response.notes || [];
+    renderNotesList();
+
+    status.textContent = "Notes chargées depuis Google Sheet.";
+  } catch (error) {
+    console.error(error);
+    status.textContent = "Erreur de chargement des notes.";
+  }
+}
+
+function renderNotesList() {
+  const list = document.getElementById("notesList");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  if (!notes.length) {
+    list.innerHTML = `<p class="empty-notes">Aucune note sauvegardée.</p>`;
+    return;
+  }
+
+  notes.forEach(note => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "note-item";
+    item.innerHTML = `
+      <strong>${escapeHtml(note.title || "Sans titre")}</strong>
+      <span>${escapeHtml(note.updated_at || "")}</span>
+    `;
+
+    item.addEventListener("click", () => {
+      document.getElementById("noteId").value = note.id || "";
+      document.getElementById("noteTitle").value = note.title || "";
+      document.getElementById("noteBody").value = note.note || "";
+      document.getElementById("notesStatus").textContent = "Note chargée.";
+    });
+
+    list.appendChild(item);
+  });
+}
+
+function clearNoteForm() {
+  document.getElementById("noteId").value = "";
+  document.getElementById("noteTitle").value = "";
+  document.getElementById("noteBody").value = "";
+  document.getElementById("notesStatus").textContent = "Nouvelle note.";
+}
+
+async function saveCurrentNote() {
+  const status = document.getElementById("notesStatus");
+  const id = document.getElementById("noteId").value;
+  const title = document.getElementById("noteTitle").value.trim();
+  const note = document.getElementById("noteBody").value.trim();
+
+  if (!title && !note) {
+    status.textContent = "Impossible de sauvegarder une note vide.";
+    return;
+  }
+
+  status.textContent = "Sauvegarde…";
+
+  try {
+    const response = await notesJsonp({
+      action: "save",
+      id: id,
+      title: title,
+      note: note
+    });
+
+    if (!response.ok) {
+      throw new Error(response.error || "Erreur sauvegarde");
+    }
+
+    document.getElementById("noteId").value = response.id || "";
+    status.textContent = "Note sauvegardée.";
+    await loadNotes();
+  } catch (error) {
+    console.error(error);
+    status.textContent = "Erreur pendant la sauvegarde.";
+  }
+}
+
+async function deleteCurrentNote() {
+  const status = document.getElementById("notesStatus");
+  const id = document.getElementById("noteId").value;
+
+  if (!id) {
+    status.textContent = "Aucune note sélectionnée.";
+    return;
+  }
+
+  const confirmed = window.confirm("Supprimer cette note ?");
+  if (!confirmed) return;
+
+  status.textContent = "Suppression…";
+
+  try {
+    const response = await notesJsonp({
+      action: "delete",
+      id: id
+    });
+
+    if (!response.ok) {
+      throw new Error(response.error || "Erreur suppression");
+    }
+
+    clearNoteForm();
+    status.textContent = "Note supprimée.";
+    await loadNotes();
+  } catch (error) {
+    console.error(error);
+    status.textContent = "Erreur pendant la suppression.";
+  }
+}
+
 document.getElementById("searchInput").addEventListener("input", event => {
   const q = event.target.value.toLowerCase().trim();
 
@@ -1168,8 +1339,29 @@ document.querySelectorAll(".tab-button").forEach(button => {
     if (tab === "spy") {
       document.getElementById("spyTab").classList.add("active");
     }
+
+    if (tab === "notes") {
+      document.getElementById("notesTab").classList.add("active");
+      loadNotes();
+    }
   });
 });
+
+const newNoteButton = document.getElementById("newNoteButton");
+const saveNoteButton = document.getElementById("saveNoteButton");
+const deleteNoteButton = document.getElementById("deleteNoteButton");
+
+if (newNoteButton) {
+  newNoteButton.addEventListener("click", clearNoteForm);
+}
+
+if (saveNoteButton) {
+  saveNoteButton.addEventListener("click", saveCurrentNote);
+}
+
+if (deleteNoteButton) {
+  deleteNoteButton.addEventListener("click", deleteCurrentNote);
+}
 
 loadTrades().catch(error => {
   console.error(error);
