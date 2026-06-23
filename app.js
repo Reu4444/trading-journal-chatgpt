@@ -97,9 +97,58 @@ function isExcludedFromBestWorst(trade) {
 }
 
 function cleanTrades(rawTrades) {
-  return (rawTrades || [])
+  const cleaned = (rawTrades || [])
     .filter(t => !isFxTrade(t))
     .filter(t => t.close_date);
+
+  return aggregateSplitTrades(cleaned);
+}
+
+function aggregateSplitTrades(rows) {
+  const grouped = {};
+
+  rows.forEach(trade => {
+    const key = [
+      normalizeSymbol(trade.symbol),
+      getSortableDate(trade.open_date),
+      getSortableDate(trade.close_date),
+      String(trade.side || "").toLowerCase()
+    ].join("|");
+
+    if (!grouped[key]) {
+      grouped[key] = {
+        ...trade,
+        quantity: 0,
+        realized_pnl: 0,
+        commission: 0,
+        entry_value: 0,
+        exit_value: 0
+      };
+    }
+
+    const qty = Math.abs(Number(trade.quantity || 0));
+    const entry = Number(trade.entry_price || 0);
+    const exit = Number(trade.exit_price || 0);
+
+    grouped[key].quantity += qty;
+    grouped[key].realized_pnl += Number(trade.realized_pnl || 0);
+    grouped[key].commission += Number(trade.commission || 0);
+
+    grouped[key].entry_value += qty * entry;
+    grouped[key].exit_value += qty * exit;
+  });
+
+  return Object.values(grouped).map(trade => {
+    if (trade.quantity > 0) {
+      trade.entry_price = trade.entry_value / trade.quantity;
+      trade.exit_price = trade.exit_value / trade.quantity;
+    }
+
+    delete trade.entry_value;
+    delete trade.exit_value;
+
+    return trade;
+  });
 }
 
 function pnlPct(trade) {
@@ -229,8 +278,8 @@ function renderTable(rows) {
         <td>${fmtDate(trade.close_date)}</td>
         <td><strong>${trade.symbol || ""}</strong></td>
         <td>${fmtNumber(trade.quantity)}</td>
-        <td>${trade.entry_price ?? ""}</td>
-        <td>${trade.exit_price ?? ""}</td>
+        <td>${Number(trade.entry_price || 0).toFixed(2)}</td>
+        <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
         <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
         <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
       `;
@@ -257,8 +306,8 @@ function renderTradeRows(tableId, rows) {
         <td>${fmtDate(trade.close_date)}</td>
         <td><strong>${trade.symbol || ""}</strong></td>
         <td>${fmtNumber(trade.quantity)}</td>
-        <td>${trade.entry_price ?? ""}</td>
-        <td>${trade.exit_price ?? ""}</td>
+        <td>${Number(trade.entry_price || 0).toFixed(2)}</td>
+        <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
         <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
         <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
       `;
