@@ -211,8 +211,13 @@ table {
   font-size: 14px;
 }
 
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
 th {
-  text-align: left;
   color: var(--muted);
   font-weight: 700;
   padding: 12px 10px;
@@ -236,12 +241,13 @@ th[data-sort]:hover {
 }
 
 .tag-input {
-  width: 150px;
+  width: 165px;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 8px 10px;
   font-size: 13px;
   background: #ffffff;
+  text-align: center;
 }
 
 .tag-input:focus {
