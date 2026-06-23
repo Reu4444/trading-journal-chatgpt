@@ -2,6 +2,11 @@ let trades = [];
 let filteredTrades = [];
 let equityChart;
 
+let tableSort = {
+  key: "close_date",
+  direction: "desc"
+};
+
 const fmtMoney = (value) => {
   return new Intl.NumberFormat("fr-CH", {
     maximumFractionDigits: 2
@@ -24,10 +29,8 @@ const fmtDate = (dateStr) => {
 
   let clean = String(dateStr).trim();
 
-  // Enlève tout ce qui vient après un ; par exemple 20260514;1
   clean = clean.split(";")[0];
 
-  // Format IBKR compact : 20260514 -> 14-05-2026
   if (/^\d{8}$/.test(clean)) {
     const yyyy = clean.slice(0, 4);
     const mm = clean.slice(4, 6);
@@ -35,7 +38,6 @@ const fmtDate = (dateStr) => {
     return `${dd}-${mm}-${yyyy}`;
   }
 
-  // Format standard : 2026-05-14 -> 14-05-2026
   clean = clean.slice(0, 10);
   const parts = clean.split("-");
 
@@ -261,30 +263,57 @@ function renderStatistics() {
     stats.avgWinLossRatio === null ? "—" : stats.avgWinLossRatio.toFixed(2);
 }
 
+function getSortValue(trade, key) {
+  if (key === "open_date") return getSortableDate(trade.open_date);
+  if (key === "close_date") return getSortableDate(trade.close_date);
+  if (key === "symbol") return String(trade.symbol || "").toUpperCase();
+  if (key === "quantity") return Number(trade.quantity || 0);
+  if (key === "entry_price") return Number(trade.entry_price || 0);
+  if (key === "exit_price") return Number(trade.exit_price || 0);
+  if (key === "realized_pnl") return realizedPnl(trade);
+  if (key === "pnl_pct") return Number(pnlPct(trade) || 0);
+
+  return "";
+}
+
+function sortTrades(rows) {
+  return rows.slice().sort((a, b) => {
+    const aValue = getSortValue(a, tableSort.key);
+    const bValue = getSortValue(b, tableSort.key);
+
+    if (typeof aValue === "number" && typeof bValue === "number") {
+      return tableSort.direction === "asc"
+        ? aValue - bValue
+        : bValue - aValue;
+    }
+
+    return tableSort.direction === "asc"
+      ? String(aValue).localeCompare(String(bValue))
+      : String(bValue).localeCompare(String(aValue));
+  });
+}
+
 function renderTable(rows) {
   const tbody = document.getElementById("tradeTable");
   tbody.innerHTML = "";
 
-  rows
-    .slice()
-    .sort((a, b) => new Date(getSortableDate(b.close_date)) - new Date(getSortableDate(a.close_date)))
-    .forEach(trade => {
-      const pnl = realizedPnl(trade);
-      const pct = pnlPct(trade);
+  sortTrades(rows).forEach(trade => {
+    const pnl = realizedPnl(trade);
+    const pct = pnlPct(trade);
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${fmtDate(trade.open_date)}</td>
-        <td>${fmtDate(trade.close_date)}</td>
-        <td><strong>${trade.symbol || ""}</strong></td>
-        <td>${fmtNumber(trade.quantity)}</td>
-        <td>${Number(trade.entry_price || 0).toFixed(2)}</td>
-        <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
-        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
-        <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
-      `;
-      tbody.appendChild(tr);
-    });
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(trade.open_date)}</td>
+      <td>${fmtDate(trade.close_date)}</td>
+      <td><strong>${trade.symbol || ""}</strong></td>
+      <td>${fmtNumber(trade.quantity)}</td>
+      <td>${Number(trade.entry_price || 0).toFixed(2)}</td>
+      <td>${Number(trade.exit_price || 0).toFixed(2)}</td>
+      <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
+      <td class="${pct === "" ? "" : pct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(pct)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
 }
 
 function renderTradeRows(tableId, rows) {
@@ -477,6 +506,34 @@ document.getElementById("resetFilters").addEventListener("click", () => {
   document.getElementById("searchInput").value = "";
   filteredTrades = trades;
   renderAll();
+});
+
+document.querySelectorAll("#journalTab th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.sort;
+
+    if (tableSort.key === key) {
+      tableSort.direction = tableSort.direction === "desc" ? "asc" : "desc";
+    } else {
+      tableSort.key = key;
+
+      if (
+        key === "realized_pnl" ||
+        key === "pnl_pct" ||
+        key === "quantity" ||
+        key === "entry_price" ||
+        key === "exit_price" ||
+        key === "close_date" ||
+        key === "open_date"
+      ) {
+        tableSort.direction = "desc";
+      } else {
+        tableSort.direction = "asc";
+      }
+    }
+
+    renderTable(filteredTrades);
+  });
 });
 
 document.querySelectorAll(".tab-button").forEach(button => {
