@@ -49,7 +49,8 @@
       <button class="tab-button" data-tab="bestworst">Best / Worst 20%</button>
       <button class="tab-button" data-tab="ifkept">If Kept</button>
       <button class="tab-button" data-tab="spy">SPY Comparison</button>
-      <button class="tab-button" data-tab="notes">Notes</button>
+      <button class="tab-button" data-tab="notesstocks">Notes Stocks</button>
+      <button class="tab-button" data-tab="notestrades">Notes Trades</button>
     </nav>
 
     <section id="journalTab" class="tab-content active">
@@ -300,35 +301,73 @@
       </section>
     </section>
 
-    <section id="notesTab" class="tab-content">
+    <section id="notesStocksTab" class="tab-content">
       <section class="panel">
         <div class="panel-header">
           <div>
-            <h2>Notes</h2>
-            <p>Notes sauvegardées dans ton Google Sheet Notes.</p>
-            <p id="notesStatus">Chargement des notes…</p>
+            <h2>Notes Stocks</h2>
+            <p>Notes marché, watchlist, secteurs et actions. Exemple : $NVDA, $SPY, #AI.</p>
+            <p id="stocksNotesStatus">Chargement des notes…</p>
           </div>
         </div>
 
         <div class="notes-layout">
           <div class="notes-editor">
-            <input id="noteId" type="hidden" />
-            <label for="noteTitle">Titre</label>
-            <input id="noteTitle" type="text" placeholder="Ex: Règles de trading, watchlist, idées…" />
+            <input id="stocksNoteId" type="hidden" />
 
-            <label for="noteBody">Note</label>
-            <textarea id="noteBody" placeholder="Écris ta note ici…"></textarea>
+            <label for="stocksNoteTitle">Titre</label>
+            <input id="stocksNoteTitle" type="text" placeholder="Ex: $NVDA earnings, $SPY séance du jour…" />
+
+            <label for="stocksNoteBody">Note</label>
+            <textarea id="stocksNoteBody" placeholder="Écris ta note stock / marché ici…"></textarea>
 
             <div class="notes-actions">
-              <button id="newNoteButton" type="button">New</button>
-              <button id="saveNoteButton" type="button">Save</button>
-              <button id="deleteNoteButton" type="button">Delete</button>
+              <button id="stocksNewNoteButton" type="button">New</button>
+              <button id="stocksSaveNoteButton" type="button">Save</button>
+              <button id="stocksDeleteNoteButton" type="button">Delete</button>
             </div>
           </div>
 
           <div class="notes-list-wrap">
-            <h3>Notes sauvegardées</h3>
-            <div id="notesList" class="notes-list"></div>
+            <h3>Notes Stocks sauvegardées</h3>
+            <input id="stocksNotesSearchInput" class="notes-search" type="search" placeholder="Search $NVDA, $SPY, #AI…" />
+            <div id="stocksNotesList" class="notes-list"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="notesTradesTab" class="tab-content">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Notes Trades</h2>
+            <p>Notes sur tes trades, erreurs, psychologie, setups et revues post-trade.</p>
+            <p id="tradesNotesStatus">Chargement des notes…</p>
+          </div>
+        </div>
+
+        <div class="notes-layout">
+          <div class="notes-editor">
+            <input id="tradesNoteId" type="hidden" />
+
+            <label for="tradesNoteTitle">Titre</label>
+            <input id="tradesNoteTitle" type="text" placeholder="Ex: Review trade $NVDA, erreur de sizing…" />
+
+            <label for="tradesNoteBody">Note</label>
+            <textarea id="tradesNoteBody" placeholder="Écris ta note de trade ici…"></textarea>
+
+            <div class="notes-actions">
+              <button id="tradesNewNoteButton" type="button">New</button>
+              <button id="tradesSaveNoteButton" type="button">Save</button>
+              <button id="tradesDeleteNoteButton" type="button">Delete</button>
+            </div>
+          </div>
+
+          <div class="notes-list-wrap">
+            <h3>Notes Trades sauvegardées</h3>
+            <input id="tradesNotesSearchInput" class="notes-search" type="search" placeholder="Search $NVDA, #mistake, setup…" />
+            <div id="tradesNotesList" class="notes-list"></div>
           </div>
         </div>
       </section>
