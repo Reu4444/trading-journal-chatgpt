@@ -32,10 +32,13 @@ jobs:
       - name: Fetch SPY prices
         run: python scripts/fetch_spy.py
 
+      - name: Fetch current prices
+        run: python scripts/fetch_current_prices.py
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/trades.json data/spy.json
-          git diff --cached --quiet || git commit -m "Update IBKR trades and SPY prices"
+          git add data/trades.json data/spy.json data/current_prices.json
+          git diff --cached --quiet || git commit -m "Update IBKR trades, SPY and current prices"
           git push
