@@ -234,29 +234,18 @@ async function loadSpyPrices() {
   const status = document.getElementById("spyStatus");
 
   try {
-    const response = await fetch("https://stooq.com/q/d/l/?s=spy.us&i=d&ts=" + Date.now());
+    const response = await fetch("data/spy.json?ts=" + Date.now());
 
     if (!response.ok) {
-      throw new Error("Impossible de charger SPY");
+      throw new Error("data/spy.json non disponible");
     }
 
-    const csv = await response.text();
-    const rows = csv.trim().split("\n").slice(1);
-
-    spyPrices = {};
-
-    rows.forEach(row => {
-      const columns = row.split(",");
-      const date = columns[0];
-      const close = Number(columns[4]);
-
-      if (date && close) {
-        spyPrices[date] = close;
-      }
-    });
+    const payload = await response.json();
+    spyPrices = payload.prices || {};
 
     if (status) {
-      status.textContent = "Prix SPY chargés.";
+      status.textContent =
+        "Prix SPY chargés : " + (payload.last_updated || "—") + " — Source : " + (payload.source || "—");
     }
   } catch (error) {
     console.error(error);
@@ -264,7 +253,8 @@ async function loadSpyPrices() {
     spyPrices = {};
 
     if (status) {
-      status.textContent = "Prix SPY non disponibles. Si le tableau reste vide, on passera par GitHub Actions.";
+      status.textContent =
+        "Prix SPY non disponibles. Vérifie que data/spy.json existe bien.";
     }
   }
 }
