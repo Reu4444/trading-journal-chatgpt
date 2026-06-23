@@ -235,6 +235,20 @@ th[data-sort]:hover {
   text-decoration: underline;
 }
 
+.tag-input {
+  width: 150px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.tag-input:focus {
+  outline: 2px solid #111111;
+  outline-offset: 1px;
+}
+
 .pnl-good {
   color: var(--good);
   font-weight: 700;
