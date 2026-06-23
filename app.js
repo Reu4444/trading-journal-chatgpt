@@ -720,7 +720,10 @@ function renderIfKept() {
 
   tbody.innerHTML = "";
 
-  const losingTrades = filteredTrades.filter(trade => realizedPnl(trade) < 0);
+ const losingTrades = filteredTrades.filter(trade => {
+  const side = String(trade.side || "").toLowerCase();
+  return realizedPnl(trade) < 0 && side !== "short";
+});
 
   if (!losingTrades.length) {
     const tr = document.createElement("tr");
