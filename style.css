@@ -232,14 +232,16 @@ td {
 
 th[data-sort],
 th[data-spy-sort],
-th[data-bw-sort] {
+th[data-bw-sort],
+th[data-ifkept-sort] {
   cursor: pointer;
   user-select: none;
 }
 
 th[data-sort]:hover,
 th[data-spy-sort]:hover,
-th[data-bw-sort]:hover {
+th[data-bw-sort]:hover,
+th[data-ifkept-sort]:hover {
   color: #111111;
   text-decoration: underline;
 }
