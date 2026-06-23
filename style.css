@@ -230,12 +230,14 @@ td {
   white-space: nowrap;
 }
 
-th[data-sort] {
+th[data-sort],
+th[data-spy-sort] {
   cursor: pointer;
   user-select: none;
 }
 
-th[data-sort]:hover {
+th[data-sort]:hover,
+th[data-spy-sort]:hover {
   color: #111111;
   text-decoration: underline;
 }
