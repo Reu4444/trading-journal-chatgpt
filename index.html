@@ -36,42 +36,34 @@
         <span>P&L total</span>
         <strong id="statsTotalPnl">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Trades</span>
         <strong id="statsTradeCount">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Profit factor</span>
         <strong id="statsProfitFactor">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Win rate</span>
         <strong id="statsWinRate">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Avg win %</span>
         <strong id="statsAvgWinPct">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Avg loss %</span>
         <strong id="statsAvgLossPct">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Avg win USD</span>
         <strong id="statsAvgWinUsd">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Avg loss USD</span>
         <strong id="statsAvgLossUsd">—</strong>
       </div>
-
       <div class="stat-item">
         <span>Ratio</span>
         <strong id="statsAvgWinLossRatio">—</strong>
@@ -82,7 +74,7 @@
       <button class="tab-button active" data-tab="journal">Journal</button>
       <button class="tab-button" data-tab="statistics">Statistics</button>
       <button class="tab-button" data-tab="bestworst">Best / Worst 20%</button>
-      <button class="tab-button" data-tab="spy">SPY Comparison</button>  
+      <button class="tab-button" data-tab="spy">SPY Comparison</button>
     </nav>
 
     <section id="journalTab" class="tab-content active">
@@ -224,6 +216,62 @@
       </section>
     </section>
 
+    <section id="bestWorstTab" class="tab-content">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>20% meilleurs trades</h2>
+            <p>Meilleurs trades par P&L. Tu peux cliquer sur les colonnes pour trier.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-bw-table="best" data-bw-sort="open_date">Entry date</th>
+                <th data-bw-table="best" data-bw-sort="close_date">Exit date</th>
+                <th data-bw-table="best" data-bw-sort="symbol">Ticker</th>
+                <th data-bw-table="best" data-bw-sort="quantity">Qté</th>
+                <th data-bw-table="best" data-bw-sort="entry_price">Entrée</th>
+                <th data-bw-table="best" data-bw-sort="exit_price">Sortie</th>
+                <th data-bw-table="best" data-bw-sort="realized_pnl">P&L USD</th>
+                <th data-bw-table="best" data-bw-sort="pnl_pct">P&L %</th>
+              </tr>
+            </thead>
+            <tbody id="bestTradesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>20% plus mauvais trades</h2>
+            <p>Plus mauvais trades par P&L. Tu peux cliquer sur les colonnes pour trier.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-bw-table="worst" data-bw-sort="open_date">Entry date</th>
+                <th data-bw-table="worst" data-bw-sort="close_date">Exit date</th>
+                <th data-bw-table="worst" data-bw-sort="symbol">Ticker</th>
+                <th data-bw-table="worst" data-bw-sort="quantity">Qté</th>
+                <th data-bw-table="worst" data-bw-sort="entry_price">Entrée</th>
+                <th data-bw-table="worst" data-bw-sort="exit_price">Sortie</th>
+                <th data-bw-table="worst" data-bw-sort="realized_pnl">P&L USD</th>
+                <th data-bw-table="worst" data-bw-sort="pnl_pct">P&L %</th>
+              </tr>
+            </thead>
+            <tbody id="worstTradesTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
     <section id="spyTab" class="tab-content">
       <section class="panel">
         <div class="panel-header">
@@ -250,62 +298,6 @@
               </tr>
             </thead>
             <tbody id="spyComparisonTable"></tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-
-    <section id="bestWorstTab" class="tab-content">
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>20% meilleurs trades</h2>
-            <p>Meilleurs trades par P&L, affichés du plus récent au plus ancien.</p>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Entry date</th>
-                <th>Exit date</th>
-                <th>Ticker</th>
-                <th>Qté</th>
-                <th>Entrée</th>
-                <th>Sortie</th>
-                <th>P&L USD</th>
-                <th>P&L %</th>
-              </tr>
-            </thead>
-            <tbody id="bestTradesTable"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>20% plus mauvais trades</h2>
-            <p>Plus mauvais trades par P&L, affichés du plus récent au plus ancien.</p>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Entry date</th>
-                <th>Exit date</th>
-                <th>Ticker</th>
-                <th>Qté</th>
-                <th>Entrée</th>
-                <th>Sortie</th>
-                <th>P&L USD</th>
-                <th>P&L %</th>
-              </tr>
-            </thead>
-            <tbody id="worstTradesTable"></tbody>
           </table>
         </div>
       </section>
