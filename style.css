@@ -339,6 +339,15 @@ th[data-ifkept-sort]:hover {
   font-size: 16px;
 }
 
+.notes-search {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 11px 14px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
 .notes-list {
   display: grid;
   gap: 10px;
