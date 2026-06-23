@@ -225,6 +225,16 @@ td {
   white-space: nowrap;
 }
 
+th[data-sort] {
+  cursor: pointer;
+  user-select: none;
+}
+
+th[data-sort]:hover {
+  color: #111111;
+  text-decoration: underline;
+}
+
 .pnl-good {
   color: var(--good);
   font-weight: 700;
