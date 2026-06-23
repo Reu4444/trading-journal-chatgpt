@@ -2,6 +2,7 @@ let trades = [];
 let filteredTrades = [];
 let equityChart;
 let tradeTags = {};
+let spyPrices = {};
 
 let tableSort = {
   key: "close_date",
@@ -188,6 +189,7 @@ function updateTradeTag(tradeKey, field, value) {
   tradeTags[tradeKey][field] = value;
   saveTradeTags();
   renderTagStats();
+  renderSpyComparison();
 }
 
 function pnlPct(trade) {
@@ -228,6 +230,76 @@ function applyDateFilter() {
   renderAll();
 }
 
+async function loadSpyPrices() {
+  const status = document.getElementById("spyStatus");
+
+  try {
+    const response = await fetch("https://stooq.com/q/d/l/?s=spy.us&i=d&ts=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("Impossible de charger SPY");
+    }
+
+    const csv = await response.text();
+    const rows = csv.trim().split("\n").slice(1);
+
+    spyPrices = {};
+
+    rows.forEach(row => {
+      const columns = row.split(",");
+      const date = columns[0];
+      const close = Number(columns[4]);
+
+      if (date && close) {
+        spyPrices[date] = close;
+      }
+    });
+
+    if (status) {
+      status.textContent = "Prix SPY chargés.";
+    }
+  } catch (error) {
+    console.error(error);
+
+    spyPrices = {};
+
+    if (status) {
+      status.textContent = "Prix SPY non disponibles. Si le tableau reste vide, on passera par GitHub Actions.";
+    }
+  }
+}
+
+function getNearestSpyPrice(dateStr) {
+  const date = getSortableDate(dateStr);
+  if (!date) return null;
+
+  if (spyPrices[date]) {
+    return spyPrices[date];
+  }
+
+  const dates = Object.keys(spyPrices).sort();
+  let nearest = null;
+
+  for (const spyDate of dates) {
+    if (spyDate <= date) {
+      nearest = spyDate;
+    } else {
+      break;
+    }
+  }
+
+  return nearest ? spyPrices[nearest] : null;
+}
+
+function getSpyPctForTrade(trade) {
+  const entrySpy = getNearestSpyPrice(trade.open_date);
+  const exitSpy = getNearestSpyPrice(trade.close_date);
+
+  if (!entrySpy || !exitSpy) return "";
+
+  return ((exitSpy - entrySpy) / entrySpy) * 100;
+}
+
 async function loadTrades() {
   loadTradeTags();
 
@@ -239,6 +311,8 @@ async function loadTrades() {
 
   document.getElementById("lastUpdated").textContent =
     "Dernière mise à jour : " + (payload.last_updated || "—");
+
+  await loadSpyPrices();
 
   renderAll();
 }
@@ -442,6 +516,52 @@ function renderTradeRows(tableId, rows) {
     });
 }
 
+function renderSpyComparison() {
+  const tbody = document.getElementById("spyComparisonTable");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  if (!filteredTrades.length) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="9">Aucun trade pour cette période.</td>`;
+    tbody.appendChild(tr);
+    return;
+  }
+
+  filteredTrades
+    .slice()
+    .sort((a, b) => new Date(getSortableDate(b.close_date)) - new Date(getSortableDate(a.close_date)))
+    .forEach(trade => {
+      const tradeKey = getTradeKey(trade);
+      const tags = tradeTags[tradeKey] || { setup: "", mistake: "" };
+
+      const pnl = realizedPnl(trade);
+      const tradePct = pnlPct(trade);
+      const spyPct = getSpyPctForTrade(trade);
+
+      const alpha =
+        tradePct === "" || spyPct === ""
+          ? ""
+          : Number(tradePct) - Number(spyPct);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${fmtDate(trade.open_date)}</td>
+        <td>${fmtDate(trade.close_date)}</td>
+        <td><strong>${trade.symbol || ""}</strong></td>
+        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
+        <td class="${tradePct === "" ? "" : tradePct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(tradePct)}</td>
+        <td class="${spyPct === "" ? "" : spyPct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(spyPct)}</td>
+        <td class="${alpha === "" ? "" : alpha >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(alpha)}</td>
+        <td>${escapeHtml(tags.setup)}</td>
+        <td>${escapeHtml(tags.mistake)}</td>
+      `;
+
+      tbody.appendChild(tr);
+    });
+}
+
 function renderEquityChart() {
   const daily = {};
 
@@ -619,6 +739,7 @@ function renderAll() {
   renderEquityChart();
   renderMonthlyStats();
   renderTagStats();
+  renderSpyComparison();
   renderBestWorstTrades();
 }
 
@@ -701,6 +822,10 @@ document.querySelectorAll(".tab-button").forEach(button => {
       setTimeout(() => {
         if (equityChart) equityChart.resize();
       }, 50);
+    }
+
+    if (tab === "spy") {
+      document.getElementById("spyTab").classList.add("active");
     }
 
     if (tab === "bestworst") {
