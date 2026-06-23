@@ -3,6 +3,8 @@ name: Update IBKR Trading Journal
 on:
   workflow_dispatch:
   schedule:
+    # Tous les jours ouvrés vers 23:10 Zurich / Paris en été.
+    # GitHub Actions utilise UTC.
     - cron: "10 21 * * 1-5"
 
 permissions:
@@ -27,10 +29,13 @@ jobs:
           IBKR_FLEX_QUERY_ID: ${{ secrets.IBKR_FLEX_QUERY_ID }}
         run: python scripts/fetch_ibkr.py
 
+      - name: Fetch SPY prices
+        run: python scripts/fetch_spy.py
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/trades.json
-          git diff --cached --quiet || git commit -m "Update IBKR trades"
+          git add data/trades.json data/spy.json
+          git diff --cached --quiet || git commit -m "Update IBKR trades and SPY prices"
           git push
