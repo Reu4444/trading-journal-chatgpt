@@ -9,6 +9,11 @@ let tableSort = {
   direction: "desc"
 };
 
+let spySort = {
+  key: "close_date",
+  direction: "desc"
+};
+
 const TAGS_STORAGE_KEY = "ibkrTradingJournalTags";
 
 const fmtMoney = (value) => {
@@ -410,6 +415,52 @@ function sortTrades(rows) {
   });
 }
 
+function getSpySortValue(trade, key) {
+  const tradeKey = getTradeKey(trade);
+  const tags = tradeTags[tradeKey] || { setup: "", mistake: "" };
+
+  const tradePct = pnlPct(trade);
+  const spyPct = getSpyPctForTrade(trade);
+
+  const alpha =
+    tradePct === "" || spyPct === ""
+      ? ""
+      : Number(tradePct) - Number(spyPct);
+
+  if (key === "open_date") return getSortableDate(trade.open_date);
+  if (key === "close_date") return getSortableDate(trade.close_date);
+  if (key === "symbol") return String(trade.symbol || "").toUpperCase();
+  if (key === "realized_pnl") return realizedPnl(trade);
+  if (key === "trade_pct") return tradePct === "" ? null : Number(tradePct);
+  if (key === "spy_pct") return spyPct === "" ? null : Number(spyPct);
+  if (key === "alpha") return alpha === "" ? null : Number(alpha);
+  if (key === "setup") return String(tags.setup || "").toUpperCase();
+  if (key === "mistake") return String(tags.mistake || "").toUpperCase();
+
+  return "";
+}
+
+function sortSpyComparisonRows(rows) {
+  return rows.slice().sort((a, b) => {
+    const aValue = getSpySortValue(a, spySort.key);
+    const bValue = getSpySortValue(b, spySort.key);
+
+    if (aValue === null && bValue === null) return 0;
+    if (aValue === null) return 1;
+    if (bValue === null) return -1;
+
+    if (typeof aValue === "number" && typeof bValue === "number") {
+      return spySort.direction === "asc"
+        ? aValue - bValue
+        : bValue - aValue;
+    }
+
+    return spySort.direction === "asc"
+      ? String(aValue).localeCompare(String(bValue))
+      : String(bValue).localeCompare(String(aValue));
+  });
+}
+
 function escapeHtml(value) {
   return String(value || "")
     .replaceAll("&", "&amp;")
@@ -519,37 +570,34 @@ function renderSpyComparison() {
     return;
   }
 
-  filteredTrades
-    .slice()
-    .sort((a, b) => new Date(getSortableDate(b.close_date)) - new Date(getSortableDate(a.close_date)))
-    .forEach(trade => {
-      const tradeKey = getTradeKey(trade);
-      const tags = tradeTags[tradeKey] || { setup: "", mistake: "" };
+  sortSpyComparisonRows(filteredTrades).forEach(trade => {
+    const tradeKey = getTradeKey(trade);
+    const tags = tradeTags[tradeKey] || { setup: "", mistake: "" };
 
-      const pnl = realizedPnl(trade);
-      const tradePct = pnlPct(trade);
-      const spyPct = getSpyPctForTrade(trade);
+    const pnl = realizedPnl(trade);
+    const tradePct = pnlPct(trade);
+    const spyPct = getSpyPctForTrade(trade);
 
-      const alpha =
-        tradePct === "" || spyPct === ""
-          ? ""
-          : Number(tradePct) - Number(spyPct);
+    const alpha =
+      tradePct === "" || spyPct === ""
+        ? ""
+        : Number(tradePct) - Number(spyPct);
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${fmtDate(trade.open_date)}</td>
-        <td>${fmtDate(trade.close_date)}</td>
-        <td><strong>${trade.symbol || ""}</strong></td>
-        <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
-        <td class="${tradePct === "" ? "" : tradePct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(tradePct)}</td>
-        <td class="${spyPct === "" ? "" : spyPct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(spyPct)}</td>
-        <td class="${alpha === "" ? "" : alpha >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(alpha)}</td>
-        <td>${escapeHtml(tags.setup)}</td>
-        <td>${escapeHtml(tags.mistake)}</td>
-      `;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(trade.open_date)}</td>
+      <td>${fmtDate(trade.close_date)}</td>
+      <td><strong>${trade.symbol || ""}</strong></td>
+      <td class="${pnl >= 0 ? "pnl-good" : "pnl-bad"}">${fmtMoney(pnl)}</td>
+      <td class="${tradePct === "" ? "" : tradePct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(tradePct)}</td>
+      <td class="${spyPct === "" ? "" : spyPct >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(spyPct)}</td>
+      <td class="${alpha === "" ? "" : alpha >= 0 ? "pnl-good" : "pnl-bad"}">${fmtPct(alpha)}</td>
+      <td>${escapeHtml(tags.setup)}</td>
+      <td>${escapeHtml(tags.mistake)}</td>
+    `;
 
-      tbody.appendChild(tr);
-    });
+    tbody.appendChild(tr);
+  });
 }
 
 function renderEquityChart() {
@@ -791,6 +839,33 @@ document.querySelectorAll("#journalTab th[data-sort]").forEach(th => {
     }
 
     renderTable(filteredTrades);
+  });
+});
+
+document.querySelectorAll("#spyTab th[data-spy-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.spySort;
+
+    if (spySort.key === key) {
+      spySort.direction = spySort.direction === "desc" ? "asc" : "desc";
+    } else {
+      spySort.key = key;
+
+      if (
+        key === "realized_pnl" ||
+        key === "trade_pct" ||
+        key === "spy_pct" ||
+        key === "alpha" ||
+        key === "close_date" ||
+        key === "open_date"
+      ) {
+        spySort.direction = "desc";
+      } else {
+        spySort.direction = "asc";
+      }
+    }
+
+    renderSpyComparison();
   });
 });
 
