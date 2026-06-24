@@ -444,3 +444,23 @@ code {
     padding: 0 22px 28px;
   }
 }
+
+.best-worst-control {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.best-worst-control label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.best-worst-control select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 14px;
+  background: #ffffff;
+}
