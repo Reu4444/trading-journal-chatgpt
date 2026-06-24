@@ -184,61 +184,78 @@
       </section>
     </section>
 
-    <section id="bestWorstTab" class="tab-content">
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>20% meilleurs trades</h2>
-            <p>Meilleurs trades par P&L. Tu peux cliquer sur les colonnes pour trier.</p>
-          </div>
-        </div>
+<section id="bestWorstTab" class="tab-content">
+  <section class="panel">
+    <div class="panel-header">
+      <div>
+        <h2>Best / Worst 20%</h2>
+        <p>Choisis si le top 20% est calculé sur le P&L en USD ou le P&L en %. En mode P&L %, les shorts et options sont exclus.</p>
+      </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-bw-table="best" data-bw-sort="open_date">Entry date</th>
-                <th data-bw-table="best" data-bw-sort="close_date">Exit date</th>
-                <th data-bw-table="best" data-bw-sort="symbol">Ticker</th>
-                <th data-bw-table="best" data-bw-sort="quantity">Qté</th>
-                <th data-bw-table="best" data-bw-sort="entry_price">Entrée</th>
-                <th data-bw-table="best" data-bw-sort="exit_price">Sortie</th>
-                <th data-bw-table="best" data-bw-sort="realized_pnl">P&L USD</th>
-                <th data-bw-table="best" data-bw-sort="pnl_pct">P&L %</th>
-              </tr>
-            </thead>
-            <tbody id="bestTradesTable"></tbody>
-          </table>
-        </div>
-      </section>
+      <div class="best-worst-control">
+        <label for="bestWorstMetricSelect">Classement basé sur</label>
+        <select id="bestWorstMetricSelect">
+          <option value="usd">P&L USD</option>
+          <option value="pct">P&L %</option>
+        </select>
+      </div>
+    </div>
+  </section>
 
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>20% plus mauvais trades</h2>
-            <p>Plus mauvais trades par P&L. Tu peux cliquer sur les colonnes pour trier.</p>
-          </div>
-        </div>
+  <section class="panel">
+    <div class="panel-header">
+      <div>
+        <h2>20% plus mauvais trades</h2>
+        <p>Plus mauvais trades selon le critère sélectionné.</p>
+      </div>
+    </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th data-bw-table="worst" data-bw-sort="open_date">Entry date</th>
-                <th data-bw-table="worst" data-bw-sort="close_date">Exit date</th>
-                <th data-bw-table="worst" data-bw-sort="symbol">Ticker</th>
-                <th data-bw-table="worst" data-bw-sort="quantity">Qté</th>
-                <th data-bw-table="worst" data-bw-sort="entry_price">Entrée</th>
-                <th data-bw-table="worst" data-bw-sort="exit_price">Sortie</th>
-                <th data-bw-table="worst" data-bw-sort="realized_pnl">P&L USD</th>
-                <th data-bw-table="worst" data-bw-sort="pnl_pct">P&L %</th>
-              </tr>
-            </thead>
-            <tbody id="worstTradesTable"></tbody>
-          </table>
-        </div>
-      </section>
-    </section>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-bw-table="worst" data-bw-sort="open_date">Entry date</th>
+            <th data-bw-table="worst" data-bw-sort="close_date">Exit date</th>
+            <th data-bw-table="worst" data-bw-sort="symbol">Ticker</th>
+            <th data-bw-table="worst" data-bw-sort="quantity">Qté</th>
+            <th data-bw-table="worst" data-bw-sort="entry_price">Entrée</th>
+            <th data-bw-table="worst" data-bw-sort="exit_price">Sortie</th>
+            <th data-bw-table="worst" data-bw-sort="realized_pnl">P&L USD</th>
+            <th data-bw-table="worst" data-bw-sort="pnl_pct">P&L %</th>
+          </tr>
+        </thead>
+        <tbody id="worstTradesTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header">
+      <div>
+        <h2>20% meilleurs trades</h2>
+        <p>Meilleurs trades selon le critère sélectionné.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-bw-table="best" data-bw-sort="open_date">Entry date</th>
+            <th data-bw-table="best" data-bw-sort="close_date">Exit date</th>
+            <th data-bw-table="best" data-bw-sort="symbol">Ticker</th>
+            <th data-bw-table="best" data-bw-sort="quantity">Qté</th>
+            <th data-bw-table="best" data-bw-sort="entry_price">Entrée</th>
+            <th data-bw-table="best" data-bw-sort="exit_price">Sortie</th>
+            <th data-bw-table="best" data-bw-sort="realized_pnl">P&L USD</th>
+            <th data-bw-table="best" data-bw-sort="pnl_pct">P&L %</th>
+          </tr>
+        </thead>
+        <tbody id="bestTradesTable"></tbody>
+      </table>
+    </div>
+  </section>
+</section>
 
     <section id="ifKeptTab" class="tab-content">
       <section class="panel">
