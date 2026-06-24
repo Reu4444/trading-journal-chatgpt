@@ -4,6 +4,7 @@ let equityChart;
 let tradeTags = {};
 let spyPrices = {};
 let currentPrices = {};
+let bestWorstMetric = "usd";
 
 let stocksNotes = [];
 let tradesNotes = [];
@@ -986,22 +987,49 @@ function renderTagStats() {
   renderGroupedTagStats("mistakeStatsTable", "mistake");
 }
 
+function isSimpleLongStockTrade(trade) {
+  const symbol = normalizeSymbol(trade.symbol);
+  const side = String(trade.side || "").toLowerCase();
+
+  return side !== "short" && symbol.length <= 5;
+}
+
+function getBestWorstMetricValue(trade) {
+  if (bestWorstMetric === "pct") {
+    return Number(pnlPct(trade) || 0);
+  }
+
+  return realizedPnl(trade);
+}
+
+
 function renderBestWorstTrades() {
-  const closedTrades = trades.filter(t => t.close_date);
+  let closedTrades = trades.filter(t => t.close_date);
+
+  if (bestWorstMetric === "pct") {
+    closedTrades = closedTrades.filter(isSimpleLongStockTrade);
+  }
+
+  if (!closedTrades.length) {
+    renderTradeRows("bestTradesTable", [], "best");
+    renderTradeRows("worstTradesTable", [], "worst");
+    return;
+  }
+
   const count = Math.max(1, Math.ceil(closedTrades.length * 0.2));
 
   const bestTrades = closedTrades
     .slice()
-    .sort((a, b) => realizedPnl(b) - realizedPnl(a))
+    .sort((a, b) => getBestWorstMetricValue(b) - getBestWorstMetricValue(a))
     .slice(0, count);
 
   const worstTrades = closedTrades
     .slice()
-    .sort((a, b) => realizedPnl(a) - realizedPnl(b))
+    .sort((a, b) => getBestWorstMetricValue(a) - getBestWorstMetricValue(b))
     .slice(0, count);
 
-  renderTradeRows("bestTradesTable", bestTrades, "best");
   renderTradeRows("worstTradesTable", worstTrades, "worst");
+  renderTradeRows("bestTradesTable", bestTrades, "best");
 }
 
 function renderAll() {
@@ -1458,6 +1486,24 @@ if (tradesDeleteNoteButton) {
 
 if (tradesNotesSearchInput) {
   tradesNotesSearchInput.addEventListener("input", () => renderNotesList("trades"));
+}
+
+const bestWorstMetricSelect = document.getElementById("bestWorstMetricSelect");
+
+if (bestWorstMetricSelect) {
+  bestWorstMetricSelect.addEventListener("change", event => {
+    bestWorstMetric = event.target.value;
+
+    const defaultSortKey = bestWorstMetric === "pct" ? "pnl_pct" : "realized_pnl";
+
+    bestWorstSort.best.key = defaultSortKey;
+    bestWorstSort.best.direction = "desc";
+
+    bestWorstSort.worst.key = defaultSortKey;
+    bestWorstSort.worst.direction = "asc";
+
+    renderBestWorstTrades();
+  });
 }
 
 loadTrades().catch(error => {
