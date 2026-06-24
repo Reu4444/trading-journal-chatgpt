@@ -1,6 +1,6 @@
 {
   "source": "Yahoo Finance",
-  "last_updated": "2026-06-23 22:21 UTC",
+  "last_updated": "2026-06-24 09:11 UTC",
   "prices": {
     "AAOI": {
       "symbol": "AAOI",
@@ -798,6 +798,13 @@
       "raw_symbol": "VERX",
       "yahoo_symbol": "VERX",
       "price": 10.92,
+      "last_price_date": "2026-06-23"
+    },
+    "VIK": {
+      "symbol": "VIK",
+      "raw_symbol": "VIK",
+      "yahoo_symbol": "VIK",
+      "price": 101.15,
       "last_price_date": "2026-06-23"
     },
     "VRT": {
