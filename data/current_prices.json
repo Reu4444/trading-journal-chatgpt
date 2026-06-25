@@ -1,867 +1,867 @@
 {
   "source": "Yahoo Finance",
-  "last_updated": "2026-06-25 11:02 UTC",
+  "last_updated": "2026-06-25 22:41 UTC",
   "prices": {
     "AAOI": {
       "symbol": "AAOI",
       "raw_symbol": "AAOI",
       "yahoo_symbol": "AAOI",
-      "price": 146.97,
-      "last_price_date": "2026-06-24"
+      "price": 138.54,
+      "last_price_date": "2026-06-25"
     },
     "AAPL": {
       "symbol": "AAPL",
       "raw_symbol": "AAPL",
       "yahoo_symbol": "AAPL",
-      "price": 293.08,
-      "last_price_date": "2026-06-24"
+      "price": 275.15,
+      "last_price_date": "2026-06-25"
     },
     "ABAT": {
       "symbol": "ABAT",
       "raw_symbol": "ABAT",
       "yahoo_symbol": "ABAT",
       "price": 2.7,
-      "last_price_date": "2026-06-24"
+      "last_price_date": "2026-06-25"
     },
     "ADP": {
       "symbol": "ADP",
       "raw_symbol": "ADP",
       "yahoo_symbol": "ADP",
-      "price": 219.855,
-      "last_price_date": "2026-06-24"
+      "price": 216.31,
+      "last_price_date": "2026-06-25"
     },
     "AMAT": {
       "symbol": "AMAT",
       "raw_symbol": "AMAT",
       "yahoo_symbol": "AMAT",
-      "price": 588.97,
-      "last_price_date": "2026-06-24"
+      "price": 668.0,
+      "last_price_date": "2026-06-25"
     },
     "AMZN": {
       "symbol": "AMZN",
       "raw_symbol": "AMZN",
       "yahoo_symbol": "AMZN",
-      "price": 234.27,
-      "last_price_date": "2026-06-24"
+      "price": 227.01,
+      "last_price_date": "2026-06-25"
     },
     "ANF": {
       "symbol": "ANF",
       "raw_symbol": "ANF",
       "yahoo_symbol": "ANF",
-      "price": 88.83,
-      "last_price_date": "2026-06-24"
+      "price": 89.35,
+      "last_price_date": "2026-06-25"
     },
     "ARM": {
       "symbol": "ARM",
       "raw_symbol": "ARM",
       "yahoo_symbol": "ARM",
-      "price": 359.08,
-      "last_price_date": "2026-06-24"
+      "price": 347.71,
+      "last_price_date": "2026-06-25"
     },
     "AS": {
       "symbol": "AS",
       "raw_symbol": "AS",
       "yahoo_symbol": "AS",
-      "price": 35.1,
-      "last_price_date": "2026-06-24"
+      "price": 34.12,
+      "last_price_date": "2026-06-25"
     },
     "ASTS": {
       "symbol": "ASTS",
       "raw_symbol": "ASTS",
       "yahoo_symbol": "ASTS",
-      "price": 68.01,
-      "last_price_date": "2026-06-24"
+      "price": 65.62,
+      "last_price_date": "2026-06-25"
     },
     "ASX": {
       "symbol": "ASX",
       "raw_symbol": "ASX",
       "yahoo_symbol": "ASX",
-      "price": 41.34,
-      "last_price_date": "2026-06-24"
+      "price": 41.85,
+      "last_price_date": "2026-06-25"
     },
     "AVT": {
       "symbol": "AVT",
       "raw_symbol": "AVT",
       "yahoo_symbol": "AVT",
-      "price": 88.24,
-      "last_price_date": "2026-06-24"
+      "price": 90.81,
+      "last_price_date": "2026-06-25"
     },
     "AXON": {
       "symbol": "AXON",
       "raw_symbol": "AXON",
       "yahoo_symbol": "AXON",
-      "price": 456.73,
-      "last_price_date": "2026-06-24"
+      "price": 444.73,
+      "last_price_date": "2026-06-25"
     },
     "AXP": {
       "symbol": "AXP",
       "raw_symbol": "AXP",
       "yahoo_symbol": "AXP",
-      "price": 342.56,
-      "last_price_date": "2026-06-24"
+      "price": 342.46,
+      "last_price_date": "2026-06-25"
     },
     "BA": {
       "symbol": "BA",
       "raw_symbol": "BA",
       "yahoo_symbol": "BA",
-      "price": 220.25,
-      "last_price_date": "2026-06-24"
+      "price": 218.12,
+      "last_price_date": "2026-06-25"
     },
     "BBVA": {
       "symbol": "BBVA",
       "raw_symbol": "BBVA",
       "yahoo_symbol": "BBVA",
-      "price": 24.16,
-      "last_price_date": "2026-06-24"
+      "price": 24.53,
+      "last_price_date": "2026-06-25"
     },
     "BE": {
       "symbol": "BE",
       "raw_symbol": "BE",
       "yahoo_symbol": "BE",
-      "price": 326.19,
-      "last_price_date": "2026-06-24"
+      "price": 309.18,
+      "last_price_date": "2026-06-25"
     },
     "BIDU": {
       "symbol": "BIDU",
       "raw_symbol": "BIDU",
       "yahoo_symbol": "BIDU",
-      "price": 107.82,
-      "last_price_date": "2026-06-24"
+      "price": 103.99,
+      "last_price_date": "2026-06-25"
     },
     "BLD": {
       "symbol": "BLD",
       "raw_symbol": "BLD",
       "yahoo_symbol": "BLD",
-      "price": 415.68,
-      "last_price_date": "2026-06-24"
+      "price": 427.14,
+      "last_price_date": "2026-06-25"
     },
     "BMA": {
       "symbol": "BMA",
       "raw_symbol": "BMA",
       "yahoo_symbol": "BMA",
-      "price": 89.69,
-      "last_price_date": "2026-06-24"
+      "price": 90.34,
+      "last_price_date": "2026-06-25"
     },
     "BMNR": {
       "symbol": "BMNR",
       "raw_symbol": "BMNR",
       "yahoo_symbol": "BMNR",
-      "price": 14.02,
-      "last_price_date": "2026-06-24"
+      "price": 13.32,
+      "last_price_date": "2026-06-25"
     },
     "BTU": {
       "symbol": "BTU",
       "raw_symbol": "BTU",
       "yahoo_symbol": "BTU",
-      "price": 23.29,
-      "last_price_date": "2026-06-24"
+      "price": 23.69,
+      "last_price_date": "2026-06-25"
     },
     "BUD": {
       "symbol": "BUD",
       "raw_symbol": "BUD",
       "yahoo_symbol": "BUD",
-      "price": 84.43,
-      "last_price_date": "2026-06-24"
+      "price": 84.08,
+      "last_price_date": "2026-06-25"
     },
     "CAT": {
       "symbol": "CAT",
       "raw_symbol": "CAT",
       "yahoo_symbol": "CAT",
-      "price": 994.45,
-      "last_price_date": "2026-06-24"
+      "price": 1057.01,
+      "last_price_date": "2026-06-25"
     },
     "CAVA": {
       "symbol": "CAVA",
       "raw_symbol": "CAVA",
       "yahoo_symbol": "CAVA",
-      "price": 82.24,
-      "last_price_date": "2026-06-24"
+      "price": 83.3,
+      "last_price_date": "2026-06-25"
     },
     "CBOE": {
       "symbol": "CBOE",
       "raw_symbol": "CBOE",
       "yahoo_symbol": "CBOE",
-      "price": 249.59,
-      "last_price_date": "2026-06-24"
+      "price": 244.98,
+      "last_price_date": "2026-06-25"
     },
     "CBRE": {
       "symbol": "CBRE",
       "raw_symbol": "CBRE",
       "yahoo_symbol": "CBRE",
-      "price": 133.94,
-      "last_price_date": "2026-06-24"
+      "price": 134.58,
+      "last_price_date": "2026-06-25"
     },
     "CIFR": {
       "symbol": "CIFR",
       "raw_symbol": "CIFR",
       "yahoo_symbol": "CIFR",
-      "price": 26.22,
-      "last_price_date": "2026-06-24"
+      "price": 25.68,
+      "last_price_date": "2026-06-25"
     },
     "CME": {
       "symbol": "CME",
       "raw_symbol": "CME",
       "yahoo_symbol": "CME",
-      "price": 231.68,
-      "last_price_date": "2026-06-24"
+      "price": 225.0,
+      "last_price_date": "2026-06-25"
     },
     "COCO": {
       "symbol": "COCO",
       "raw_symbol": "COCO",
       "yahoo_symbol": "COCO",
-      "price": 82.79,
-      "last_price_date": "2026-06-24"
+      "price": 82.55,
+      "last_price_date": "2026-06-25"
     },
     "COMP": {
       "symbol": "COMP",
       "raw_symbol": "COMP",
       "yahoo_symbol": "COMP",
-      "price": 10.65,
-      "last_price_date": "2026-06-24"
+      "price": 11.05,
+      "last_price_date": "2026-06-25"
     },
     "CRDO": {
       "symbol": "CRDO",
       "raw_symbol": "CRDO",
       "yahoo_symbol": "CRDO",
-      "price": 268.99,
-      "last_price_date": "2026-06-24"
+      "price": 268.03,
+      "last_price_date": "2026-06-25"
     },
     "CROX": {
       "symbol": "CROX",
       "raw_symbol": "CROX",
       "yahoo_symbol": "CROX",
-      "price": 121.4,
-      "last_price_date": "2026-06-24"
+      "price": 118.88,
+      "last_price_date": "2026-06-25"
     },
     "CRWV": {
       "symbol": "CRWV",
       "raw_symbol": "CRWV",
       "yahoo_symbol": "CRWV",
-      "price": 100.88,
-      "last_price_date": "2026-06-24"
+      "price": 98.76,
+      "last_price_date": "2026-06-25"
     },
     "DASH": {
       "symbol": "DASH",
       "raw_symbol": "DASH",
       "yahoo_symbol": "DASH",
-      "price": 177.93,
-      "last_price_date": "2026-06-24"
+      "price": 176.91,
+      "last_price_date": "2026-06-25"
     },
     "DELL": {
       "symbol": "DELL",
       "raw_symbol": "DELL",
       "yahoo_symbol": "DELL",
-      "price": 434.06,
-      "last_price_date": "2026-06-24"
+      "price": 409.45,
+      "last_price_date": "2026-06-25"
     },
     "DIA": {
       "symbol": "DIA",
       "raw_symbol": "DIA",
       "yahoo_symbol": "DIA",
-      "price": 518.52,
-      "last_price_date": "2026-06-24"
+      "price": 519.26,
+      "last_price_date": "2026-06-25"
     },
     "DLX": {
       "symbol": "DLX",
       "raw_symbol": "DLX",
       "yahoo_symbol": "DLX",
-      "price": 23.5,
-      "last_price_date": "2026-06-24"
+      "price": 23.27,
+      "last_price_date": "2026-06-25"
     },
     "EEM": {
       "symbol": "EEM",
       "raw_symbol": "EEM",
       "yahoo_symbol": "EEM",
-      "price": 67.25,
-      "last_price_date": "2026-06-24"
+      "price": 67.96,
+      "last_price_date": "2026-06-25"
     },
     "ENLT": {
       "symbol": "ENLT",
       "raw_symbol": "ENLT",
       "yahoo_symbol": "ENLT",
-      "price": 91.15,
-      "last_price_date": "2026-06-24"
+      "price": 88.41,
+      "last_price_date": "2026-06-25"
     },
     "FAST": {
       "symbol": "FAST",
       "raw_symbol": "FAST",
       "yahoo_symbol": "FAST",
-      "price": 46.26,
-      "last_price_date": "2026-06-24"
+      "price": 46.92,
+      "last_price_date": "2026-06-25"
     },
     "FDX": {
       "symbol": "FDX",
       "raw_symbol": "FDX",
       "yahoo_symbol": "FDX",
-      "price": 316.83,
-      "last_price_date": "2026-06-24"
+      "price": 329.44,
+      "last_price_date": "2026-06-25"
     },
     "FSLR": {
       "symbol": "FSLR",
       "raw_symbol": "FSLR",
       "yahoo_symbol": "FSLR",
-      "price": 248.36,
-      "last_price_date": "2026-06-24"
+      "price": 248.64,
+      "last_price_date": "2026-06-25"
     },
     "FTAI": {
       "symbol": "FTAI",
       "raw_symbol": "FTAI",
       "yahoo_symbol": "FTAI",
-      "price": 272.14,
-      "last_price_date": "2026-06-24"
+      "price": 268.4,
+      "last_price_date": "2026-06-25"
     },
     "FUTU": {
       "symbol": "FUTU",
       "raw_symbol": "FUTU",
       "yahoo_symbol": "FUTU",
-      "price": 98.3,
-      "last_price_date": "2026-06-24"
+      "price": 98.12,
+      "last_price_date": "2026-06-25"
     },
     "GEV": {
       "symbol": "GEV",
       "raw_symbol": "GEV",
       "yahoo_symbol": "GEV",
-      "price": 1057.65,
-      "last_price_date": "2026-06-24"
+      "price": 1085.47,
+      "last_price_date": "2026-06-25"
     },
     "GLW": {
       "symbol": "GLW",
       "raw_symbol": "GLW",
       "yahoo_symbol": "GLW",
-      "price": 205.83,
-      "last_price_date": "2026-06-24"
+      "price": 228.01,
+      "last_price_date": "2026-06-25"
     },
     "GMAB": {
       "symbol": "GMAB",
       "raw_symbol": "GMAB",
       "yahoo_symbol": "GMAB",
-      "price": 25.865,
-      "last_price_date": "2026-06-24"
+      "price": 26.14,
+      "last_price_date": "2026-06-25"
     },
     "GOOGL": {
       "symbol": "GOOGL",
       "raw_symbol": "GOOGL",
       "yahoo_symbol": "GOOGL",
-      "price": 345.29,
-      "last_price_date": "2026-06-24"
+      "price": 343.71,
+      "last_price_date": "2026-06-25"
     },
     "HOOD": {
       "symbol": "HOOD",
       "raw_symbol": "HOOD",
       "yahoo_symbol": "HOOD",
-      "price": 97.19,
-      "last_price_date": "2026-06-24"
+      "price": 93.47,
+      "last_price_date": "2026-06-25"
     },
     "IBM": {
       "symbol": "IBM",
       "raw_symbol": "IBM",
       "yahoo_symbol": "IBM",
-      "price": 262.96,
-      "last_price_date": "2026-06-24"
+      "price": 258.27,
+      "last_price_date": "2026-06-25"
     },
     "IMO": {
       "symbol": "IMO",
       "raw_symbol": "IMO",
       "yahoo_symbol": "IMO",
-      "price": 112.5,
-      "last_price_date": "2026-06-24"
+      "price": 113.28,
+      "last_price_date": "2026-06-25"
     },
     "IONQ": {
       "symbol": "IONQ",
       "raw_symbol": "IONQ",
       "yahoo_symbol": "IONQ",
-      "price": 53.6,
-      "last_price_date": "2026-06-24"
+      "price": 50.56,
+      "last_price_date": "2026-06-25"
     },
     "IRDM": {
       "symbol": "IRDM",
       "raw_symbol": "IRDM",
       "yahoo_symbol": "IRDM",
-      "price": 42.28,
-      "last_price_date": "2026-06-24"
+      "price": 41.84,
+      "last_price_date": "2026-06-25"
     },
     "JNJ": {
       "symbol": "JNJ",
       "raw_symbol": "JNJ",
       "yahoo_symbol": "JNJ",
-      "price": 241.0,
-      "last_price_date": "2026-06-24"
+      "price": 244.88,
+      "last_price_date": "2026-06-25"
     },
     "KMI": {
       "symbol": "KMI",
       "raw_symbol": "KMI",
       "yahoo_symbol": "KMI",
-      "price": 32.59,
-      "last_price_date": "2026-06-24"
+      "price": 33.01,
+      "last_price_date": "2026-06-25"
     },
     "LEU": {
       "symbol": "LEU",
       "raw_symbol": "LEU",
       "yahoo_symbol": "LEU",
-      "price": 171.13,
-      "last_price_date": "2026-06-24"
+      "price": 170.38,
+      "last_price_date": "2026-06-25"
     },
     "LITE": {
       "symbol": "LITE",
       "raw_symbol": "LITE",
       "yahoo_symbol": "LITE",
-      "price": 842.53,
-      "last_price_date": "2026-06-24"
+      "price": 861.97,
+      "last_price_date": "2026-06-25"
     },
     "LLY": {
       "symbol": "LLY",
       "raw_symbol": "LLY",
       "yahoo_symbol": "LLY",
-      "price": 1117.26,
-      "last_price_date": "2026-06-24"
+      "price": 1127.69,
+      "last_price_date": "2026-06-25"
     },
     "LRCX": {
       "symbol": "LRCX",
       "raw_symbol": "LRCX",
       "yahoo_symbol": "LRCX",
-      "price": 374.8,
-      "last_price_date": "2026-06-24"
+      "price": 401.82,
+      "last_price_date": "2026-06-25"
     },
     "LSCC": {
       "symbol": "LSCC",
       "raw_symbol": "LSCC",
       "yahoo_symbol": "LSCC",
-      "price": 143.93,
-      "last_price_date": "2026-06-24"
+      "price": 144.2,
+      "last_price_date": "2026-06-25"
     },
     "LVS": {
       "symbol": "LVS",
       "raw_symbol": "LVS",
       "yahoo_symbol": "LVS",
-      "price": 47.76,
-      "last_price_date": "2026-06-24"
+      "price": 46.28,
+      "last_price_date": "2026-06-25"
     },
     "MAR": {
       "symbol": "MAR",
       "raw_symbol": "MAR",
       "yahoo_symbol": "MAR",
-      "price": 383.56,
-      "last_price_date": "2026-06-24"
+      "price": 378.91,
+      "last_price_date": "2026-06-25"
     },
     "MCD": {
       "symbol": "MCD",
       "raw_symbol": "MCD",
       "yahoo_symbol": "MCD",
-      "price": 273.88,
-      "last_price_date": "2026-06-24"
+      "price": 264.54,
+      "last_price_date": "2026-06-25"
     },
     "MCHP": {
       "symbol": "MCHP",
       "raw_symbol": "MCHP",
       "yahoo_symbol": "MCHP",
-      "price": 92.48,
-      "last_price_date": "2026-06-24"
+      "price": 94.12,
+      "last_price_date": "2026-06-25"
     },
     "META": {
       "symbol": "META",
       "raw_symbol": "META",
       "yahoo_symbol": "META",
-      "price": 557.67,
-      "last_price_date": "2026-06-24"
+      "price": 542.87,
+      "last_price_date": "2026-06-25"
     },
     "MO": {
       "symbol": "MO",
       "raw_symbol": "MO",
       "yahoo_symbol": "MO",
-      "price": 72.07,
-      "last_price_date": "2026-06-24"
+      "price": 73.21,
+      "last_price_date": "2026-06-25"
     },
     "MSI": {
       "symbol": "MSI",
       "raw_symbol": "MSI",
       "yahoo_symbol": "MSI",
-      "price": 400.6,
-      "last_price_date": "2026-06-24"
+      "price": 397.01,
+      "last_price_date": "2026-06-25"
     },
     "MU": {
       "symbol": "MU",
       "raw_symbol": "MU",
       "yahoo_symbol": "MU",
-      "price": 1048.51,
-      "last_price_date": "2026-06-24"
+      "price": 1213.56,
+      "last_price_date": "2026-06-25"
     },
     "MUFG": {
       "symbol": "MUFG",
       "raw_symbol": "MUFG",
       "yahoo_symbol": "MUFG",
-      "price": 19.81,
-      "last_price_date": "2026-06-24"
+      "price": 20.02,
+      "last_price_date": "2026-06-25"
     },
     "NBIS": {
       "symbol": "NBIS",
       "raw_symbol": "NBIS",
       "yahoo_symbol": "NBIS",
-      "price": 259.66,
-      "last_price_date": "2026-06-24"
+      "price": 256.63,
+      "last_price_date": "2026-06-25"
     },
     "NTGR": {
       "symbol": "NTGR",
       "raw_symbol": "NTGR",
       "yahoo_symbol": "NTGR",
-      "price": 23.21,
-      "last_price_date": "2026-06-24"
+      "price": 22.78,
+      "last_price_date": "2026-06-25"
     },
     "NUE": {
       "symbol": "NUE",
       "raw_symbol": "NUE",
       "yahoo_symbol": "NUE",
-      "price": 240.52,
-      "last_price_date": "2026-06-24"
+      "price": 248.89,
+      "last_price_date": "2026-06-25"
     },
     "NVDA": {
       "symbol": "NVDA",
       "raw_symbol": "NVDA",
       "yahoo_symbol": "NVDA",
-      "price": 199.0,
-      "last_price_date": "2026-06-24"
+      "price": 195.74,
+      "last_price_date": "2026-06-25"
     },
     "NVTS": {
       "symbol": "NVTS",
       "raw_symbol": "NVTS",
       "yahoo_symbol": "NVTS",
-      "price": 18.32,
-      "last_price_date": "2026-06-24"
+      "price": 17.7,
+      "last_price_date": "2026-06-25"
     },
     "OHI": {
       "symbol": "OHI",
       "raw_symbol": "OHI",
       "yahoo_symbol": "OHI",
-      "price": 47.38,
-      "last_price_date": "2026-06-24"
+      "price": 47.62,
+      "last_price_date": "2026-06-25"
     },
     "ONDS": {
       "symbol": "ONDS",
       "raw_symbol": "ONDS",
       "yahoo_symbol": "ONDS",
-      "price": 7.68,
-      "last_price_date": "2026-06-24"
+      "price": 7.675,
+      "last_price_date": "2026-06-25"
     },
     "OPEN": {
       "symbol": "OPEN",
       "raw_symbol": "OPEN",
       "yahoo_symbol": "OPEN",
-      "price": 4.28,
-      "last_price_date": "2026-06-24"
+      "price": 4.3,
+      "last_price_date": "2026-06-25"
     },
     "ORCL": {
       "symbol": "ORCL",
       "raw_symbol": "ORCL",
       "yahoo_symbol": "ORCL",
-      "price": 157.53,
-      "last_price_date": "2026-06-24"
+      "price": 152.46,
+      "last_price_date": "2026-06-25"
     },
     "OTIS": {
       "symbol": "OTIS",
       "raw_symbol": "OTIS",
       "yahoo_symbol": "OTIS",
-      "price": 72.63,
-      "last_price_date": "2026-06-24"
+      "price": 73.63,
+      "last_price_date": "2026-06-25"
     },
     "PANW": {
       "symbol": "PANW",
       "raw_symbol": "PANW",
       "yahoo_symbol": "PANW",
-      "price": 285.26,
-      "last_price_date": "2026-06-24"
+      "price": 293.09,
+      "last_price_date": "2026-06-25"
     },
     "PDD": {
       "symbol": "PDD",
       "raw_symbol": "PDD",
       "yahoo_symbol": "PDD",
-      "price": 75.74,
-      "last_price_date": "2026-06-24"
+      "price": 73.3,
+      "last_price_date": "2026-06-25"
     },
     "PEG": {
       "symbol": "PEG",
       "raw_symbol": "PEG",
       "yahoo_symbol": "PEG",
-      "price": 81.95,
-      "last_price_date": "2026-06-24"
+      "price": 82.63,
+      "last_price_date": "2026-06-25"
     },
     "PENG": {
       "symbol": "PENG",
       "raw_symbol": "PENG",
       "yahoo_symbol": "PENG",
-      "price": 64.72,
-      "last_price_date": "2026-06-24"
+      "price": 66.77,
+      "last_price_date": "2026-06-25"
     },
     "PL": {
       "symbol": "PL",
       "raw_symbol": "PL",
       "yahoo_symbol": "PL",
-      "price": 26.3,
-      "last_price_date": "2026-06-24"
+      "price": 26.51,
+      "last_price_date": "2026-06-25"
     },
     "PLTR": {
       "symbol": "PLTR",
       "raw_symbol": "PLTR",
       "yahoo_symbol": "PLTR",
-      "price": 113.5,
-      "last_price_date": "2026-06-24"
+      "price": 107.27,
+      "last_price_date": "2026-06-25"
     },
     "PR": {
       "symbol": "PR",
       "raw_symbol": "PR",
       "yahoo_symbol": "PR",
-      "price": 18.7,
-      "last_price_date": "2026-06-24"
+      "price": 18.86,
+      "last_price_date": "2026-06-25"
     },
     "PWR": {
       "symbol": "PWR",
       "raw_symbol": "PWR",
       "yahoo_symbol": "PWR",
-      "price": 701.88,
-      "last_price_date": "2026-06-24"
+      "price": 718.59,
+      "last_price_date": "2026-06-25"
     },
     "QQQ": {
       "symbol": "QQQ",
       "raw_symbol": "QQQ",
       "yahoo_symbol": "QQQ",
-      "price": 710.62,
-      "last_price_date": "2026-06-24"
+      "price": 716.38,
+      "last_price_date": "2026-06-25"
     },
     "RKLB": {
       "symbol": "RKLB",
       "raw_symbol": "RKLB",
       "yahoo_symbol": "RKLB",
-      "price": 85.41,
-      "last_price_date": "2026-06-24"
+      "price": 80.69,
+      "last_price_date": "2026-06-25"
     },
     "RTX": {
       "symbol": "RTX",
       "raw_symbol": "RTX",
       "yahoo_symbol": "RTX",
-      "price": 185.06,
-      "last_price_date": "2026-06-24"
+      "price": 186.59,
+      "last_price_date": "2026-06-25"
     },
     "SG": {
       "symbol": "SG",
       "raw_symbol": "SG",
       "yahoo_symbol": "SG",
-      "price": 8.9,
-      "last_price_date": "2026-06-24"
+      "price": 8.96,
+      "last_price_date": "2026-06-25"
     },
     "SKM": {
       "symbol": "SKM",
       "raw_symbol": "SKM",
       "yahoo_symbol": "SKM",
-      "price": 32.96,
-      "last_price_date": "2026-06-24"
+      "price": 33.55,
+      "last_price_date": "2026-06-25"
     },
     "SMCI": {
       "symbol": "SMCI",
       "raw_symbol": "SMCI",
       "yahoo_symbol": "SMCI",
-      "price": 32.45,
-      "last_price_date": "2026-06-24"
+      "price": 31.68,
+      "last_price_date": "2026-06-25"
     },
     "SNDK": {
       "symbol": "SNDK",
       "raw_symbol": "SNDK",
       "yahoo_symbol": "SNDK",
-      "price": 1914.46,
-      "last_price_date": "2026-06-24"
+      "price": 2335.0,
+      "last_price_date": "2026-06-25"
     },
     "SOFI": {
       "symbol": "SOFI",
       "raw_symbol": "SOFI",
       "yahoo_symbol": "SOFI",
-      "price": 17.31,
-      "last_price_date": "2026-06-24"
+      "price": 17.3,
+      "last_price_date": "2026-06-25"
     },
     "SPY": {
       "symbol": "SPY",
       "raw_symbol": "SPY",
       "yahoo_symbol": "SPY",
-      "price": 733.24,
-      "last_price_date": "2026-06-24"
+      "price": 734.3,
+      "last_price_date": "2026-06-25"
     },
     "SQM": {
       "symbol": "SQM",
       "raw_symbol": "SQM",
       "yahoo_symbol": "SQM",
-      "price": 75.58,
-      "last_price_date": "2026-06-24"
+      "price": 73.11,
+      "last_price_date": "2026-06-25"
     },
     "STRL": {
       "symbol": "STRL",
       "raw_symbol": "STRL",
       "yahoo_symbol": "STRL",
-      "price": 867.23,
-      "last_price_date": "2026-06-24"
+      "price": 881.92,
+      "last_price_date": "2026-06-25"
     },
     "STX": {
       "symbol": "STX",
       "raw_symbol": "STX",
       "yahoo_symbol": "STX",
-      "price": 993.25,
-      "last_price_date": "2026-06-24"
+      "price": 1025.36,
+      "last_price_date": "2026-06-25"
     },
     "SYM": {
       "symbol": "SYM",
       "raw_symbol": "SYM",
       "yahoo_symbol": "SYM",
-      "price": 39.43,
-      "last_price_date": "2026-06-24"
+      "price": 40.77,
+      "last_price_date": "2026-06-25"
     },
     "TPG": {
       "symbol": "TPG",
       "raw_symbol": "TPG",
       "yahoo_symbol": "TPG",
-      "price": 38.74,
-      "last_price_date": "2026-06-24"
+      "price": 40.02,
+      "last_price_date": "2026-06-25"
     },
     "TPR": {
       "symbol": "TPR",
       "raw_symbol": "TPR",
       "yahoo_symbol": "TPR",
-      "price": 149.75,
-      "last_price_date": "2026-06-24"
+      "price": 146.0,
+      "last_price_date": "2026-06-25"
     },
     "TRV": {
       "symbol": "TRV",
       "raw_symbol": "TRV",
       "yahoo_symbol": "TRV",
-      "price": 320.74,
-      "last_price_date": "2026-06-24"
+      "price": 318.29,
+      "last_price_date": "2026-06-25"
     },
     "TSEM": {
       "symbol": "TSEM",
       "raw_symbol": "TSEM",
       "yahoo_symbol": "TSEM",
-      "price": 275.32,
-      "last_price_date": "2026-06-24"
+      "price": 269.88,
+      "last_price_date": "2026-06-25"
     },
     "TSLA": {
       "symbol": "TSLA",
       "raw_symbol": "TSLA",
       "yahoo_symbol": "TSLA",
-      "price": 375.53,
-      "last_price_date": "2026-06-24"
+      "price": 375.12,
+      "last_price_date": "2026-06-25"
     },
     "TSM": {
       "symbol": "TSM",
       "raw_symbol": "TSM",
       "yahoo_symbol": "TSM",
-      "price": 440.83,
-      "last_price_date": "2026-06-24"
+      "price": 434.99,
+      "last_price_date": "2026-06-25"
     },
     "TT": {
       "symbol": "TT",
       "raw_symbol": "TT",
       "yahoo_symbol": "TT",
-      "price": 483.15,
-      "last_price_date": "2026-06-24"
+      "price": 503.46,
+      "last_price_date": "2026-06-25"
     },
     "TTWO": {
       "symbol": "TTWO",
       "raw_symbol": "TTWO",
       "yahoo_symbol": "TTWO",
-      "price": 235.77,
-      "last_price_date": "2026-06-24"
+      "price": 238.72,
+      "last_price_date": "2026-06-25"
     },
     "TWLO": {
       "symbol": "TWLO",
       "raw_symbol": "TWLO",
       "yahoo_symbol": "TWLO",
-      "price": 188.34,
-      "last_price_date": "2026-06-24"
+      "price": 190.88,
+      "last_price_date": "2026-06-25"
     },
     "UAL": {
       "symbol": "UAL",
       "raw_symbol": "UAL",
       "yahoo_symbol": "UAL",
-      "price": 130.54,
-      "last_price_date": "2026-06-24"
+      "price": 134.605,
+      "last_price_date": "2026-06-25"
     },
     "UNH": {
       "symbol": "UNH",
       "raw_symbol": "UNH",
       "yahoo_symbol": "UNH",
-      "price": 405.8,
-      "last_price_date": "2026-06-24"
+      "price": 415.53,
+      "last_price_date": "2026-06-25"
     },
     "URBN": {
       "symbol": "URBN",
       "raw_symbol": "URBN",
       "yahoo_symbol": "URBN",
-      "price": 72.32,
-      "last_price_date": "2026-06-24"
+      "price": 71.37,
+      "last_price_date": "2026-06-25"
     },
     "URI": {
       "symbol": "URI",
       "raw_symbol": "URI",
       "yahoo_symbol": "URI",
-      "price": 1083.72,
-      "last_price_date": "2026-06-24"
+      "price": 1139.51,
+      "last_price_date": "2026-06-25"
     },
     "USB": {
       "symbol": "USB",
       "raw_symbol": "USB",
       "yahoo_symbol": "USB",
-      "price": 60.11,
-      "last_price_date": "2026-06-24"
+      "price": 61.21,
+      "last_price_date": "2026-06-25"
     },
     "VERX": {
       "symbol": "VERX",
       "raw_symbol": "VERX",
       "yahoo_symbol": "VERX",
-      "price": 11.13,
-      "last_price_date": "2026-06-24"
+      "price": 10.84,
+      "last_price_date": "2026-06-25"
     },
     "VIK": {
       "symbol": "VIK",
       "raw_symbol": "VIK",
       "yahoo_symbol": "VIK",
-      "price": 103.05,
-      "last_price_date": "2026-06-24"
+      "price": 102.9,
+      "last_price_date": "2026-06-25"
     },
     "VRT": {
       "symbol": "VRT",
       "raw_symbol": "VRT",
       "yahoo_symbol": "VRT",
-      "price": 316.43,
-      "last_price_date": "2026-06-24"
+      "price": 325.57,
+      "last_price_date": "2026-06-25"
     },
     "VZ": {
       "symbol": "VZ",
       "raw_symbol": "VZ",
       "yahoo_symbol": "VZ",
-      "price": 45.68,
-      "last_price_date": "2026-06-24"
+      "price": 46.07,
+      "last_price_date": "2026-06-25"
     },
     "WMT": {
       "symbol": "WMT",
       "raw_symbol": "WMT",
       "yahoo_symbol": "WMT",
-      "price": 119.0,
-      "last_price_date": "2026-06-24"
+      "price": 115.78,
+      "last_price_date": "2026-06-25"
     },
     "XOM": {
       "symbol": "XOM",
       "raw_symbol": "XOM",
       "yahoo_symbol": "XOM",
-      "price": 136.9,
-      "last_price_date": "2026-06-24"
+      "price": 137.55,
+      "last_price_date": "2026-06-25"
     },
     "YPF": {
       "symbol": "YPF",
       "raw_symbol": "YPF",
       "yahoo_symbol": "YPF",
-      "price": 45.62,
-      "last_price_date": "2026-06-24"
+      "price": 45.76,
+      "last_price_date": "2026-06-25"
     },
     "ZEPP": {
       "symbol": "ZEPP",
       "raw_symbol": "ZEPP",
       "yahoo_symbol": "ZEPP",
-      "price": 4.45,
-      "last_price_date": "2026-06-24"
+      "price": 4.62,
+      "last_price_date": "2026-06-25"
     }
   },
   "failures": [
