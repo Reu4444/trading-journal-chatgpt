@@ -1,6 +1,6 @@
 {
   "source": "Yahoo Finance",
-  "last_updated": "2026-06-24 22:25 UTC",
+  "last_updated": "2026-06-25 11:02 UTC",
   "prices": {
     "AAOI": {
       "symbol": "AAOI",
@@ -93,6 +93,13 @@
       "price": 456.73,
       "last_price_date": "2026-06-24"
     },
+    "AXP": {
+      "symbol": "AXP",
+      "raw_symbol": "AXP",
+      "yahoo_symbol": "AXP",
+      "price": 342.56,
+      "last_price_date": "2026-06-24"
+    },
     "BA": {
       "symbol": "BA",
       "raw_symbol": "BA",
@@ -147,6 +154,13 @@
       "raw_symbol": "BTU",
       "yahoo_symbol": "BTU",
       "price": 23.29,
+      "last_price_date": "2026-06-24"
+    },
+    "BUD": {
+      "symbol": "BUD",
+      "raw_symbol": "BUD",
+      "yahoo_symbol": "BUD",
+      "price": 84.43,
       "last_price_date": "2026-06-24"
     },
     "CAT": {

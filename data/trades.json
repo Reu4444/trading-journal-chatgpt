@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-06-24 22:24 UTC",
+  "last_updated": "2026-06-25 11:01 UTC",
   "summary": {
-    "executions_count": 463,
+    "executions_count": 465,
     "closed_trades_count": 257,
-    "open_trades_count": 16
+    "open_trades_count": 18
   },
   "trades": [
     {
@@ -4628,6 +4628,42 @@
       "commission": 2.0,
       "strategy": "",
       "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260624;1",
+      "close_date": "",
+      "symbol": "BUD",
+      "side": "Long",
+      "quantity": 10.0,
+      "entry_price": 84.71,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.38,
+      "strategy": "",
+      "note": "Open position",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260624;1",
+      "close_date": "",
+      "symbol": "AXP",
+      "side": "Long",
+      "quantity": 3.0,
+      "entry_price": 342.4,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
