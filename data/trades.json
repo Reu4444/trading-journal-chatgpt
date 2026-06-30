@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-06-29 22:16 UTC",
+  "last_updated": "2026-06-30 22:20 UTC",
   "summary": {
-    "executions_count": 469,
+    "executions_count": 470,
     "closed_trades_count": 259,
-    "open_trades_count": 18
+    "open_trades_count": 19
   },
   "trades": [
     {
@@ -4664,6 +4664,24 @@
       "commission": 2.0,
       "strategy": "",
       "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260629;1",
+      "close_date": "",
+      "symbol": "FTNT",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 156.3983,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
