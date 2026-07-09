@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-07-08 22:14 UTC",
+  "last_updated": "2026-07-09 22:40 UTC",
   "summary": {
-    "executions_count": 482,
-    "closed_trades_count": 265,
-    "open_trades_count": 20
+    "executions_count": 483,
+    "closed_trades_count": 266,
+    "open_trades_count": 19
   },
   "trades": [
+    {
+      "trade_id": "__266",
+      "open_date": "20260624;1",
+      "close_date": "20260708;0",
+      "symbol": "AXP",
+      "side": "Long",
+      "quantity": 3.0,
+      "entry_price": 342.4,
+      "exit_price": 342.31,
+      "currency": "USD",
+      "realized_pnl": -0.99,
+      "commission": 0.72,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__265",
       "open_date": "20260603;1",
@@ -4928,24 +4946,6 @@
       "side": "Long",
       "quantity": 2.0,
       "entry_price": 375.065,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260624;1",
-      "close_date": "",
-      "symbol": "AXP",
-      "side": "Long",
-      "quantity": 3.0,
-      "entry_price": 342.4,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
