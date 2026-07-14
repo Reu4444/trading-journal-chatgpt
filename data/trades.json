@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-07-13 22:03 UTC",
+  "last_updated": "2026-07-14 22:07 UTC",
   "summary": {
-    "executions_count": 488,
-    "closed_trades_count": 269,
-    "open_trades_count": 19
+    "executions_count": 489,
+    "closed_trades_count": 270,
+    "open_trades_count": 18
   },
   "trades": [
+    {
+      "trade_id": "__270",
+      "open_date": "20260706;1",
+      "close_date": "20260713;0",
+      "symbol": "NTAP",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 163.87,
+      "exit_price": 164.905,
+      "currency": "USD",
+      "realized_pnl": 1.36,
+      "commission": 0.71,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__269",
       "open_date": "20260615;1",
@@ -4964,24 +4982,6 @@
       "side": "Long",
       "quantity": 4.0,
       "entry_price": 105.8295,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260706;1",
-      "close_date": "",
-      "symbol": "NTAP",
-      "side": "Long",
-      "quantity": 2.0,
-      "entry_price": 163.87,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
