@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-07-20 22:08 UTC",
+  "last_updated": "2026-07-21 22:09 UTC",
   "summary": {
-    "executions_count": 505,
+    "executions_count": 506,
     "closed_trades_count": 280,
-    "open_trades_count": 16
+    "open_trades_count": 17
   },
   "trades": [
     {
@@ -5042,6 +5042,24 @@
       "commission": 2.0,
       "strategy": "",
       "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260720;1",
+      "close_date": "",
+      "symbol": "FANG",
+      "side": "Long",
+      "quantity": 5.0,
+      "entry_price": 196.695,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
