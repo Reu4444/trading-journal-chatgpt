@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-07-21 22:09 UTC",
+  "last_updated": "2026-07-22 22:12 UTC",
   "summary": {
-    "executions_count": 506,
-    "closed_trades_count": 280,
-    "open_trades_count": 17
+    "executions_count": 507,
+    "closed_trades_count": 281,
+    "open_trades_count": 16
   },
   "trades": [
+    {
+      "trade_id": "__281",
+      "open_date": "20260715;1",
+      "close_date": "20260721;0",
+      "symbol": "FLYW",
+      "side": "Long",
+      "quantity": 15.0,
+      "entry_price": 18.755,
+      "exit_price": 17.615,
+      "currency": "USD",
+      "realized_pnl": -17.81,
+      "commission": 0.71,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__280",
       "open_date": "20260710;1",
@@ -5108,24 +5126,6 @@
       "side": "Long",
       "quantity": 10.0,
       "entry_price": 24.808,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260715;1",
-      "close_date": "",
-      "symbol": "FLYW",
-      "side": "Long",
-      "quantity": 15.0,
-      "entry_price": 18.755,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
