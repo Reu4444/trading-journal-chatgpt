@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-07-24 22:14 UTC",
+  "last_updated": "2026-07-27 22:13 UTC",
   "summary": {
-    "executions_count": 509,
+    "executions_count": 508,
     "closed_trades_count": 283,
-    "open_trades_count": 14
+    "open_trades_count": 13
   },
   "trades": [
     {
@@ -5333,24 +5333,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "CASH"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20250724;1",
-      "close_date": "",
-      "symbol": "URBN",
-      "side": "Short",
-      "quantity": 5.0,
-      "entry_price": 73.44,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     }
   ]
 }
