@@ -1,11 +1,47 @@
 {
-  "last_updated": "2026-07-28 22:12 UTC",
+  "last_updated": "2026-07-29 22:07 UTC",
   "summary": {
-    "executions_count": 508,
-    "closed_trades_count": 283,
-    "open_trades_count": 13
+    "executions_count": 510,
+    "closed_trades_count": 285,
+    "open_trades_count": 12
   },
   "trades": [
+    {
+      "trade_id": "__285",
+      "open_date": "20260720;1",
+      "close_date": "20260728;1",
+      "symbol": "FANG",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 196.695,
+      "exit_price": 192.1905,
+      "currency": "USD",
+      "realized_pnl": -9.16,
+      "commission": 0.15,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__284",
+      "open_date": "20260720;1",
+      "close_date": "20260728;1",
+      "symbol": "FANG",
+      "side": "Long",
+      "quantity": 3.0,
+      "entry_price": 196.695,
+      "exit_price": 192.19,
+      "currency": "USD",
+      "realized_pnl": -14.09,
+      "commission": 0.57,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__282",
       "open_date": "20260706;1",
@@ -5096,24 +5132,6 @@
       "commission": 0.97,
       "strategy": "",
       "note": "",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260720;1",
-      "close_date": "",
-      "symbol": "FANG",
-      "side": "Long",
-      "quantity": 5.0,
-      "entry_price": 196.695,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
