@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-07-29 22:07 UTC",
+  "last_updated": "2026-07-30 22:14 UTC",
   "summary": {
-    "executions_count": 510,
-    "closed_trades_count": 285,
-    "open_trades_count": 12
+    "executions_count": 511,
+    "closed_trades_count": 286,
+    "open_trades_count": 11
   },
   "trades": [
+    {
+      "trade_id": "__286",
+      "open_date": "20260707;1",
+      "close_date": "20260729;1",
+      "symbol": "IMVT",
+      "side": "Long",
+      "quantity": 15.0,
+      "entry_price": 40.18,
+      "exit_price": 37.85,
+      "currency": "USD",
+      "realized_pnl": -35.72,
+      "commission": 0.77,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__285",
       "open_date": "20260720;1",
@@ -5171,24 +5189,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "OPT"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260707;1",
-      "close_date": "",
-      "symbol": "IMVT",
-      "side": "Long",
-      "quantity": 15.0,
-      "entry_price": 40.18,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     },
     {
       "trade_id": "open_",
