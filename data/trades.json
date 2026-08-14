@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-08-13 21:55 UTC",
+  "last_updated": "2026-08-14 21:34 UTC",
   "summary": {
-    "executions_count": 534,
-    "closed_trades_count": 294,
-    "open_trades_count": 17
+    "executions_count": 537,
+    "closed_trades_count": 295,
+    "open_trades_count": 18
   },
   "trades": [
+    {
+      "trade_id": "__295",
+      "open_date": "20260805;1",
+      "close_date": "20260813;1",
+      "symbol": "1OZV6",
+      "side": "Long",
+      "quantity": 1.0,
+      "entry_price": 4261.5,
+      "exit_price": 4387.25,
+      "currency": "USD",
+      "realized_pnl": 124.43,
+      "commission": 1.32,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "FUT"
+    },
     {
       "trade_id": "__294",
       "open_date": "20260804;1",
@@ -5300,6 +5318,42 @@
     },
     {
       "trade_id": "open_",
+      "open_date": "20260813;1",
+      "close_date": "",
+      "symbol": "SHOP",
+      "side": "Long",
+      "quantity": 3.0,
+      "entry_price": 156.47,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260813;1",
+      "close_date": "",
+      "symbol": "LRCX",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 339.51,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
       "open_date": "20260805;1",
       "close_date": "",
       "symbol": "IBM",
@@ -5315,24 +5369,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260805;1",
-      "close_date": "",
-      "symbol": "1OZV6",
-      "side": "Long",
-      "quantity": 1.0,
-      "entry_price": 4261.5,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.66,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "FUT"
     },
     {
       "trade_id": "open_",
