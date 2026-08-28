@@ -1,13 +1,103 @@
 {
-  "last_updated": "2026-08-27 00:38 UTC",
+  "last_updated": "2026-08-28 05:17 UTC",
   "summary": {
-    "executions_count": 541,
-    "closed_trades_count": 288,
-    "open_trades_count": 32
+    "executions_count": 547,
+    "closed_trades_count": 292,
+    "open_trades_count": 31
   },
   "trades": [
     {
+      "trade_id": "__292",
+      "open_date": "20260820;1",
+      "close_date": "20260827;1",
+      "symbol": "PCAR",
+      "side": "Long",
+      "quantity": 10.0,
+      "entry_price": 129.495,
+      "exit_price": 127.31,
+      "currency": "USD",
+      "realized_pnl": -22.58,
+      "commission": 0.73,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__291",
+      "open_date": "20260819;1",
+      "close_date": "20260827;1",
+      "symbol": "NOW",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 128.475,
+      "exit_price": 137.0,
+      "currency": "USD",
+      "realized_pnl": 16.81,
+      "commission": 0.24,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__290",
+      "open_date": "20260819;1",
+      "close_date": "20260827;1",
+      "symbol": "NOW",
+      "side": "Long",
+      "quantity": 1.0,
+      "entry_price": 128.475,
+      "exit_price": 137.0,
+      "currency": "USD",
+      "realized_pnl": 8.05,
+      "commission": 0.47,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
       "trade_id": "__288",
+      "open_date": "20260819;1",
+      "close_date": "20260826;1",
+      "symbol": "MSTR",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 102.53,
+      "exit_price": 122.53,
+      "currency": "USD",
+      "realized_pnl": 39.5,
+      "commission": 0.5,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__289",
+      "open_date": "20260805;1",
+      "close_date": "20260826;1",
+      "symbol": "IBM",
+      "side": "Long",
+      "quantity": 4.0,
+      "entry_price": 237.58,
+      "exit_price": 230.47,
+      "currency": "USD",
+      "realized_pnl": -29.16,
+      "commission": 0.72,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__287",
       "open_date": "20260707;1",
       "close_date": "20260825;1",
       "symbol": "ORCL  260918P00090000",
@@ -25,7 +115,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__286",
+      "trade_id": "__285",
       "open_date": "20260805;0",
       "close_date": "20260824;0",
       "symbol": "NVDA",
@@ -43,7 +133,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__287",
+      "trade_id": "__286",
       "open_date": "20260819;1",
       "close_date": "20260824;0",
       "symbol": "MSTR",
@@ -61,7 +151,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__284",
+      "trade_id": "__283",
       "open_date": "20260819;1",
       "close_date": "20260821;1",
       "symbol": "MSTR",
@@ -79,7 +169,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__285",
+      "trade_id": "__284",
       "open_date": "20260603;1",
       "close_date": "20260821;1",
       "symbol": "HOOD  260821P00060000",
@@ -97,7 +187,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__283",
+      "trade_id": "__282",
       "open_date": "20260804;1",
       "close_date": "20260818;1",
       "symbol": "ARM",
@@ -115,7 +205,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__281",
+      "trade_id": "__280",
       "open_date": "20260813;1",
       "close_date": "20260818;0",
       "symbol": "SHOP",
@@ -133,7 +223,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__282",
+      "trade_id": "__281",
       "open_date": "20260813;1",
       "close_date": "20260818;0",
       "symbol": "LRCX",
@@ -151,7 +241,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__280",
+      "trade_id": "__279",
       "open_date": "20260805;1",
       "close_date": "20260813;1",
       "symbol": "1OZV6",
@@ -169,7 +259,7 @@
       "asset_class": "FUT"
     },
     {
-      "trade_id": "__279",
+      "trade_id": "__278",
       "open_date": "20260804;1",
       "close_date": "20260812;1",
       "symbol": "SPHR",
@@ -187,7 +277,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__277",
+      "trade_id": "__276",
       "open_date": "20260807;1",
       "close_date": "20260810;1",
       "symbol": "QCOM",
@@ -205,7 +295,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__278",
+      "trade_id": "__277",
       "open_date": "20260803;1",
       "close_date": "20260810;1",
       "symbol": "DAL",
@@ -223,7 +313,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__276",
+      "trade_id": "__275",
       "open_date": "20260804;1",
       "close_date": "20260807;1",
       "symbol": "SNX",
@@ -241,7 +331,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__275",
+      "trade_id": "__274",
       "open_date": "20260804;1",
       "close_date": "20260807;0",
       "symbol": "RBRK",
@@ -259,7 +349,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__274",
+      "trade_id": "__273",
       "open_date": "20260804;1",
       "close_date": "20260807;0",
       "symbol": "RBRK",
@@ -277,7 +367,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__273",
+      "trade_id": "__272",
       "open_date": "20260803;1",
       "close_date": "20260806;1",
       "symbol": "TFX",
@@ -295,7 +385,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__271",
+      "trade_id": "__270",
       "open_date": "20260804;1",
       "close_date": "20260806;1",
       "symbol": "MMYT",
@@ -313,7 +403,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__270",
+      "trade_id": "__269",
       "open_date": "20260804;1",
       "close_date": "20260806;1",
       "symbol": "MMYT",
@@ -331,7 +421,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__272",
+      "trade_id": "__271",
       "open_date": "20260805;1",
       "close_date": "20260806;1",
       "symbol": "GFS",
@@ -349,7 +439,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__267",
+      "trade_id": "__266",
       "open_date": "20260805;1",
       "close_date": "20260806;0",
       "symbol": "SNDK",
@@ -367,7 +457,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__268",
+      "trade_id": "__267",
       "open_date": "20260805;1",
       "close_date": "20260806;0",
       "symbol": "DELL",
@@ -385,7 +475,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__269",
+      "trade_id": "__268",
       "open_date": "20260805;0",
       "close_date": "20260806;0",
       "symbol": "CMG",
@@ -403,7 +493,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__266",
+      "trade_id": "__265",
       "open_date": "20260803;1",
       "close_date": "20260804;1",
       "symbol": "PTRN",
@@ -421,7 +511,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__265",
+      "trade_id": "__264",
       "open_date": "20260716;1",
       "close_date": "20260804;1",
       "symbol": "ABBV",
@@ -439,7 +529,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__264",
+      "trade_id": "__263",
       "open_date": "20260625;1",
       "close_date": "20260803;0",
       "symbol": "MSGS",
@@ -457,7 +547,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__263",
+      "trade_id": "__262",
       "open_date": "20260707;1",
       "close_date": "20260729;1",
       "symbol": "IMVT",
@@ -475,7 +565,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__262",
+      "trade_id": "__261",
       "open_date": "20260720;1",
       "close_date": "20260728;1",
       "symbol": "FANG",
@@ -493,7 +583,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__261",
+      "trade_id": "__260",
       "open_date": "20260720;1",
       "close_date": "20260728;1",
       "symbol": "FANG",
@@ -511,7 +601,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__259",
+      "trade_id": "__258",
       "open_date": "20260706;1",
       "close_date": "20260723;1",
       "symbol": "VSXY",
@@ -529,7 +619,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__260",
+      "trade_id": "__259",
       "open_date": "20260716;1",
       "close_date": "20260723;1",
       "symbol": "AHR",
@@ -547,7 +637,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__258",
+      "trade_id": "__257",
       "open_date": "20260715;1",
       "close_date": "20260722;0",
       "symbol": "RELY",
@@ -565,7 +655,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__257",
+      "trade_id": "__256",
       "open_date": "20260715;1",
       "close_date": "20260721;0",
       "symbol": "FLYW",
@@ -576,24 +666,6 @@
       "currency": "USD",
       "realized_pnl": -17.81,
       "commission": 0.71,
-      "strategy": "",
-      "note": "",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "__256",
-      "open_date": "20260710;1",
-      "close_date": "20260716;0",
-      "symbol": "BBD",
-      "side": "Long",
-      "quantity": 100.0,
-      "entry_price": 3.645,
-      "exit_price": 3.58,
-      "currency": "USD",
-      "realized_pnl": -7.25,
-      "commission": 0.75,
       "strategy": "",
       "note": "",
       "entry_exec_id": "",
@@ -621,6 +693,24 @@
     {
       "trade_id": "__254",
       "open_date": "20260710;1",
+      "close_date": "20260716;0",
+      "symbol": "BBD",
+      "side": "Long",
+      "quantity": 100.0,
+      "entry_price": 3.645,
+      "exit_price": 3.58,
+      "currency": "USD",
+      "realized_pnl": -7.25,
+      "commission": 0.75,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__253",
+      "open_date": "20260710;1",
       "close_date": "20260715;1",
       "symbol": "KMX",
       "side": "Long",
@@ -637,7 +727,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__253",
+      "trade_id": "__252",
       "open_date": "20260714;1",
       "close_date": "20260715;0",
       "symbol": "SNDK",
@@ -655,7 +745,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__251",
+      "trade_id": "__250",
       "open_date": "20260623;1",
       "close_date": "20260714;1",
       "symbol": "VIK",
@@ -673,7 +763,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__249",
+      "trade_id": "__248",
       "open_date": "20260706;1",
       "close_date": "20260714;1",
       "symbol": "SE",
@@ -691,7 +781,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__248",
+      "trade_id": "__247",
       "open_date": "20260701;1",
       "close_date": "20260714;1",
       "symbol": "NKE",
@@ -709,7 +799,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__247",
+      "trade_id": "__246",
       "open_date": "20260701;1",
       "close_date": "20260714;1",
       "symbol": "NKE",
@@ -727,7 +817,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__250",
+      "trade_id": "__249",
       "open_date": "20260714;1",
       "close_date": "20260714;1",
       "symbol": "MU",
@@ -745,7 +835,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__252",
+      "trade_id": "__251",
       "open_date": "20260710;0",
       "close_date": "20260714;1",
       "symbol": "LIFE",
@@ -763,7 +853,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__246",
+      "trade_id": "__245",
       "open_date": "20260706;1",
       "close_date": "20260713;0",
       "symbol": "NTAP",
@@ -781,7 +871,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__245",
+      "trade_id": "__244",
       "open_date": "20260615;1",
       "close_date": "20260710;1",
       "symbol": "DELL",
@@ -799,7 +889,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__244",
+      "trade_id": "__243",
       "open_date": "20260707;1",
       "close_date": "20260710;0",
       "symbol": "SPHR",
@@ -817,7 +907,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__243",
+      "trade_id": "__242",
       "open_date": "20260707;1",
       "close_date": "20260710;0",
       "symbol": "SPHR",
@@ -835,7 +925,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__242",
+      "trade_id": "__241",
       "open_date": "20260624;1",
       "close_date": "20260708;0",
       "symbol": "AXP",
@@ -853,7 +943,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__241",
+      "trade_id": "__240",
       "open_date": "20260603;1",
       "close_date": "20260707;1",
       "symbol": "URI",
@@ -871,7 +961,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__240",
+      "trade_id": "__239",
       "open_date": "20260629;1",
       "close_date": "20260707;0",
       "symbol": "FTNT",
@@ -889,7 +979,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__239",
+      "trade_id": "__238",
       "open_date": "20260625;1",
       "close_date": "20260706;1",
       "symbol": "JBHT",
@@ -907,7 +997,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__237",
+      "trade_id": "__236",
       "open_date": "20260623;1",
       "close_date": "20260701;0",
       "symbol": "TWLO",
@@ -925,7 +1015,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__236",
+      "trade_id": "__235",
       "open_date": "20260623;1",
       "close_date": "20260701;0",
       "symbol": "TWLO",
@@ -943,7 +1033,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__238",
+      "trade_id": "__237",
       "open_date": "20260624;1",
       "close_date": "20260701;0",
       "symbol": "BUD",
@@ -961,7 +1051,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__235",
+      "trade_id": "__234",
       "open_date": "20260615;1",
       "close_date": "20260625;1",
       "symbol": "BE",
@@ -979,7 +1069,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__234",
+      "trade_id": "__233",
       "open_date": "20260610;1",
       "close_date": "20260625;0",
       "symbol": "AAPL",
@@ -997,7 +1087,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__233",
+      "trade_id": "__232",
       "open_date": "20260615;1",
       "close_date": "20260623;1",
       "symbol": "PLTR",
@@ -1015,7 +1105,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__230",
+      "trade_id": "__229",
       "open_date": "20260622;1",
       "close_date": "20260623;0",
       "symbol": "STRL",
@@ -1033,7 +1123,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__232",
+      "trade_id": "__231",
       "open_date": "20260622;1",
       "close_date": "20260623;0",
       "symbol": "PWR",
@@ -1051,7 +1141,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__231",
+      "trade_id": "__230",
       "open_date": "20260618;1",
       "close_date": "20260623;0",
       "symbol": "PENG",
@@ -1069,7 +1159,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__229",
+      "trade_id": "__228",
       "open_date": "20260605;1",
       "close_date": "20260622;1",
       "symbol": "MAR",
@@ -1087,7 +1177,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__228",
+      "trade_id": "__227",
       "open_date": "20260605;1",
       "close_date": "20260622;1",
       "symbol": "MAR",
@@ -1105,7 +1195,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__227",
+      "trade_id": "__226",
       "open_date": "20260615;1",
       "close_date": "20260622;1",
       "symbol": "GEV",
@@ -1123,7 +1213,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__226",
+      "trade_id": "__225",
       "open_date": "20260615;1",
       "close_date": "20260618;1",
       "symbol": "BE",
@@ -1141,7 +1231,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__225",
+      "trade_id": "__224",
       "open_date": "20260615;1",
       "close_date": "20260617;1",
       "symbol": "PWR",
@@ -1159,7 +1249,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__224",
+      "trade_id": "__223",
       "open_date": "20260609;1",
       "close_date": "20260617;1",
       "symbol": "MCD",
@@ -1177,7 +1267,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__223",
+      "trade_id": "__222",
       "open_date": "20260611;1",
       "close_date": "20260616;1",
       "symbol": "BMA",
@@ -1195,7 +1285,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__221",
+      "trade_id": "__220",
       "open_date": "20260615;1",
       "close_date": "20260616;0",
       "symbol": "IONQ",
@@ -1213,7 +1303,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__222",
+      "trade_id": "__221",
       "open_date": "20260603;0",
       "close_date": "20260616;0",
       "symbol": "CBOE",
@@ -1231,7 +1321,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__220",
+      "trade_id": "__219",
       "open_date": "20260603;1",
       "close_date": "20260615;1",
       "symbol": "WMT",
@@ -1249,7 +1339,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__219",
+      "trade_id": "__218",
       "open_date": "20260603;1",
       "close_date": "20260615;1",
       "symbol": "WMT",
@@ -1267,7 +1357,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__218",
+      "trade_id": "__217",
       "open_date": "20260609;1",
       "close_date": "20260615;0",
       "symbol": "JNJ",
@@ -1285,7 +1375,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__217",
+      "trade_id": "__216",
       "open_date": "20260609;1",
       "close_date": "20260615;0",
       "symbol": "JNJ",
@@ -1303,7 +1393,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__216",
+      "trade_id": "__215",
       "open_date": "20260610;0",
       "close_date": "20260612;0",
       "symbol": "COCO",
@@ -1321,7 +1411,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__215",
+      "trade_id": "__214",
       "open_date": "20260609;1",
       "close_date": "20260611;0",
       "symbol": "GOOGL",
@@ -1339,7 +1429,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__214",
+      "trade_id": "__213",
       "open_date": "20260609;1",
       "close_date": "20260610;0",
       "symbol": "UNH",
@@ -1357,7 +1447,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__211",
+      "trade_id": "__210",
       "open_date": "20260609;1",
       "close_date": "20260610;0",
       "symbol": "TSM",
@@ -1375,7 +1465,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__210",
+      "trade_id": "__209",
       "open_date": "20260609;1",
       "close_date": "20260610;0",
       "symbol": "NBIS",
@@ -1393,7 +1483,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__213",
+      "trade_id": "__212",
       "open_date": "20260608;1",
       "close_date": "20260610;0",
       "symbol": "CROX",
@@ -1411,7 +1501,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__212",
+      "trade_id": "__211",
       "open_date": "20260608;1",
       "close_date": "20260610;0",
       "symbol": "CROX",
@@ -1429,7 +1519,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__208",
+      "trade_id": "__207",
       "open_date": "20260608;0",
       "close_date": "20260609;1",
       "symbol": "TSLA",
@@ -1447,7 +1537,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__207",
+      "trade_id": "__206",
       "open_date": "20260608;1",
       "close_date": "20260609;1",
       "symbol": "CRWV",
@@ -1465,7 +1555,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__209",
+      "trade_id": "__208",
       "open_date": "20260603;1",
       "close_date": "20260609;1",
       "symbol": "CAT",
@@ -1483,7 +1573,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__206",
+      "trade_id": "__205",
       "open_date": "20260608;1",
       "close_date": "20260609;0",
       "symbol": "QQQ",
@@ -1501,7 +1591,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__205",
+      "trade_id": "__204",
       "open_date": "20260604;1",
       "close_date": "20260608;0",
       "symbol": "TWLO",
@@ -1519,7 +1609,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__204",
+      "trade_id": "__203",
       "open_date": "20260604;1",
       "close_date": "20260608;0",
       "symbol": "TWLO",
@@ -1537,7 +1627,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__203",
+      "trade_id": "__202",
       "open_date": "20260604;1",
       "close_date": "20260608;0",
       "symbol": "TWLO",
@@ -1555,7 +1645,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__199",
+      "trade_id": "__198",
       "open_date": "20260528;1",
       "close_date": "20260605;1",
       "symbol": "STRL",
@@ -1573,7 +1663,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__198",
+      "trade_id": "__197",
       "open_date": "20260528;1",
       "close_date": "20260605;1",
       "symbol": "STRL",
@@ -1591,7 +1681,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__194",
+      "trade_id": "__193",
       "open_date": "20260527;1",
       "close_date": "20260605;1",
       "symbol": "SOFI",
@@ -1609,7 +1699,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__193",
+      "trade_id": "__192",
       "open_date": "20260527;1",
       "close_date": "20260605;1",
       "symbol": "SOFI",
@@ -1627,7 +1717,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__192",
+      "trade_id": "__191",
       "open_date": "20260527;1",
       "close_date": "20260605;1",
       "symbol": "SOFI",
@@ -1645,7 +1735,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__202",
+      "trade_id": "__201",
       "open_date": "20260603;1",
       "close_date": "20260605;1",
       "symbol": "META",
@@ -1663,7 +1753,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__201",
+      "trade_id": "__200",
       "open_date": "20260520;1",
       "close_date": "20260605;1",
       "symbol": "IRDM",
@@ -1681,7 +1771,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__200",
+      "trade_id": "__199",
       "open_date": "20260520;1",
       "close_date": "20260605;1",
       "symbol": "IRDM",
@@ -1699,7 +1789,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__196",
+      "trade_id": "__195",
       "open_date": "20260605;1",
       "close_date": "20260605;1",
       "symbol": "CRDO",
@@ -1717,7 +1807,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__195",
+      "trade_id": "__194",
       "open_date": "20260605;1",
       "close_date": "20260605;1",
       "symbol": "CRDO",
@@ -1735,7 +1825,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__197",
+      "trade_id": "__196",
       "open_date": "20260605;1",
       "close_date": "20260605;1",
       "symbol": "AAOI",
@@ -1753,7 +1843,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__189",
+      "trade_id": "__188",
       "open_date": "20260522;1",
       "close_date": "20260605;0",
       "symbol": "OPEN",
@@ -1771,7 +1861,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__191",
+      "trade_id": "__190",
       "open_date": "20260602;1",
       "close_date": "20260605;0",
       "symbol": "LSCC",
@@ -1789,7 +1879,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__190",
+      "trade_id": "__189",
       "open_date": "20260602;1",
       "close_date": "20260605;0",
       "symbol": "LSCC",
@@ -1807,7 +1897,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__188",
+      "trade_id": "__187",
       "open_date": "20260604;1",
       "close_date": "20260605;0",
       "symbol": "ASTS",
@@ -1825,7 +1915,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__187",
+      "trade_id": "__186",
       "open_date": "20260604;1",
       "close_date": "20260605;0",
       "symbol": "ASTS",
@@ -1843,7 +1933,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__184",
+      "trade_id": "__183",
       "open_date": "20260602;1",
       "close_date": "20260604;0",
       "symbol": "VRT",
@@ -1861,7 +1951,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__182",
+      "trade_id": "__181",
       "open_date": "20260602;1",
       "close_date": "20260604;0",
       "symbol": "VRT",
@@ -1879,7 +1969,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__181",
+      "trade_id": "__180",
       "open_date": "20260602;1",
       "close_date": "20260604;0",
       "symbol": "VRT",
@@ -1897,7 +1987,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__180",
+      "trade_id": "__179",
       "open_date": "20260603;1",
       "close_date": "20260604;0",
       "symbol": "CIFR",
@@ -1915,7 +2005,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__179",
+      "trade_id": "__178",
       "open_date": "20260603;1",
       "close_date": "20260604;0",
       "symbol": "CIFR",
@@ -1933,7 +2023,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__178",
+      "trade_id": "__177",
       "open_date": "20260603;1",
       "close_date": "20260604;0",
       "symbol": "CIFR",
@@ -1951,7 +2041,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__186",
+      "trade_id": "__185",
       "open_date": "20260520;1",
       "close_date": "20260604;0",
       "symbol": "AVT",
@@ -1969,7 +2059,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__185",
+      "trade_id": "__184",
       "open_date": "20260520;1",
       "close_date": "20260604;0",
       "symbol": "AVT",
@@ -1987,7 +2077,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__183",
+      "trade_id": "__182",
       "open_date": "20260603;1",
       "close_date": "20260604;0",
       "symbol": "ARM",
@@ -2005,7 +2095,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__177",
+      "trade_id": "__176",
       "open_date": "20260529;1",
       "close_date": "20260603;1",
       "symbol": "TTWO",
@@ -2023,7 +2113,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__176",
+      "trade_id": "__175",
       "open_date": "20260529;1",
       "close_date": "20260603;1",
       "symbol": "TTWO",
@@ -2041,7 +2131,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__175",
+      "trade_id": "__174",
       "open_date": "20260529;1",
       "close_date": "20260603;1",
       "symbol": "TTWO",
@@ -2059,7 +2149,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__174",
+      "trade_id": "__173",
       "open_date": "20260602;1",
       "close_date": "20260603;0",
       "symbol": "ABAT",
@@ -2077,7 +2167,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__173",
+      "trade_id": "__172",
       "open_date": "20260602;1",
       "close_date": "20260603;0",
       "symbol": "ABAT",
@@ -2095,7 +2185,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__172",
+      "trade_id": "__171",
       "open_date": "20260602;1",
       "close_date": "20260602;1",
       "symbol": "TSM",
@@ -2113,7 +2203,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__171",
+      "trade_id": "__170",
       "open_date": "20260602;1",
       "close_date": "20260602;1",
       "symbol": "TSM",
@@ -2131,7 +2221,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__170",
+      "trade_id": "__169",
       "open_date": "20260520;1",
       "close_date": "20260602;1",
       "symbol": "AVT",
@@ -2149,7 +2239,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__169",
+      "trade_id": "__168",
       "open_date": "20260520;1",
       "close_date": "20260602;1",
       "symbol": "AVT",
@@ -2167,7 +2257,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__166",
+      "trade_id": "__165",
       "open_date": "20260518;1",
       "close_date": "20260602;0",
       "symbol": "SG",
@@ -2185,7 +2275,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__165",
+      "trade_id": "__164",
       "open_date": "20260518;1",
       "close_date": "20260602;0",
       "symbol": "SG",
@@ -2203,7 +2293,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__164",
+      "trade_id": "__163",
       "open_date": "20260601;1",
       "close_date": "20260602;0",
       "symbol": "LEU",
@@ -2221,7 +2311,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__168",
+      "trade_id": "__167",
       "open_date": "20260514;1",
       "close_date": "20260602;0",
       "symbol": "ARM",
@@ -2239,7 +2329,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__167",
+      "trade_id": "__166",
       "open_date": "20260514;1",
       "close_date": "20260602;0",
       "symbol": "ARM",
@@ -2257,7 +2347,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__160",
+      "trade_id": "__159",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "RKLB",
@@ -2275,7 +2365,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__159",
+      "trade_id": "__158",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "RKLB",
@@ -2293,7 +2383,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__158",
+      "trade_id": "__157",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "RKLB",
@@ -2311,7 +2401,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__163",
+      "trade_id": "__162",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "ONDS",
@@ -2329,7 +2419,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__162",
+      "trade_id": "__161",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "ONDS",
@@ -2347,7 +2437,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__161",
+      "trade_id": "__160",
       "open_date": "20260601;1",
       "close_date": "20260601;1",
       "symbol": "ONDS",
@@ -2365,7 +2455,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__157",
+      "trade_id": "__156",
       "open_date": "20260514;1",
       "close_date": "20260601;1",
       "symbol": "ARM",
@@ -2383,7 +2473,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__156",
+      "trade_id": "__155",
       "open_date": "20260527;1",
       "close_date": "20260529;0",
       "symbol": "SOFI",
@@ -2401,7 +2491,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__155",
+      "trade_id": "__154",
       "open_date": "20260527;1",
       "close_date": "20260529;0",
       "symbol": "SOFI",
@@ -2419,7 +2509,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__150",
+      "trade_id": "__149",
       "open_date": "20260522;1",
       "close_date": "20260529;0",
       "symbol": "OPEN",
@@ -2437,7 +2527,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__151",
+      "trade_id": "__150",
       "open_date": "20260519;1",
       "close_date": "20260529;0",
       "symbol": "LLY",
@@ -2455,7 +2545,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__149",
+      "trade_id": "__148",
       "open_date": "20260527;1",
       "close_date": "20260529;0",
       "symbol": "LITE",
@@ -2473,7 +2563,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__154",
+      "trade_id": "__153",
       "open_date": "20260520;1",
       "close_date": "20260529;0",
       "symbol": "IRDM",
@@ -2491,7 +2581,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__153",
+      "trade_id": "__152",
       "open_date": "20260520;1",
       "close_date": "20260529;0",
       "symbol": "IRDM",
@@ -2509,7 +2599,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__152",
+      "trade_id": "__151",
       "open_date": "20260520;1",
       "close_date": "20260529;0",
       "symbol": "IRDM",
@@ -2527,7 +2617,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__148",
+      "trade_id": "__147",
       "open_date": "20260527;1",
       "close_date": "20260527;1",
       "symbol": "LITE",
@@ -2545,7 +2635,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__147",
+      "trade_id": "__146",
       "open_date": "20260515;1",
       "close_date": "20260527;0",
       "symbol": "MUFG",
@@ -2563,7 +2653,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__146",
+      "trade_id": "__145",
       "open_date": "20260515;1",
       "close_date": "20260527;0",
       "symbol": "MUFG",
@@ -2581,7 +2671,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__145",
+      "trade_id": "__144",
       "open_date": "20260515;1",
       "close_date": "20260527;0",
       "symbol": "MUFG",
@@ -2599,7 +2689,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__144",
+      "trade_id": "__143",
       "open_date": "20260526;1",
       "close_date": "20260527;0",
       "symbol": "GEV",
@@ -2617,7 +2707,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__143",
+      "trade_id": "__142",
       "open_date": "20260522;1",
       "close_date": "20260526;1",
       "symbol": "OPEN",
@@ -2635,7 +2725,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__142",
+      "trade_id": "__141",
       "open_date": "20260515;0",
       "close_date": "20260526;1",
       "symbol": "CME",
@@ -2653,7 +2743,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__141",
+      "trade_id": "__140",
       "open_date": "20260515;0",
       "close_date": "20260526;1",
       "symbol": "CME",
@@ -2671,7 +2761,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__140",
+      "trade_id": "__139",
       "open_date": "20260520;1",
       "close_date": "20260526;0",
       "symbol": "IRDM",
@@ -2689,7 +2779,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__139",
+      "trade_id": "__138",
       "open_date": "20260520;1",
       "close_date": "20260526;0",
       "symbol": "IRDM",
@@ -2707,7 +2797,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__138",
+      "trade_id": "__137",
       "open_date": "20260520;1",
       "close_date": "20260526;0",
       "symbol": "IRDM",
@@ -2725,7 +2815,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__137",
+      "trade_id": "__136",
       "open_date": "20260421;1",
       "close_date": "20260522;1",
       "symbol": "OPEN  260522P00005000",
@@ -2743,7 +2833,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__136",
+      "trade_id": "__135",
       "open_date": "20260421;1",
       "close_date": "20260522;1",
       "symbol": "OPEN  260522P00005000",
@@ -2761,7 +2851,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__135",
+      "trade_id": "__134",
       "open_date": "20260514;1",
       "close_date": "20260522;0",
       "symbol": "KMI",
@@ -2779,7 +2869,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__134",
+      "trade_id": "__133",
       "open_date": "20260514;1",
       "close_date": "20260522;0",
       "symbol": "KMI",
@@ -2797,7 +2887,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__131",
+      "trade_id": "__130",
       "open_date": "20260515;1",
       "close_date": "20260521;1",
       "symbol": "XOM",
@@ -2815,7 +2905,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__130",
+      "trade_id": "__129",
       "open_date": "20260515;1",
       "close_date": "20260521;1",
       "symbol": "XOM",
@@ -2833,7 +2923,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__133",
+      "trade_id": "__132",
       "open_date": "20260520;1",
       "close_date": "20260521;1",
       "symbol": "SATS  260618P00110000",
@@ -2851,7 +2941,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__132",
+      "trade_id": "__131",
       "open_date": "20260422;1",
       "close_date": "20260521;1",
       "symbol": "ARM",
@@ -2869,7 +2959,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__129",
+      "trade_id": "__128",
       "open_date": "20260515;0",
       "close_date": "20260520;1",
       "symbol": "MTNM6",
@@ -2887,7 +2977,7 @@
       "asset_class": "FUT"
     },
     {
-      "trade_id": "__128",
+      "trade_id": "__127",
       "open_date": "20260514;1",
       "close_date": "20260519;1",
       "symbol": "CAVA",
@@ -2905,7 +2995,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__127",
+      "trade_id": "__126",
       "open_date": "20260514;1",
       "close_date": "20260519;1",
       "symbol": "CAVA",
@@ -2923,7 +3013,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__126",
+      "trade_id": "__125",
       "open_date": "20260514;1",
       "close_date": "20260519;1",
       "symbol": "CAVA",
@@ -2941,7 +3031,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__125",
+      "trade_id": "__124",
       "open_date": "20260514;1",
       "close_date": "20260519;1",
       "symbol": "CAVA",
@@ -2959,7 +3049,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__124",
+      "trade_id": "__123",
       "open_date": "20260505;1",
       "close_date": "20260519;0",
       "symbol": "NUE",
@@ -2977,7 +3067,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__123",
+      "trade_id": "__122",
       "open_date": "20260505;1",
       "close_date": "20260519;0",
       "symbol": "NUE",
@@ -2995,7 +3085,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__120",
+      "trade_id": "__119",
       "open_date": "20260514;1",
       "close_date": "20260518;1",
       "symbol": "TT",
@@ -3013,7 +3103,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__119",
+      "trade_id": "__118",
       "open_date": "20260514;1",
       "close_date": "20260518;1",
       "symbol": "TT",
@@ -3031,7 +3121,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__122",
+      "trade_id": "__121",
       "open_date": "20260512;1",
       "close_date": "20260518;1",
       "symbol": "NVDA",
@@ -3049,7 +3139,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__121",
+      "trade_id": "__120",
       "open_date": "20260512;1",
       "close_date": "20260518;1",
       "symbol": "NVDA",
@@ -3067,7 +3157,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__118",
+      "trade_id": "__117",
       "open_date": "20260514;1",
       "close_date": "20260518;0",
       "symbol": "BE",
@@ -3085,7 +3175,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__117",
+      "trade_id": "__116",
       "open_date": "20260514;1",
       "close_date": "20260518;0",
       "symbol": "BE",
@@ -3103,7 +3193,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__116",
+      "trade_id": "__115",
       "open_date": "20260401;1",
       "close_date": "20260515;1",
       "symbol": "RKLB  260515P00050000",
@@ -3121,7 +3211,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__115",
+      "trade_id": "__114",
       "open_date": "20260501;1",
       "close_date": "20260515;1",
       "symbol": "NBIS  260515P00105000",
@@ -3139,7 +3229,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__114",
+      "trade_id": "__113",
       "open_date": "20260421;1",
       "close_date": "20260515;1",
       "symbol": "AXTI  260515P00040000",
@@ -3157,7 +3247,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__113",
+      "trade_id": "__112",
       "open_date": "20260504;1",
       "close_date": "20260506;1",
       "symbol": "PR",
@@ -3175,7 +3265,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__112",
+      "trade_id": "__111",
       "open_date": "20260501;0",
       "close_date": "20260504;1",
       "symbol": "SNDK",
@@ -3193,7 +3283,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__111",
+      "trade_id": "__110",
       "open_date": "20260430;1",
       "close_date": "20260504;1",
       "symbol": "LITE",
@@ -3211,7 +3301,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__110",
+      "trade_id": "__109",
       "open_date": "20260409;1",
       "close_date": "20260504;0",
       "symbol": "SKM",
@@ -3229,7 +3319,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__109",
+      "trade_id": "__108",
       "open_date": "20260430;1",
       "close_date": "20260504;0",
       "symbol": "FDX",
@@ -3247,7 +3337,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__108",
+      "trade_id": "__107",
       "open_date": "20251223;1",
       "close_date": "20260430;1",
       "symbol": "NVDA",
@@ -3265,7 +3355,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__107",
+      "trade_id": "__106",
       "open_date": "20260414;0",
       "close_date": "20260429;1",
       "symbol": "HOOD",
@@ -3283,7 +3373,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__105",
+      "trade_id": "__104",
       "open_date": "20260416;1",
       "close_date": "20260424;1",
       "symbol": "RKLB",
@@ -3301,7 +3391,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__106",
+      "trade_id": "__105",
       "open_date": "20260409;1",
       "close_date": "20260424;1",
       "symbol": "NBIS  260424P00105000",
@@ -3319,7 +3409,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__104",
+      "trade_id": "__103",
       "open_date": "20260422;1",
       "close_date": "20260424;1",
       "symbol": "CRWV",
@@ -3337,7 +3427,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__103",
+      "trade_id": "__102",
       "open_date": "20260422;1",
       "close_date": "20260424;1",
       "symbol": "CRWV",
@@ -3355,7 +3445,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__102",
+      "trade_id": "__101",
       "open_date": "20260421;1",
       "close_date": "20260422;1",
       "symbol": "QQQ",
@@ -3373,25 +3463,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__101",
-      "open_date": "20260414;1",
-      "close_date": "20260421;1",
-      "symbol": "TSEM",
-      "side": "Long",
-      "quantity": 1.0,
-      "entry_price": 212.21,
-      "exit_price": 212.06,
-      "currency": "USD",
-      "realized_pnl": -0.33,
-      "commission": 0.18,
-      "strategy": "",
-      "note": "",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "__100",
+      "trade_id": "__99",
       "open_date": "20260414;1",
       "close_date": "20260421;1",
       "symbol": "TSEM",
@@ -3409,7 +3481,25 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__99",
+      "trade_id": "__100",
+      "open_date": "20260414;1",
+      "close_date": "20260421;1",
+      "symbol": "TSEM",
+      "side": "Long",
+      "quantity": 1.0,
+      "entry_price": 212.21,
+      "exit_price": 212.06,
+      "currency": "USD",
+      "realized_pnl": -0.33,
+      "commission": 0.18,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "__98",
       "open_date": "20260413;1",
       "close_date": "20260417;1",
       "symbol": "SQM",
@@ -3427,7 +3517,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__98",
+      "trade_id": "__97",
       "open_date": "20260414;0",
       "close_date": "20260417;0",
       "symbol": "HOOD",
@@ -3445,7 +3535,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__96",
+      "trade_id": "__95",
       "open_date": "20260413;1",
       "close_date": "20260416;1",
       "symbol": "PLTR",
@@ -3463,7 +3553,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__97",
+      "trade_id": "__96",
       "open_date": "20260415;1",
       "close_date": "20260416;1",
       "symbol": "ENLT",
@@ -3481,7 +3571,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__95",
+      "trade_id": "__94",
       "open_date": "20260413;1",
       "close_date": "20260416;0",
       "symbol": "PWR",
@@ -3499,7 +3589,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__94",
+      "trade_id": "__93",
       "open_date": "20260220;1",
       "close_date": "20260414;1",
       "symbol": "CME",
@@ -3517,7 +3607,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__93",
+      "trade_id": "__92",
       "open_date": "20260220;1",
       "close_date": "20260414;1",
       "symbol": "CME",
@@ -3535,7 +3625,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__92",
+      "trade_id": "__91",
       "open_date": "20260204;1",
       "close_date": "20260320;1",
       "symbol": "SLB   260320P00045000",
@@ -3553,7 +3643,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__91",
+      "trade_id": "__90",
       "open_date": "20260212;1",
       "close_date": "20260320;1",
       "symbol": "RDDT  260320P00090000",
@@ -3571,7 +3661,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__90",
+      "trade_id": "__89",
       "open_date": "20260303;1",
       "close_date": "20260320;1",
       "symbol": "NVDA  260320P00140000",
@@ -3589,7 +3679,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__89",
+      "trade_id": "__88",
       "open_date": "20260224;1",
       "close_date": "20260320;1",
       "symbol": "INTC  260320P00038000",
@@ -3607,7 +3697,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__88",
+      "trade_id": "__87",
       "open_date": "20260126;1",
       "close_date": "20260320;1",
       "symbol": "INTC  260320P00035000",
@@ -3625,7 +3715,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__87",
+      "trade_id": "__86",
       "open_date": "20260220;1",
       "close_date": "20260320;1",
       "symbol": "GOOGL 260320P00260000",
@@ -3643,7 +3733,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__86",
+      "trade_id": "__85",
       "open_date": "20260219;1",
       "close_date": "20260320;1",
       "symbol": "AMZN  260320P00170000",
@@ -3661,7 +3751,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__85",
+      "trade_id": "__84",
       "open_date": "20260210;1",
       "close_date": "20260320;0",
       "symbol": "TXN   260320P00190000",
@@ -3679,7 +3769,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__83",
+      "trade_id": "__82",
       "open_date": "20260210;1",
       "close_date": "20260319;1",
       "symbol": "VZ",
@@ -3697,7 +3787,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__82",
+      "trade_id": "__81",
       "open_date": "20260210;1",
       "close_date": "20260319;1",
       "symbol": "VZ",
@@ -3715,7 +3805,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__84",
+      "trade_id": "__83",
       "open_date": "20260223;1",
       "close_date": "20260319;1",
       "symbol": "OHI",
@@ -3733,7 +3823,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__81",
+      "trade_id": "__80",
       "open_date": "20260218;1",
       "close_date": "20260316;1",
       "symbol": "PL",
@@ -3751,7 +3841,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__80",
+      "trade_id": "__79",
       "open_date": "20260217;1",
       "close_date": "20260310;1",
       "symbol": "ORCL  260320P00100000",
@@ -3769,7 +3859,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__79",
+      "trade_id": "__78",
       "open_date": "20260217;1",
       "close_date": "20260305;1",
       "symbol": "AMAT",
@@ -3787,7 +3877,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__78",
+      "trade_id": "__77",
       "open_date": "20260209;1",
       "close_date": "20260303;0",
       "symbol": "EEM",
@@ -3805,7 +3895,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__77",
+      "trade_id": "__76",
       "open_date": "20260224;1",
       "close_date": "20260303;0",
       "symbol": "ASX",
@@ -3823,7 +3913,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__76",
+      "trade_id": "__75",
       "open_date": "20260219;1",
       "close_date": "20260226;1",
       "symbol": "YPF",
@@ -3841,7 +3931,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__75",
+      "trade_id": "__74",
       "open_date": "20260218;0",
       "close_date": "20260219;0",
       "symbol": "FTAI",
@@ -3859,7 +3949,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__74",
+      "trade_id": "__73",
       "open_date": "20260217;1",
       "close_date": "20260218;1",
       "symbol": "SKM",
@@ -3877,7 +3967,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__73",
+      "trade_id": "__72",
       "open_date": "20260205;1",
       "close_date": "20260209;1",
       "symbol": "HOOD  260320P00050000",
@@ -3895,7 +3985,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__72",
+      "trade_id": "__71",
       "open_date": "20260204;1",
       "close_date": "20260206;0",
       "symbol": "MCHP",
@@ -3913,7 +4003,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__71",
+      "trade_id": "__70",
       "open_date": "20260204;1",
       "close_date": "20260206;0",
       "symbol": "MCHP",
@@ -3931,7 +4021,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__70",
+      "trade_id": "__69",
       "open_date": "20260128;1",
       "close_date": "20260129;1",
       "symbol": "BE",
@@ -3949,7 +4039,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__69",
+      "trade_id": "__68",
       "open_date": "20260126;1",
       "close_date": "20260127;1",
       "symbol": "COMP",
@@ -3967,7 +4057,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__68",
+      "trade_id": "__67",
       "open_date": "20260126;1",
       "close_date": "20260127;1",
       "symbol": "COMP",
@@ -3985,7 +4075,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__67",
+      "trade_id": "__66",
       "open_date": "20251208;1",
       "close_date": "20260126;1",
       "symbol": "BA",
@@ -4003,7 +4093,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__66",
+      "trade_id": "__65",
       "open_date": "20260106;1",
       "close_date": "20260122;1",
       "symbol": "RKLB",
@@ -4021,7 +4111,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__65",
+      "trade_id": "__64",
       "open_date": "20251208;1",
       "close_date": "20260113;1",
       "symbol": "BA",
@@ -4039,7 +4129,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__63",
+      "trade_id": "__62",
       "open_date": "20260106;1",
       "close_date": "20260108;0",
       "symbol": "PDD",
@@ -4057,7 +4147,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__64",
+      "trade_id": "__63",
       "open_date": "20251223;1",
       "close_date": "20260108;0",
       "symbol": "NVDA",
@@ -4075,7 +4165,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__62",
+      "trade_id": "__61",
       "open_date": "20251218;0",
       "close_date": "20260102;1",
       "symbol": "TPR",
@@ -4093,7 +4183,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__61",
+      "trade_id": "__60",
       "open_date": "20251218;0",
       "close_date": "20260102;1",
       "symbol": "TPR",
@@ -4111,7 +4201,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__60",
+      "trade_id": "__59",
       "open_date": "20251218;1",
       "close_date": "20260102;1",
       "symbol": "ANF",
@@ -4129,7 +4219,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__59",
+      "trade_id": "__58",
       "open_date": "20251218;1",
       "close_date": "20251230;1",
       "symbol": "USB",
@@ -4147,7 +4237,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__58",
+      "trade_id": "__57",
       "open_date": "20251218;1",
       "close_date": "20251230;1",
       "symbol": "USB",
@@ -4165,7 +4255,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__56",
+      "trade_id": "__55",
       "open_date": "20251202;1",
       "close_date": "20251229;1",
       "symbol": "UAL",
@@ -4183,7 +4273,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__57",
+      "trade_id": "__56",
       "open_date": "20251119;1",
       "close_date": "20251229;1",
       "symbol": "AS",
@@ -4201,7 +4291,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__55",
+      "trade_id": "__54",
       "open_date": "20251202;1",
       "close_date": "20251219;1",
       "symbol": "ONON  251219P00042500",
@@ -4219,7 +4309,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__54",
+      "trade_id": "__53",
       "open_date": "20250926;1",
       "close_date": "20251219;1",
       "symbol": "INTC  251219P00025000",
@@ -4237,7 +4327,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__53",
+      "trade_id": "__52",
       "open_date": "20251110;1",
       "close_date": "20251219;1",
       "symbol": "HAL   251219P00024000",
@@ -4255,7 +4345,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__52",
+      "trade_id": "__51",
       "open_date": "20251110;1",
       "close_date": "20251219;1",
       "symbol": "HAL   251219P00024000",
@@ -4273,7 +4363,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__51",
+      "trade_id": "__50",
       "open_date": "20251110;1",
       "close_date": "20251219;1",
       "symbol": "HAL   251219P00024000",
@@ -4291,7 +4381,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__50",
+      "trade_id": "__49",
       "open_date": "20251031;1",
       "close_date": "20251219;1",
       "symbol": "BAC   251219P00047000",
@@ -4309,7 +4399,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__49",
+      "trade_id": "__48",
       "open_date": "20251031;1",
       "close_date": "20251219;1",
       "symbol": "ARGT  251219P00076000",
@@ -4327,7 +4417,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__48",
+      "trade_id": "__47",
       "open_date": "20251218;1",
       "close_date": "20251219;0",
       "symbol": "MU",
@@ -4345,7 +4435,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__46",
+      "trade_id": "__45",
       "open_date": "20251121;1",
       "close_date": "20251202;0",
       "symbol": "TRV",
@@ -4363,7 +4453,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__47",
+      "trade_id": "__46",
       "open_date": "20251125;1",
       "close_date": "20251202;0",
       "symbol": "LVS",
@@ -4381,7 +4471,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__45",
+      "trade_id": "__44",
       "open_date": "20251201;1",
       "close_date": "20251202;0",
       "symbol": "CRDO",
@@ -4399,7 +4489,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__44",
+      "trade_id": "__43",
       "open_date": "20251201;1",
       "close_date": "20251201;1",
       "symbol": "CRDO",
@@ -4417,7 +4507,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__43",
+      "trade_id": "__42",
       "open_date": "20251113;1",
       "close_date": "20251128;1",
       "symbol": "CVX   251128P00148000",
@@ -4435,7 +4525,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__42",
+      "trade_id": "__41",
       "open_date": "20250902;1",
       "close_date": "20251126;1",
       "symbol": "SPY",
@@ -4453,7 +4543,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__40",
+      "trade_id": "__39",
       "open_date": "20251024;1",
       "close_date": "20251120;1",
       "symbol": "TSM   251219P00220000",
@@ -4471,7 +4561,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__41",
+      "trade_id": "__40",
       "open_date": "20251105;1",
       "close_date": "20251120;1",
       "symbol": "AMZN  251219P00215000",
@@ -4489,7 +4579,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__39",
+      "trade_id": "__38",
       "open_date": "20251110;1",
       "close_date": "20251114;0",
       "symbol": "RTX",
@@ -4507,7 +4597,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__37",
+      "trade_id": "__36",
       "open_date": "20251110;1",
       "close_date": "20251113;1",
       "symbol": "BIDU",
@@ -4525,7 +4615,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__38",
+      "trade_id": "__37",
       "open_date": "20251105;1",
       "close_date": "20251113;1",
       "symbol": "BBVA",
@@ -4543,7 +4633,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__36",
+      "trade_id": "__35",
       "open_date": "20251013;1",
       "close_date": "20251107;1",
       "symbol": "FLR   251121P00040000",
@@ -4561,7 +4651,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__35",
+      "trade_id": "__34",
       "open_date": "20251105;1",
       "close_date": "20251106;0",
       "symbol": "CBRE",
@@ -4579,7 +4669,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__34",
+      "trade_id": "__33",
       "open_date": "20250930;1",
       "close_date": "20251105;1",
       "symbol": "LYFT  251219P00018000",
@@ -4597,7 +4687,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__33",
+      "trade_id": "__32",
       "open_date": "20251009;1",
       "close_date": "20251104;1",
       "symbol": "SMCI  251107P00046000",
@@ -4615,7 +4705,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__32",
+      "trade_id": "__31",
       "open_date": "20251031;1",
       "close_date": "20251104;0",
       "symbol": "SYM",
@@ -4633,7 +4723,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__31",
+      "trade_id": "__30",
       "open_date": "20251031;1",
       "close_date": "20251103;1",
       "symbol": "NBIS",
@@ -4651,7 +4741,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__30",
+      "trade_id": "__29",
       "open_date": "20251029;1",
       "close_date": "20251031;1",
       "symbol": "META  251031C00795000",
@@ -4669,7 +4759,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__29",
+      "trade_id": "__28",
       "open_date": "20251029;1",
       "close_date": "20251031;1",
       "symbol": "META  251031C00790000",
@@ -4687,7 +4777,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__28",
+      "trade_id": "__27",
       "open_date": "20251006;1",
       "close_date": "20251031;1",
       "symbol": "AMD   251031P00165000",
@@ -4705,7 +4795,7 @@
       "asset_class": "OPT"
     },
     {
-      "trade_id": "__27",
+      "trade_id": "__26",
       "open_date": "20251010;1",
       "close_date": "20251029;1",
       "symbol": "NTGR",
@@ -4723,7 +4813,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__26",
+      "trade_id": "__25",
       "open_date": "20251024;1",
       "close_date": "20251027;1",
       "symbol": "STX",
@@ -4741,7 +4831,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__25",
+      "trade_id": "__24",
       "open_date": "20251024;1",
       "close_date": "20251027;1",
       "symbol": "NVTS",
@@ -4759,7 +4849,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__24",
+      "trade_id": "__23",
       "open_date": "20251024;1",
       "close_date": "20251027;0",
       "symbol": "SMCI",
@@ -4777,7 +4867,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__23",
+      "trade_id": "__22",
       "open_date": "20251023;1",
       "close_date": "20251027;0",
       "symbol": "SMCI",
@@ -4795,7 +4885,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__22",
+      "trade_id": "__21",
       "open_date": "20251006;1",
       "close_date": "20251024;1",
       "symbol": "META",
@@ -4813,7 +4903,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__21",
+      "trade_id": "__20",
       "open_date": "20251013;1",
       "close_date": "20251020;0",
       "symbol": "GMAB",
@@ -4831,7 +4921,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__20",
+      "trade_id": "__19",
       "open_date": "20251013;1",
       "close_date": "20251017;1",
       "symbol": "BTU",
@@ -4849,7 +4939,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__19",
+      "trade_id": "__18",
       "open_date": "20251009;1",
       "close_date": "20251016;1",
       "symbol": "ORCL",
@@ -4867,7 +4957,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__17",
+      "trade_id": "__16",
       "open_date": "20251009;1",
       "close_date": "20251015;1",
       "symbol": "IMO",
@@ -4885,7 +4975,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__18",
+      "trade_id": "__17",
       "open_date": "20251008;1",
       "close_date": "20251015;1",
       "symbol": "BLD",
@@ -4903,7 +4993,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__16",
+      "trade_id": "__15",
       "open_date": "20250930;1",
       "close_date": "20251013;2",
       "symbol": "USD.JPY",
@@ -4921,7 +5011,7 @@
       "asset_class": "CASH"
     },
     {
-      "trade_id": "__15",
+      "trade_id": "__14",
       "open_date": "20250930;1",
       "close_date": "20251010;1",
       "symbol": "NVDA",
@@ -4939,7 +5029,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__13",
+      "trade_id": "__12",
       "open_date": "20250911;1",
       "close_date": "20251010;1",
       "symbol": "DIA",
@@ -4957,7 +5047,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__14",
+      "trade_id": "__13",
       "open_date": "20251009;1",
       "close_date": "20251010;1",
       "symbol": "AMZN",
@@ -4975,7 +5065,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__11",
+      "trade_id": "__10",
       "open_date": "20250930;1",
       "close_date": "20251009;1",
       "symbol": "USD.JPY",
@@ -4993,7 +5083,7 @@
       "asset_class": "CASH"
     },
     {
-      "trade_id": "__12",
+      "trade_id": "__11",
       "open_date": "20250930;1",
       "close_date": "20251009;1",
       "symbol": "EUR.USD",
@@ -5011,7 +5101,7 @@
       "asset_class": "CASH"
     },
     {
-      "trade_id": "__10",
+      "trade_id": "__9",
       "open_date": "20250908;0",
       "close_date": "20251008;0",
       "symbol": "EUR.JPY",
@@ -5029,7 +5119,7 @@
       "asset_class": "CASH"
     },
     {
-      "trade_id": "__9",
+      "trade_id": "__8",
       "open_date": "20250904;0",
       "close_date": "20250925;1",
       "symbol": "FUTU",
@@ -5047,7 +5137,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__8",
+      "trade_id": "__7",
       "open_date": "20250902;1",
       "close_date": "20250918;1",
       "symbol": "MSI",
@@ -5065,7 +5155,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__6",
+      "trade_id": "__5",
       "open_date": "20250903;1",
       "close_date": "20250908;1",
       "symbol": "ZEPP",
@@ -5083,7 +5173,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__7",
+      "trade_id": "__6",
       "open_date": "20250903;1",
       "close_date": "20250908;1",
       "symbol": "VERX",
@@ -5101,7 +5191,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__5",
+      "trade_id": "__4",
       "open_date": "20250903;1",
       "close_date": "20250905;1",
       "symbol": "DASH",
@@ -5119,7 +5209,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__4",
+      "trade_id": "__3",
       "open_date": "20250903;1",
       "close_date": "20250904;1",
       "symbol": "LRCX",
@@ -5137,7 +5227,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__2",
+      "trade_id": "__1",
       "open_date": "20250903;1",
       "close_date": "20250904;1",
       "symbol": "IBM",
@@ -5155,7 +5245,7 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__3",
+      "trade_id": "__2",
       "open_date": "20250903;1",
       "close_date": "20250904;1",
       "symbol": "ADP",
@@ -5173,19 +5263,37 @@
       "asset_class": "STK"
     },
     {
-      "trade_id": "__1",
-      "open_date": "20250826;0",
-      "close_date": "20250902;1",
-      "symbol": "MO",
-      "side": "Short",
-      "quantity": 3.0,
-      "entry_price": 66.472,
-      "exit_price": 66.9393,
+      "trade_id": "open_",
+      "open_date": "20260827;1",
+      "close_date": "",
+      "symbol": "IGV",
+      "side": "Long",
+      "quantity": 15.0,
+      "entry_price": 109.4595,
+      "exit_price": "",
       "currency": "USD",
-      "realized_pnl": -3.4,
-      "commission": 2.0,
+      "realized_pnl": 0,
+      "commission": 0.35,
       "strategy": "",
-      "note": "",
+      "note": "Open position",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260827;0",
+      "close_date": "",
+      "symbol": "HNGE",
+      "side": "Long",
+      "quantity": 4.0,
+      "entry_price": 95.49,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
@@ -5284,24 +5392,6 @@
       "trade_id": "open_",
       "open_date": "20260820;1",
       "close_date": "",
-      "symbol": "PCAR",
-      "side": "Long",
-      "quantity": 10.0,
-      "entry_price": 129.495,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260820;1",
-      "close_date": "",
       "symbol": "NTRA",
       "side": "Long",
       "quantity": 2.0,
@@ -5324,42 +5414,6 @@
       "side": "Long",
       "quantity": 15.0,
       "entry_price": 37.67,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260819;1",
-      "close_date": "",
-      "symbol": "NOW",
-      "side": "Long",
-      "quantity": 3.0,
-      "entry_price": 128.475,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260819;1",
-      "close_date": "",
-      "symbol": "MSTR",
-      "side": "Long",
-      "quantity": 2.0,
-      "entry_price": 102.53,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
@@ -5432,24 +5486,6 @@
       "side": "Long",
       "quantity": 5.0,
       "entry_price": 241.87,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260805;1",
-      "close_date": "",
-      "symbol": "IBM",
-      "side": "Long",
-      "quantity": 4.0,
-      "entry_price": 237.58,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
@@ -5738,6 +5774,24 @@
       "side": "Short",
       "quantity": 3.0,
       "entry_price": 187.86,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 1.0,
+      "strategy": "",
+      "note": "Open position",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20250902;1",
+      "close_date": "",
+      "symbol": "MO",
+      "side": "Long",
+      "quantity": 3.0,
+      "entry_price": 66.9393,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
