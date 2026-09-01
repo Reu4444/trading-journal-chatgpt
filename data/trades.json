@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-08-29 03:07 UTC",
+  "last_updated": "2026-09-01 00:32 UTC",
   "summary": {
-    "executions_count": 547,
-    "closed_trades_count": 292,
-    "open_trades_count": 31
+    "executions_count": 548,
+    "closed_trades_count": 293,
+    "open_trades_count": 30
   },
   "trades": [
+    {
+      "trade_id": "__293",
+      "open_date": "20260827;0",
+      "close_date": "20260828;1",
+      "symbol": "HNGE",
+      "side": "Long",
+      "quantity": 4.0,
+      "entry_price": 95.49,
+      "exit_price": 88.11,
+      "currency": "USD",
+      "realized_pnl": -30.23,
+      "commission": 0.71,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__292",
       "open_date": "20260820;1",
@@ -5270,24 +5288,6 @@
       "side": "Long",
       "quantity": 15.0,
       "entry_price": 109.4595,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260827;0",
-      "close_date": "",
-      "symbol": "HNGE",
-      "side": "Long",
-      "quantity": 4.0,
-      "entry_price": 95.49,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
