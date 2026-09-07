@@ -1,6 +1,6 @@
 {
   "source": "Yahoo Finance",
-  "last_updated": "2026-09-04 23:00 UTC",
+  "last_updated": "2026-09-07 23:27 UTC",
   "prices": {
     "AAOI": {
       "symbol": "AAOI",
@@ -35,13 +35,6 @@
       "raw_symbol": "ABNB",
       "yahoo_symbol": "ABNB",
       "price": 181.94,
-      "last_price_date": "2026-09-04"
-    },
-    "ADP": {
-      "symbol": "ADP",
-      "raw_symbol": "ADP",
-      "yahoo_symbol": "ADP",
-      "price": 277.62,
       "last_price_date": "2026-09-04"
     },
     "AHR": {
@@ -714,13 +707,6 @@
       "raw_symbol": "PDD",
       "yahoo_symbol": "PDD",
       "price": 82.21,
-      "last_price_date": "2026-09-04"
-    },
-    "PEG": {
-      "symbol": "PEG",
-      "raw_symbol": "PEG",
-      "yahoo_symbol": "PEG",
-      "price": 73.7,
       "last_price_date": "2026-09-04"
     },
     "PENG": {
