@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-09-07 23:26 UTC",
+  "last_updated": "2026-09-08 23:19 UTC",
   "summary": {
-    "executions_count": 540,
+    "executions_count": 538,
     "closed_trades_count": 291,
-    "open_trades_count": 25
+    "open_trades_count": 23
   },
   "trades": [
     {
@@ -5648,42 +5648,6 @@
       "side": "Long",
       "quantity": 10.0,
       "entry_price": 25.71,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20250905;1",
-      "close_date": "",
-      "symbol": "DASH",
-      "side": "Short",
-      "quantity": 1.0,
-      "entry_price": 244.05,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20250905;0",
-      "close_date": "",
-      "symbol": "GLW",
-      "side": "Short",
-      "quantity": 2.0,
-      "entry_price": 70.775,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
