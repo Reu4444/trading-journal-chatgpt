@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-09-10 23:04 UTC",
+  "last_updated": "2026-09-11 23:10 UTC",
   "summary": {
-    "executions_count": 539,
-    "closed_trades_count": 294,
-    "open_trades_count": 19
+    "executions_count": 540,
+    "closed_trades_count": 295,
+    "open_trades_count": 18
   },
   "trades": [
+    {
+      "trade_id": "__295",
+      "open_date": "20260908;1",
+      "close_date": "20260910;0",
+      "symbol": "SPCX",
+      "side": "Long",
+      "quantity": 5.0,
+      "entry_price": 153.33,
+      "exit_price": 145.08,
+      "currency": "USD",
+      "realized_pnl": -41.96,
+      "commission": 0.71,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__292",
       "open_date": "20260825;1",
@@ -5294,24 +5312,6 @@
       "commission": 2.0,
       "strategy": "",
       "note": "",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260908;1",
-      "close_date": "",
-      "symbol": "SPCX",
-      "side": "Long",
-      "quantity": 5.0,
-      "entry_price": 153.33,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
