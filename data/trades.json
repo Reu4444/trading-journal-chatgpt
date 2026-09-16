@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-09-15 23:29 UTC",
+  "last_updated": "2026-09-16 23:37 UTC",
   "summary": {
-    "executions_count": 541,
+    "executions_count": 542,
     "closed_trades_count": 296,
-    "open_trades_count": 19
+    "open_trades_count": 20
   },
   "trades": [
     {
@@ -5330,6 +5330,24 @@
       "commission": 2.0,
       "strategy": "",
       "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20260915;1",
+      "close_date": "",
+      "symbol": "DE",
+      "side": "Long",
+      "quantity": 1.0,
+      "entry_price": 682.8195,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
