@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-09-30 00:18 UTC",
+  "last_updated": "2026-10-01 00:29 UTC",
   "summary": {
-    "executions_count": 542,
-    "closed_trades_count": 299,
-    "open_trades_count": 15
+    "executions_count": 543,
+    "closed_trades_count": 300,
+    "open_trades_count": 14
   },
   "trades": [
+    {
+      "trade_id": "__300",
+      "open_date": "20260901;0",
+      "close_date": "20260929;1",
+      "symbol": "UGA",
+      "side": "Long",
+      "quantity": 5.0,
+      "entry_price": 130.21,
+      "exit_price": 140.25,
+      "currency": "USD",
+      "realized_pnl": 49.64,
+      "commission": 0.56,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__299",
       "open_date": "20260901;0",
@@ -5396,24 +5414,6 @@
       "side": "Long",
       "quantity": 1.0,
       "entry_price": 682.8195,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260901;0",
-      "close_date": "",
-      "symbol": "UGA",
-      "side": "Long",
-      "quantity": 5.0,
-      "entry_price": 130.21,
       "exit_price": "",
       "currency": "USD",
       "realized_pnl": 0,
