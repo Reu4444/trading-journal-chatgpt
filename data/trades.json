@@ -1,11 +1,29 @@
 {
-  "last_updated": "2026-10-02 00:40 UTC",
+  "last_updated": "2026-10-03 00:23 UTC",
   "summary": {
-    "executions_count": 539,
-    "closed_trades_count": 301,
-    "open_trades_count": 15
+    "executions_count": 540,
+    "closed_trades_count": 302,
+    "open_trades_count": 14
   },
   "trades": [
+    {
+      "trade_id": "__302",
+      "open_date": "20260915;1",
+      "close_date": "20261001;0",
+      "symbol": "DE",
+      "side": "Long",
+      "quantity": 1.0,
+      "entry_price": 682.8195,
+      "exit_price": 664.112,
+      "currency": "USD",
+      "realized_pnl": -19.42,
+      "commission": 0.71,
+      "strategy": "",
+      "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
     {
       "trade_id": "__301",
       "open_date": "20260901;0",
@@ -5423,24 +5441,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "CASH"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20260915;1",
-      "close_date": "",
-      "symbol": "DE",
-      "side": "Long",
-      "quantity": 1.0,
-      "entry_price": 682.8195,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 0.35,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     },
     {
       "trade_id": "open_",
