@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-05 01:25 UTC",
+  "last_updated": "2026-11-06 01:28 UTC",
   "summary": {
-    "executions_count": 523,
+    "executions_count": 521,
     "closed_trades_count": 287,
-    "open_trades_count": 20
+    "open_trades_count": 18
   },
   "trades": [
     {
@@ -5495,42 +5495,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "OPT"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20251104;1",
-      "close_date": "",
-      "symbol": "SMCI  251107P00046000",
-      "side": "Long",
-      "quantity": 1.0,
-      "entry_price": 1.7,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.05,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "OPT"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20251104;0",
-      "close_date": "",
-      "symbol": "SYM",
-      "side": "Short",
-      "quantity": 4.0,
-      "entry_price": 75.37,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     }
   ]
 }
