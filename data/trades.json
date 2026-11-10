@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-07 00:50 UTC",
+  "last_updated": "2026-11-10 03:25 UTC",
   "summary": {
-    "executions_count": 520,
+    "executions_count": 519,
     "closed_trades_count": 287,
-    "open_trades_count": 17
+    "open_trades_count": 16
   },
   "trades": [
     {
@@ -5459,24 +5459,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "OPT"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20251106;0",
-      "close_date": "",
-      "symbol": "CBRE",
-      "side": "Long",
-      "quantity": 5.0,
-      "entry_price": 151.6,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     }
   ]
 }
