@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-25 04:04 UTC",
+  "last_updated": "2026-11-26 03:28 UTC",
   "summary": {
-    "executions_count": 530,
+    "executions_count": 531,
     "closed_trades_count": 293,
-    "open_trades_count": 15
+    "open_trades_count": 16
   },
   "trades": [
     {
@@ -5276,6 +5276,24 @@
       "commission": 1.5,
       "strategy": "",
       "note": "",
+      "entry_exec_id": "",
+      "exit_exec_id": "",
+      "asset_class": "STK"
+    },
+    {
+      "trade_id": "open_",
+      "open_date": "20261124;1",
+      "close_date": "",
+      "symbol": "MRNA",
+      "side": "Long",
+      "quantity": 2.0,
+      "entry_price": 226.375,
+      "exit_price": "",
+      "currency": "USD",
+      "realized_pnl": 0,
+      "commission": 0.35,
+      "strategy": "",
+      "note": "Open position",
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "STK"
