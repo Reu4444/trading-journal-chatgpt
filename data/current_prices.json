@@ -1,6 +1,6 @@
 {
   "source": "Yahoo Finance",
-  "last_updated": "2026-11-26 03:29 UTC",
+  "last_updated": "2026-11-27 03:35 UTC",
   "prices": {
     "AAOI": {
       "symbol": "AAOI",
@@ -280,6 +280,13 @@
       "raw_symbol": "DGX",
       "yahoo_symbol": "DGX",
       "price": 265.64,
+      "last_price_date": "2026-11-25"
+    },
+    "DIS": {
+      "symbol": "DIS",
+      "raw_symbol": "DIS",
+      "yahoo_symbol": "DIS",
+      "price": 125.6,
       "last_price_date": "2026-11-25"
     },
     "EBAY": {
