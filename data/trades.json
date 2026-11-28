@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-11-27 03:34 UTC",
+  "last_updated": "2026-11-28 03:12 UTC",
   "summary": {
-    "executions_count": 531,
+    "executions_count": 530,
     "closed_trades_count": 292,
-    "open_trades_count": 18
+    "open_trades_count": 17
   },
   "trades": [
     {
@@ -5567,24 +5567,6 @@
       "entry_exec_id": "",
       "exit_exec_id": "",
       "asset_class": "OPT"
-    },
-    {
-      "trade_id": "open_",
-      "open_date": "20251126;1",
-      "close_date": "",
-      "symbol": "SPY",
-      "side": "Long",
-      "quantity": 1.0,
-      "entry_price": 680.775,
-      "exit_price": "",
-      "currency": "USD",
-      "realized_pnl": 0,
-      "commission": 1.0,
-      "strategy": "",
-      "note": "Open position",
-      "entry_exec_id": "",
-      "exit_exec_id": "",
-      "asset_class": "STK"
     }
   ]
 }
